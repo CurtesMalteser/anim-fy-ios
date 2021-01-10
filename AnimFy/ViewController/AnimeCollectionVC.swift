@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class AnimeCollectionVC: BaseCollectionVC {
     
@@ -14,6 +15,9 @@ class AnimeCollectionVC: BaseCollectionVC {
     
     override func viewDidLoad() {
         animeCollectionView.setEmptyMessage("no animes yet")
+        AF.request("https://kitsu.io/api/edge/anime?page[limit]=5&page[offset]=0").responseJSON { response in
+            print(response)
+        }
     }
 
 }
