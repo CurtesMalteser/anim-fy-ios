@@ -8,5 +8,12 @@
 import UIKit
 
 class AnimeCollectionVC: BaseCollectionVC {
+    
+    @IBOutlet var animeCollectionView: UICollectionView!
+    
+    
+    override func viewDidLoad() {
+        animeCollectionView.setEmptyMessage("no animes yet")
+    }
 
 }

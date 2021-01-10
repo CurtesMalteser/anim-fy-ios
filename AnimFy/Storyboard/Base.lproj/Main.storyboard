@@ -54,6 +54,9 @@
                         </connections>
                     </collectionView>
                     <tabBarItem key="tabBarItem" title="Anime" id="vc2-Hx-odn"/>
+                    <connections>
+                        <outlet property="animeCollectionView" destination="Iyg-Ff-3hI" id="1We-KZ-oRn"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m4d-in-yKm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -107,6 +110,9 @@
                         </connections>
                     </collectionView>
                     <tabBarItem key="tabBarItem" title="Manga" id="5KI-sC-bcB"/>
+                    <connections>
+                        <outlet property="mangaCollectionView" destination="fZE-qI-qef" id="T6v-3Z-r3G"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8ib-Wy-ugh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

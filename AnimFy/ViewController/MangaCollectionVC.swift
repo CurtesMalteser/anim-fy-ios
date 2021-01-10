@@ -9,4 +9,10 @@ import UIKit
 
 class MangaCollectionVC: BaseCollectionVC {
 
+    @IBOutlet var mangaCollectionView: UICollectionView!
+    
+    override func viewDidLoad() {
+        mangaCollectionView.setEmptyMessage("no mangas yet")
+    }
+    
 }
