@@ -1,0 +1,6 @@
+framework module Pods_AnimFyTests {
+  umbrella header "Pods-AnimFyTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
