@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  BaseCollectionVC.swift.swift
 //  AnimFy
 //
 //  Created by António Bastião on 10.01.21.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class BaseCollectionVC: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

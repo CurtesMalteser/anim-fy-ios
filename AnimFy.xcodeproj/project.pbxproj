@@ -15,13 +15,15 @@
 		71A92FA0D7AD73FBA21E764D /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A92641D4F9559D4A0C873E /* DataController.swift */; };
 		92D3FE6A25AB1771009B6981 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D3FE6925AB1771009B6981 /* AppDelegate.swift */; };
 		92D3FE6C25AB1771009B6981 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D3FE6B25AB1771009B6981 /* SceneDelegate.swift */; };
-		92D3FE6E25AB1771009B6981 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D3FE6D25AB1771009B6981 /* ViewController.swift */; };
+		92D3FE6E25AB1771009B6981 /* BaseCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D3FE6D25AB1771009B6981 /* BaseCollectionVC.swift */; };
 		92D3FE7125AB1771009B6981 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92D3FE6F25AB1771009B6981 /* Main.storyboard */; };
 		92D3FE7425AB1771009B6981 /* AnimFy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92D3FE7225AB1771009B6981 /* AnimFy.xcdatamodeld */; };
 		92D3FE7625AB1772009B6981 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92D3FE7525AB1772009B6981 /* Assets.xcassets */; };
 		92D3FE7925AB1772009B6981 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92D3FE7725AB1772009B6981 /* LaunchScreen.storyboard */; };
 		92D3FE8425AB1772009B6981 /* AnimFyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D3FE8325AB1772009B6981 /* AnimFyTests.swift */; };
 		92D3FE8F25AB1772009B6981 /* AnimFyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D3FE8E25AB1772009B6981 /* AnimFyUITests.swift */; };
+		92D3FEBB25AB3B3F009B6981 /* AnimeCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D3FEBA25AB3B3F009B6981 /* AnimeCollectionVC.swift */; };
+		92D3FEC025AB3B98009B6981 /* MangaCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D3FEBF25AB3B98009B6981 /* MangaCollectionVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,7 +53,7 @@
 		92D3FE6625AB1771009B6981 /* AnimFy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimFy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92D3FE6925AB1771009B6981 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92D3FE6B25AB1771009B6981 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		92D3FE6D25AB1771009B6981 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		92D3FE6D25AB1771009B6981 /* BaseCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionVC.swift; sourceTree = "<group>"; };
 		92D3FE7025AB1771009B6981 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		92D3FE7325AB1771009B6981 /* AnimFy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AnimFy.xcdatamodel; sourceTree = "<group>"; };
 		92D3FE7525AB1772009B6981 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -63,6 +65,8 @@
 		92D3FE8A25AB1772009B6981 /* AnimFyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnimFyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		92D3FE8E25AB1772009B6981 /* AnimFyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimFyUITests.swift; sourceTree = "<group>"; };
 		92D3FE9025AB1772009B6981 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		92D3FEBA25AB3B3F009B6981 /* AnimeCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeCollectionVC.swift; sourceTree = "<group>"; };
+		92D3FEBF25AB3B98009B6981 /* MangaCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaCollectionVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,7 +180,9 @@
 		92D3FEA225AB3289009B6981 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				92D3FE6D25AB1771009B6981 /* ViewController.swift */,
+				92D3FE6D25AB1771009B6981 /* BaseCollectionVC.swift */,
+				92D3FEBA25AB3B3F009B6981 /* AnimeCollectionVC.swift */,
+				92D3FEBF25AB3B98009B6981 /* MangaCollectionVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -319,8 +325,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92D3FE6E25AB1771009B6981 /* ViewController.swift in Sources */,
+				92D3FE6E25AB1771009B6981 /* BaseCollectionVC.swift in Sources */,
 				92D3FE6A25AB1771009B6981 /* AppDelegate.swift in Sources */,
+				92D3FEBB25AB3B3F009B6981 /* AnimeCollectionVC.swift in Sources */,
 				92D3FE6C25AB1771009B6981 /* SceneDelegate.swift in Sources */,
 				92D3FE7425AB1771009B6981 /* AnimFy.xcdatamodeld in Sources */,
 				71A9227F2D0A14F1F408609A /* Window+Injection.swift in Sources */,
@@ -329,6 +336,7 @@
 				71A92AF973DFB6C47A7EC08E /* UIImage+ImagePlaceHolder.swift in Sources */,
 				71A92432BF6B60A39E89227E /* UICollectionView+EmptyMessage.swift in Sources */,
 				71A92FA0D7AD73FBA21E764D /* DataController.swift in Sources */,
+				92D3FEC025AB3B98009B6981 /* MangaCollectionVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
