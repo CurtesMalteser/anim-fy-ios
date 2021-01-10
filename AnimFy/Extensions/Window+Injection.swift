@@ -9,8 +9,8 @@ extension UIWindow {
 
     func injectRootViewControllerAsMapVC(dataController: DataController) {
         let navigationController = rootViewController as! UINavigationController
-        let mapViewController = navigationController.topViewController as! MapViewController
-        mapViewController.dataController = dataController
+        // let mapViewController = navigationController.topViewController as! MapViewController
+        // mapViewController.dataController = dataController
     }
 
 }
