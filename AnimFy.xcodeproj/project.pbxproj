@@ -15,6 +15,8 @@
 		71A92AF973DFB6C47A7EC08E /* UIImage+ImagePlaceHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A92E347C9617AC2C11E8F7 /* UIImage+ImagePlaceHolder.swift */; };
 		71A92BFFDE186CA768CEF090 /* UIViewController+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A9286E2255DE5DC9DDD579 /* UIViewController+Navigation.swift */; };
 		71A92FA0D7AD73FBA21E764D /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A92641D4F9559D4A0C873E /* DataController.swift */; };
+		920141F825AB4897008D2E24 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920141F725AB4897008D2E24 /* Endpoint.swift */; };
+		920141FD25AB4B3E008D2E24 /* AnimFyApiConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920141FC25AB4B3E008D2E24 /* AnimFyApiConfiguration.swift */; };
 		92D3FE6A25AB1771009B6981 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D3FE6925AB1771009B6981 /* AppDelegate.swift */; };
 		92D3FE6C25AB1771009B6981 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D3FE6B25AB1771009B6981 /* SceneDelegate.swift */; };
 		92D3FE6E25AB1771009B6981 /* BaseCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D3FE6D25AB1771009B6981 /* BaseCollectionVC.swift */; };
@@ -61,6 +63,8 @@
 		71A92C9FBC9E317B7F8E6E5C /* Window+Injection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Window+Injection.swift"; sourceTree = "<group>"; };
 		71A92E347C9617AC2C11E8F7 /* UIImage+ImagePlaceHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+ImagePlaceHolder.swift"; sourceTree = "<group>"; };
 		7DCAD49131EA63FDFDAC2581 /* Pods_AnimFyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnimFyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		920141F725AB4897008D2E24 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		920141FC25AB4B3E008D2E24 /* AnimFyApiConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimFyApiConfiguration.swift; sourceTree = "<group>"; };
 		92D3FE6625AB1771009B6981 /* AnimFy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimFy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92D3FE6925AB1771009B6981 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92D3FE6B25AB1771009B6981 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -233,6 +237,8 @@
 			isa = PBXGroup;
 			children = (
 				92D3FED125AB420A009B6981 /* AnimFyAPI.swift */,
+				920141F725AB4897008D2E24 /* Endpoint.swift */,
+				920141FC25AB4B3E008D2E24 /* AnimFyApiConfiguration.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -485,6 +491,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				920141F825AB4897008D2E24 /* Endpoint.swift in Sources */,
 				92D3FED225AB420A009B6981 /* AnimFyAPI.swift in Sources */,
 				92D3FE6E25AB1771009B6981 /* BaseCollectionVC.swift in Sources */,
 				92D3FE6A25AB1771009B6981 /* AppDelegate.swift in Sources */,
@@ -497,6 +504,7 @@
 				71A92AF973DFB6C47A7EC08E /* UIImage+ImagePlaceHolder.swift in Sources */,
 				71A92432BF6B60A39E89227E /* UICollectionView+EmptyMessage.swift in Sources */,
 				71A92FA0D7AD73FBA21E764D /* DataController.swift in Sources */,
+				920141FD25AB4B3E008D2E24 /* AnimFyApiConfiguration.swift in Sources */,
 				92D3FEC025AB3B98009B6981 /* MangaCollectionVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

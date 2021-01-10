@@ -13,6 +13,7 @@ class MangaCollectionVC: BaseCollectionVC {
     
     override func viewDidLoad() {
         mangaCollectionView.setEmptyMessage("no mangas yet")
+        downloadCollection(of: AnimFyAPI.manga)
     }
     
 }
