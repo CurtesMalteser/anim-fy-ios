@@ -8,15 +8,26 @@
 import UIKit
 import Alamofire
 
-class AnimeCollectionVC: BaseCollectionVC {
+class AnimeCollectionVC: BaseCollectionVC, BaseCollectionDelegate {
 
     @IBOutlet var animeCollectionView: UICollectionView!
 
+    @IBOutlet weak var animeFlowLayout: UICollectionViewFlowLayout!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        delegate = self
+        animeCollectionView.delegate = self
+        animeCollectionView.dataSource = self
+        setCollectionViewCellDimensions(collectionView: animeCollectionView, flowLayout: animeFlowLayout)
+    }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        animeCollectionView.setEmptyMessage("no animes yet")
-
         downloadCollection(of: AnimFyAPI.anime)
+    }
+
+    func reloadData() {
+        animeCollectionView.reloadData()
     }
 }

@@ -23,13 +23,27 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="INE-dY-ayW">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PosterViewCell" id="INE-dY-ayW" customClass="PosterViewCell" customModule="AnimFy" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="PCN-ls-8DS">
                                     <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bfe-q4-DvM">
+                                            <rect key="frame" x="-56" y="0.0" width="240" height="128"/>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="bfe-q4-DvM" firstAttribute="height" secondItem="PCN-ls-8DS" secondAttribute="height" id="9Eu-qm-jRj"/>
+                                        <constraint firstItem="bfe-q4-DvM" firstAttribute="centerY" secondItem="PCN-ls-8DS" secondAttribute="centerY" id="9H5-CV-vOV"/>
+                                        <constraint firstItem="bfe-q4-DvM" firstAttribute="width" secondItem="PCN-ls-8DS" secondAttribute="width" multiplier="1.875" id="PZd-th-2M3"/>
+                                        <constraint firstItem="bfe-q4-DvM" firstAttribute="centerX" secondItem="PCN-ls-8DS" secondAttribute="centerX" id="ohV-Ww-Nkh"/>
+                                    </constraints>
                                 </collectionViewCellContentView>
+                                <connections>
+                                    <outlet property="posterView" destination="bfe-q4-DvM" id="daw-Tg-F5q"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -40,6 +54,7 @@
                     <tabBarItem key="tabBarItem" title="Anime" id="vc2-Hx-odn"/>
                     <connections>
                         <outlet property="animeCollectionView" destination="Iyg-Ff-3hI" id="1We-KZ-oRn"/>
+                        <outlet property="animeFlowLayout" destination="5Hb-0a-ddy" id="UnC-c1-Q8W"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m4d-in-yKm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -79,13 +94,27 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Dys-73-we2">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PosterViewCell" id="Dys-73-we2" customClass="PosterViewCell" customModule="AnimFy" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="gmU-e8-Ikg">
                                     <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2NA-vC-8gl">
+                                            <rect key="frame" x="-56" y="0.0" width="240" height="128"/>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="2NA-vC-8gl" firstAttribute="height" secondItem="gmU-e8-Ikg" secondAttribute="height" id="4v7-Jd-tfj"/>
+                                        <constraint firstItem="2NA-vC-8gl" firstAttribute="centerY" secondItem="gmU-e8-Ikg" secondAttribute="centerY" id="Wwb-Hr-9E8"/>
+                                        <constraint firstItem="2NA-vC-8gl" firstAttribute="width" secondItem="gmU-e8-Ikg" secondAttribute="width" multiplier="1.875" id="w3E-y7-Phg"/>
+                                        <constraint firstItem="2NA-vC-8gl" firstAttribute="centerX" secondItem="gmU-e8-Ikg" secondAttribute="centerX" id="zJe-bc-TPL"/>
+                                    </constraints>
                                 </collectionViewCellContentView>
+                                <connections>
+                                    <outlet property="posterView" destination="2NA-vC-8gl" id="ItW-9I-PmI"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -96,6 +125,7 @@
                     <tabBarItem key="tabBarItem" title="Manga" id="5KI-sC-bcB"/>
                     <connections>
                         <outlet property="mangaCollectionView" destination="fZE-qI-qef" id="T6v-3Z-r3G"/>
+                        <outlet property="mangaFlowLayout" destination="tos-Qs-cxk" id="BFM-3V-8qw"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8ib-Wy-ugh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
