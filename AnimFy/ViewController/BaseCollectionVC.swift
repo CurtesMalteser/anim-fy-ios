@@ -7,6 +7,7 @@
 
 import UIKit
 import Alamofire
+import Kingfisher
 
 class BaseCollectionVC: UICollectionViewController {
 
@@ -54,34 +55,36 @@ class BaseCollectionVC: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        super.collectionView(collectionView, cellForItemAt: indexPath)
-
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PosterViewCell.identifier, for: indexPath) as! PosterViewCell
 
-        cell.posterView.image = UIImage.imagePlaceholder()
+        let link = dataList[indexPath.row].attributes.posterImage.large!
+
+        let url = URL(string: link)
+
+        cell.posterView.kf.setImage(with: url, placeholder: UIImage.imagePlaceholder())
 
         return cell
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        super.collectionView(_: collectionView, numberOfItemsInSection: section)
-        return dataList.count
+        dataList.count
     }
 
-    override func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        super.collectionView(collectionView, didDeselectItemAt: indexPath)
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let title = dataList[indexPath.row].attributes.titles.enJp
+        print("title: \(title) row \(indexPath.row)")
     }
 
     func setCollectionViewCellDimensions(collectionView view: UIView, flowLayout: UICollectionViewFlowLayout) {
 
-        let space: CGFloat = 3
-        let numberOfItemsPerRow: CGFloat = 3
-
-        let dimension = (view.frame.size.width - (space * (numberOfItemsPerRow - 1))) / numberOfItemsPerRow
-
-        flowLayout.minimumInteritemSpacing = space
-        flowLayout.minimumLineSpacing = space
-        flowLayout.itemSize = CGSize(width: dimension, height: dimension)
+        //let space: CGFloat = 3
+        //let numberOfItemsPerRow: CGFloat = 3
+//
+        //let dimension = (view.frame.size.width - (space * (numberOfItemsPerRow - 1))) / numberOfItemsPerRow
+//
+        //flowLayout.minimumInteritemSpacing = space
+        //flowLayout.minimumLineSpacing = space
+        //flowLayout.itemSize = CGSize(width: dimension, height: dimension)
     }
 
 }
