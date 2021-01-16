@@ -30,7 +30,6 @@ struct Attributes: Codable {
     let createdAt: String
     let updatedAt: String
     let slug, synopsis, attributesDescription: String
-    let coverImageTopOffset: Int
     let titles: Titles
     let canonicalTitle: String
     let abbreviatedTitles: [String]
@@ -55,8 +54,7 @@ struct Attributes: Codable {
     enum CodingKeys: String, CodingKey {
         case createdAt, updatedAt, slug, synopsis
         case attributesDescription = "description"
-        case coverImageTopOffset,
-             titles,
+        case titles,
              canonicalTitle,
              abbreviatedTitles,
              averageRating,
