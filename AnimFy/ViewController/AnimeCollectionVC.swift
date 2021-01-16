@@ -16,10 +16,10 @@ class AnimeCollectionVC: BaseCollectionVC, BaseCollectionDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setCollectionViewCellDimensions(collectionView: animeCollectionView, flowLayout: animeFlowLayout)
         delegate = self
         animeCollectionView.delegate = self
         animeCollectionView.dataSource = self
-        setCollectionViewCellDimensions(collectionView: animeCollectionView, flowLayout: animeFlowLayout)
     }
 
     override func viewDidAppear(_ animated: Bool) {

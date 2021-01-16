@@ -26,7 +26,7 @@ class BaseCollectionVC: UICollectionViewController {
                     do {
                         let decoder = JSONDecoder()
                         let data = try decoder.decode(Data.self, from: response.data!)
-                        print(data)
+                        print(data.data.count)
 
                         dataList = data.data
                         delegate.reloadData()
@@ -35,7 +35,6 @@ class BaseCollectionVC: UICollectionViewController {
 
                     } catch {
                         print("error: \(error)")
-
                         self.showErrorAlert(message: error.localizedDescription) {
                             controller.dismiss(animated: false)
                         }
@@ -59,6 +58,8 @@ class BaseCollectionVC: UICollectionViewController {
 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PosterViewCell.identifier, for: indexPath) as! PosterViewCell
 
+        cell.posterView.image = UIImage.imagePlaceholder()
+
         return cell
     }
 
@@ -71,12 +72,12 @@ class BaseCollectionVC: UICollectionViewController {
         super.collectionView(collectionView, didDeselectItemAt: indexPath)
     }
 
-    func setCollectionViewCellDimensions(collectionView: UICollectionView, flowLayout: UICollectionViewFlowLayout) {
+    func setCollectionViewCellDimensions(collectionView view: UIView, flowLayout: UICollectionViewFlowLayout) {
 
         let space: CGFloat = 3
         let numberOfItemsPerRow: CGFloat = 3
 
-        let dimension = (collectionView.frame.size.width - (space * (numberOfItemsPerRow - 1))) / numberOfItemsPerRow
+        let dimension = (view.frame.size.width - (space * (numberOfItemsPerRow - 1))) / numberOfItemsPerRow
 
         flowLayout.minimumInteritemSpacing = space
         flowLayout.minimumLineSpacing = space
