@@ -12,10 +12,11 @@ class AnimeCollectionVC: BaseCollectionVC {
 
     @IBOutlet var animeCollectionView: UICollectionView!
 
-    override func viewDidLoad() {
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         animeCollectionView.setEmptyMessage("no animes yet")
 
         downloadCollection(of: AnimFyAPI.anime)
     }
-
 }

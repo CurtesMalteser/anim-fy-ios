@@ -10,10 +10,10 @@ import UIKit
 class MangaCollectionVC: BaseCollectionVC {
 
     @IBOutlet var mangaCollectionView: UICollectionView!
-    
-    override func viewDidLoad() {
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         mangaCollectionView.setEmptyMessage("no mangas yet")
         downloadCollection(of: AnimFyAPI.manga)
     }
-    
 }
