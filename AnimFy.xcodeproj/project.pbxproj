@@ -9,8 +9,10 @@
 /* Begin PBXBuildFile section */
 		0CACBD3E26A0423DEBE55DBC /* Pods_AnimFy_AnimFyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 464FB72FD05A4F31CA6B9469 /* Pods_AnimFy_AnimFyUITests.framework */; };
 		23B5EE2236E88B3FE00DC45A /* Pods_AnimFyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DCAD49131EA63FDFDAC2581 /* Pods_AnimFyTests.framework */; };
+		71A921CA052F92FFEC838BD6 /* AttributesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A920F534F36A5BF6F5888D /* AttributesProtocol.swift */; };
 		71A9227F2D0A14F1F408609A /* Window+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A92C9FBC9E317B7F8E6E5C /* Window+Injection.swift */; };
 		71A92432BF6B60A39E89227E /* UICollectionView+EmptyMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A921137FA306E5203FE2DB /* UICollectionView+EmptyMessage.swift */; };
+		71A924DFE136C5CCE4F5687D /* DatumProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A92D9151397B901897A7F4 /* DatumProtocol.swift */; };
 		71A92AB8EA1E1F09193E4115 /* UIViewController+UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A92168C7E6EDA0126887B5 /* UIViewController+UIAlertController.swift */; };
 		71A92AF973DFB6C47A7EC08E /* UIImage+ImagePlaceHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A92E347C9617AC2C11E8F7 /* UIImage+ImagePlaceHolder.swift */; };
 		71A92B6B8701E303AAD70C83 /* Manga.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A920C1A2CD51543C5C6165 /* Manga.swift */; };
@@ -59,12 +61,14 @@
 		4D4ADF422B4E83BAFE7FD694 /* Pods-AnimFy-AnimFyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimFy-AnimFyUITests.release.xcconfig"; path = "Target Support Files/Pods-AnimFy-AnimFyUITests/Pods-AnimFy-AnimFyUITests.release.xcconfig"; sourceTree = "<group>"; };
 		652D42B1DF02BAE98AC1B6E2 /* Pods-AnimFy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimFy.release.xcconfig"; path = "Target Support Files/Pods-AnimFy/Pods-AnimFy.release.xcconfig"; sourceTree = "<group>"; };
 		71A920C1A2CD51543C5C6165 /* Manga.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Manga.swift; sourceTree = "<group>"; };
+		71A920F534F36A5BF6F5888D /* AttributesProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributesProtocol.swift; sourceTree = "<group>"; };
 		71A921137FA306E5203FE2DB /* UICollectionView+EmptyMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+EmptyMessage.swift"; sourceTree = "<group>"; };
 		71A92168C7E6EDA0126887B5 /* UIViewController+UIAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+UIAlertController.swift"; sourceTree = "<group>"; };
 		71A92641D4F9559D4A0C873E /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		71A9286E2255DE5DC9DDD579 /* UIViewController+Navigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Navigation.swift"; sourceTree = "<group>"; };
 		71A92A6969DFB5CBDCA68346 /* AnimFy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AnimFy.xcdatamodel; sourceTree = "<group>"; };
 		71A92C9FBC9E317B7F8E6E5C /* Window+Injection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Window+Injection.swift"; sourceTree = "<group>"; };
+		71A92D9151397B901897A7F4 /* DatumProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatumProtocol.swift; sourceTree = "<group>"; };
 		71A92E347C9617AC2C11E8F7 /* UIImage+ImagePlaceHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+ImagePlaceHolder.swift"; sourceTree = "<group>"; };
 		7DCAD49131EA63FDFDAC2581 /* Pods_AnimFyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnimFyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		920141F725AB4897008D2E24 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
@@ -139,6 +143,8 @@
 			children = (
 				9201420A25AB9CC6008D2E24 /* Anime.swift */,
 				71A920C1A2CD51543C5C6165 /* Manga.swift */,
+				71A920F534F36A5BF6F5888D /* AttributesProtocol.swift */,
+				71A92D9151397B901897A7F4 /* DatumProtocol.swift */,
 			);
 			path = Codable;
 			sourceTree = "<group>";
@@ -534,6 +540,8 @@
 				9260ABA125B35D5400AC0EF4 /* PosterViewCell.swift in Sources */,
 				92D3FEC025AB3B98009B6981 /* MangaCollectionVC.swift in Sources */,
 				71A92B6B8701E303AAD70C83 /* Manga.swift in Sources */,
+				71A921CA052F92FFEC838BD6 /* AttributesProtocol.swift in Sources */,
+				71A924DFE136C5CCE4F5687D /* DatumProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
