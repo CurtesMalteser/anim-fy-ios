@@ -11,7 +11,7 @@ import Kingfisher
 
 class BaseCollectionVC: UICollectionViewController {
 
-    var dataList: [Datum] = []
+    var dataList: [AnimeDatum] = []
 
     var delegate: BaseCollectionDelegate!
 
@@ -26,7 +26,7 @@ class BaseCollectionVC: UICollectionViewController {
 
                     do {
                         let decoder = JSONDecoder()
-                        let data = try decoder.decode(Data.self, from: response.data!)
+                        let data = try decoder.decode(AnimeData.self, from: response.data!)
                         print(data.data.count)
 
                         dataList = data.data
@@ -49,7 +49,6 @@ class BaseCollectionVC: UICollectionViewController {
 
                 }
 
-
             }
         }
     }
@@ -57,12 +56,14 @@ class BaseCollectionVC: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PosterViewCell.identifier, for: indexPath) as! PosterViewCell
 
-        let link = dataList[indexPath.row].attributes.posterImage.large!
-
-        let url = URL(string: link)
-
-        cell.posterView.kf.setImage(with: url, placeholder: UIImage.imagePlaceholder())
-
+        if let cover = dataList[indexPath.row].attributes.posterImage {
+            if let link = cover.large {
+                let url = URL(string: link)
+                cell.posterView.kf.setImage(with: url, placeholder: UIImage.imagePlaceholder())
+            } else {
+                cell.posterView.image = UIImage.imagePlaceholder()
+            }
+        }
         return cell
     }
 
@@ -91,5 +92,6 @@ class BaseCollectionVC: UICollectionViewController {
 
 protocol BaseCollectionDelegate {
     func reloadData()
+    //func dequeuePosterCell(cell: PosterViewCell)
 }
 

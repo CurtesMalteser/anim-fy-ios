@@ -9,24 +9,24 @@
 
 import Foundation
 
-// MARK: - Welcome
-struct Data: Codable {
-    let data: [Datum]
+// MARK: - AnimeData
+struct AnimeData: Codable {
+    let data: [AnimeDatum]
     let meta: Meta
     let links:Links
 }
 
 // MARK: - Datum
-struct Datum: Codable {
+struct AnimeDatum: Codable {
     let id: String
-    let type: TypeEnum
+    let type: AnimeTypeEnum
     let links: DatumLinks
-    let attributes: Attributes
+    let attributes: AnimeAttributes
     let relationships: [String: Relationship]
 }
 
 // MARK: - Attributes
-struct Attributes: Codable {
+struct AnimeAttributes: Codable {
     let createdAt: String
     let updatedAt: String
     let slug, synopsis, attributesDescription: String
@@ -39,12 +39,12 @@ struct Attributes: Codable {
     let startDate, endDate: String?
     let popularityRank: Int
     let ratingRank: Int?
-    let ageRating: AgeRating
+    let ageRating: AgeRating?
     let ageRatingGuide: String?
-    let subtype: TypeEnum
+    let subtype: AnimeTypeEnum
     let status: Status
     let tba: String?
-    let posterImage: PosterImage
+    let posterImage: PosterImage?
     let coverImage: CoverImage?
     let episodeCount: Int?
     let episodeLength: Int?
@@ -85,7 +85,6 @@ protocol Image: Codable {
     var medium: String? { get }
     var large: String? { get }
     var original: String? { get }
-    var meta: CoverImageMeta { get }
 }
 
 
@@ -96,7 +95,16 @@ struct PosterImage: Image {
     let medium: String?
     let large: String?
     let original: String?
-    let meta: CoverImageMeta
+    let posterImageMeta: ImageMeta
+
+    enum CodingKeys: String, CodingKey {
+        case tiny,
+            small,
+            medium,
+            large,
+            original
+        case posterImageMeta = "meta"
+    }
 }
 
 // MARK: - CoverImage
@@ -106,11 +114,19 @@ struct CoverImage: Image {
     var medium: String?
     var large: String?
     var original: String?
-    var meta: CoverImageMeta
+    var coverImageMeta: ImageMeta
+    enum CodingKeys: String, CodingKey {
+        case tiny,
+             small,
+             medium,
+             large,
+             original
+        case coverImageMeta = "meta"
+    }
 }
 
-// MARK: - CoverImageMeta
-struct CoverImageMeta: Codable {
+// MARK: - ImageMeta
+struct ImageMeta: Codable {
     let dimensions: Dimensions
 }
 
@@ -121,10 +137,10 @@ struct Dimensions: Codable {
 
 // MARK: - Large
 struct WidthAndHeight: Codable {
-    let width, height: Int
+    let width, height: Int?
 }
 
-enum TypeEnum: String, Codable {
+enum AnimeTypeEnum: String, Codable {
     case anime = "anime"
     case ONA = "ONA"
     case OVA = "OVA"
@@ -190,6 +206,7 @@ struct RelationshipLinks: Codable {
 // MARK: - Links
 struct Links: Codable {
     let first, next, last: String
+    let prev: String?
 }
 
 // MARK: - Meta

@@ -15,6 +15,9 @@ class MangaCollectionVC: BaseCollectionVC, BaseCollectionDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        delegate = self
+
         mangaCollectionView.delegate = self
         mangaCollectionView.dataSource = self
 
@@ -23,7 +26,7 @@ class MangaCollectionVC: BaseCollectionVC, BaseCollectionDelegate {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        mangaCollectionView.setEmptyMessage("no mangas yet")
+        //mangaCollectionView.setEmptyMessage("no mangas yet")
         downloadCollection(of: AnimFyAPI.manga)
     }
 
