@@ -22,6 +22,9 @@
 		920141FD25AB4B3E008D2E24 /* AnimFyApiConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920141FC25AB4B3E008D2E24 /* AnimFyApiConfiguration.swift */; };
 		9201420B25AB9CC6008D2E24 /* Anime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9201420A25AB9CC6008D2E24 /* Anime.swift */; };
 		925DB89D25B8BD3E00F8607D /* DataCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925DB89C25B8BD3E00F8607D /* DataCellModel.swift */; };
+		925DB8A325B8C2DD00F8607D /* DataRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925DB8A225B8C2DC00F8607D /* DataRepositoryProtocol.swift */; };
+		925DB8A825B8C4BD00F8607D /* AnimeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925DB8A725B8C4BD00F8607D /* AnimeRepository.swift */; };
+		925DB8AD25B8C4D100F8607D /* MangaRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925DB8AC25B8C4D100F8607D /* MangaRepository.swift */; };
 		9260ABA125B35D5400AC0EF4 /* PosterViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9260ABA025B35D5400AC0EF4 /* PosterViewCell.swift */; };
 		92D3FE6A25AB1771009B6981 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D3FE6925AB1771009B6981 /* AppDelegate.swift */; };
 		92D3FE6C25AB1771009B6981 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D3FE6B25AB1771009B6981 /* SceneDelegate.swift */; };
@@ -76,6 +79,9 @@
 		920141FC25AB4B3E008D2E24 /* AnimFyApiConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimFyApiConfiguration.swift; sourceTree = "<group>"; };
 		9201420A25AB9CC6008D2E24 /* Anime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Anime.swift; sourceTree = "<group>"; };
 		925DB89C25B8BD3E00F8607D /* DataCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCellModel.swift; sourceTree = "<group>"; };
+		925DB8A225B8C2DC00F8607D /* DataRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRepositoryProtocol.swift; sourceTree = "<group>"; };
+		925DB8A725B8C4BD00F8607D /* AnimeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeRepository.swift; sourceTree = "<group>"; };
+		925DB8AC25B8C4D100F8607D /* MangaRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaRepository.swift; sourceTree = "<group>"; };
 		9260ABA025B35D5400AC0EF4 /* PosterViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterViewCell.swift; sourceTree = "<group>"; };
 		92D3FE6625AB1771009B6981 /* AnimFy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimFy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92D3FE6925AB1771009B6981 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -151,6 +157,16 @@
 			path = Codable;
 			sourceTree = "<group>";
 		};
+		925DB8A125B8C26D00F8607D /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				925DB8A225B8C2DC00F8607D /* DataRepositoryProtocol.swift */,
+				925DB8A725B8C4BD00F8607D /* AnimeRepository.swift */,
+				925DB8AC25B8C4D100F8607D /* MangaRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
 		9260AB9F25B35D3E00AC0EF4 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -184,6 +200,7 @@
 		92D3FE6825AB1771009B6981 /* AnimFy */ = {
 			isa = PBXGroup;
 			children = (
+				925DB8A125B8C26D00F8607D /* Repository */,
 				9260AB9F25B35D3E00AC0EF4 /* View */,
 				92D3FEA325AB32C5009B6981 /* Assets */,
 				92D3FEA225AB3289009B6981 /* ViewController */,
@@ -537,11 +554,14 @@
 				71A9227F2D0A14F1F408609A /* Window+Injection.swift in Sources */,
 				71A92AB8EA1E1F09193E4115 /* UIViewController+UIAlertController.swift in Sources */,
 				71A92BFFDE186CA768CEF090 /* UIViewController+Navigation.swift in Sources */,
+				925DB8AD25B8C4D100F8607D /* MangaRepository.swift in Sources */,
 				71A92AF973DFB6C47A7EC08E /* UIImage+ImagePlaceHolder.swift in Sources */,
+				925DB8A825B8C4BD00F8607D /* AnimeRepository.swift in Sources */,
 				71A92432BF6B60A39E89227E /* UICollectionView+EmptyMessage.swift in Sources */,
 				71A92FA0D7AD73FBA21E764D /* DataController.swift in Sources */,
 				920141FD25AB4B3E008D2E24 /* AnimFyApiConfiguration.swift in Sources */,
 				9260ABA125B35D5400AC0EF4 /* PosterViewCell.swift in Sources */,
+				925DB8A325B8C2DD00F8607D /* DataRepositoryProtocol.swift in Sources */,
 				92D3FEC025AB3B98009B6981 /* MangaCollectionVC.swift in Sources */,
 				71A92B6B8701E303AAD70C83 /* Manga.swift in Sources */,
 				71A921CA052F92FFEC838BD6 /* AttributesProtocol.swift in Sources */,

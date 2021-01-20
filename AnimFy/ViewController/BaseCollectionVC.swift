@@ -102,6 +102,5 @@ class BaseCollectionVC: UICollectionViewController {
 
 protocol BaseCollectionDelegate {
     func reloadData()
-    //func dequeuePosterCell(cell: PosterViewCell)
 }
 
