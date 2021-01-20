@@ -11,7 +11,7 @@ import Kingfisher
 
 class BaseCollectionVC: UICollectionViewController {
 
-    var dataList: [AnimeDatum] = []
+    var dataList: [DataCellModel] = []
 
     var delegate: BaseCollectionDelegate!
 
@@ -29,7 +29,13 @@ class BaseCollectionVC: UICollectionViewController {
                         let data = try decoder.decode(AnimeData.self, from: response.data!)
                         print(data.data.count)
 
-                        dataList = data.data
+                        dataList = data.data.map { datum -> DataCellModel in
+                            DataCellModel(
+                                    id: datum.id, title: datum.attributes.titles.en ?? datum.attributes.titles.enJp,
+                                    imageURL: tryGetImageURL(link: datum.attributes.posterImage?.large)
+                            )
+                        }
+
                         delegate.reloadData()
 
                         controller.dismiss(animated: false)
@@ -53,16 +59,20 @@ class BaseCollectionVC: UICollectionViewController {
         }
     }
 
+    func tryGetImageURL(link: String?) -> URL? {
+        if let link = link {
+            return URL(string: link)
+        } else {
+            return nil
+        }
+    }
+
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PosterViewCell.identifier, for: indexPath) as! PosterViewCell
-
-        if let cover = dataList[indexPath.row].attributes.posterImage {
-            if let link = cover.large {
-                let url = URL(string: link)
-                cell.posterView.kf.setImage(with: url, placeholder: UIImage.imagePlaceholder())
-            } else {
-                cell.posterView.image = UIImage.imagePlaceholder()
-            }
+        if let imageURL = dataList[indexPath.row].imageURL {
+            cell.posterView.kf.setImage(with: imageURL, placeholder: UIImage.imagePlaceholder())
+        } else {
+            cell.posterView.image = UIImage.imagePlaceholder()
         }
         return cell
     }
@@ -72,7 +82,7 @@ class BaseCollectionVC: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let title = dataList[indexPath.row].attributes.titles.enJp
+        let title = dataList[indexPath.row].title
         print("title: \(title) row \(indexPath.row)")
     }
 

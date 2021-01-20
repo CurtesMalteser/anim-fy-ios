@@ -21,6 +21,7 @@
 		920141F825AB4897008D2E24 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920141F725AB4897008D2E24 /* Endpoint.swift */; };
 		920141FD25AB4B3E008D2E24 /* AnimFyApiConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920141FC25AB4B3E008D2E24 /* AnimFyApiConfiguration.swift */; };
 		9201420B25AB9CC6008D2E24 /* Anime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9201420A25AB9CC6008D2E24 /* Anime.swift */; };
+		925DB89D25B8BD3E00F8607D /* DataCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925DB89C25B8BD3E00F8607D /* DataCellModel.swift */; };
 		9260ABA125B35D5400AC0EF4 /* PosterViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9260ABA025B35D5400AC0EF4 /* PosterViewCell.swift */; };
 		92D3FE6A25AB1771009B6981 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D3FE6925AB1771009B6981 /* AppDelegate.swift */; };
 		92D3FE6C25AB1771009B6981 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D3FE6B25AB1771009B6981 /* SceneDelegate.swift */; };
@@ -74,6 +75,7 @@
 		920141F725AB4897008D2E24 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		920141FC25AB4B3E008D2E24 /* AnimFyApiConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimFyApiConfiguration.swift; sourceTree = "<group>"; };
 		9201420A25AB9CC6008D2E24 /* Anime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Anime.swift; sourceTree = "<group>"; };
+		925DB89C25B8BD3E00F8607D /* DataCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCellModel.swift; sourceTree = "<group>"; };
 		9260ABA025B35D5400AC0EF4 /* PosterViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterViewCell.swift; sourceTree = "<group>"; };
 		92D3FE6625AB1771009B6981 /* AnimFy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimFy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92D3FE6925AB1771009B6981 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 				92D3FED025AB41EB009B6981 /* Network */,
 				71A92641D4F9559D4A0C873E /* DataController.swift */,
 				71A92A6969DFB5CBDCA68346 /* AnimFy.xcdatamodel */,
+				925DB89C25B8BD3E00F8607D /* DataCellModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -522,6 +525,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				925DB89D25B8BD3E00F8607D /* DataCellModel.swift in Sources */,
 				9201420B25AB9CC6008D2E24 /* Anime.swift in Sources */,
 				920141F825AB4897008D2E24 /* Endpoint.swift in Sources */,
 				92D3FED225AB420A009B6981 /* AnimFyAPI.swift in Sources */,
