@@ -13,23 +13,21 @@ class MangaCollectionVC: BaseCollectionVC, BaseCollectionDelegate {
 
     @IBOutlet weak var mangaFlowLayout: UICollectionViewFlowLayout!
 
-    let dataRepository: DataRepositoryProtocol = MangaRepository.sharedInstance()
-    
+    var dataRepository: DataRepositoryProtocol?
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setCollectionViewCellDimensions(collectionView: mangaCollectionView, flowLayout: mangaFlowLayout)
         delegate = self
-
         mangaCollectionView.delegate = self
         mangaCollectionView.dataSource = self
+        dataRepository = MangaRepository.sharedInstance(statusDelegate: statusDelegate)
 
-        setCollectionViewCellDimensions(collectionView: mangaCollectionView, flowLayout: mangaFlowLayout)
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        //mangaCollectionView.setEmptyMessage("no mangas yet")
-        downloadCollection(of: AnimFyAPI.manga)
+        downloadCollection()
     }
 
     func reloadData() {

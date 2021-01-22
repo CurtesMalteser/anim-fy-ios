@@ -1,4 +1,3 @@
-
 //
 //  AnimeRepository.swift
 //  AnimFy
@@ -10,25 +9,31 @@ import Alamofire
 
 class AnimeRepository: DataRepositoryProtocol {
 
-    private var _dataList: [DataCellModel] = []
-    var dataList: [DataCellModel] {
-        get { getDataCellModel() }
-        set { _dataList = newValue}
+    private var _statusDelegate: StatusDelegateProtocol
+
+    private var isInProgress = false
+
+    var dataList: [DataCellModel] = []
+
+    static func sharedInstance(statusDelegate: StatusDelegateProtocol) -> AnimeRepository {
+        AnimeRepository(statusDelegate)
     }
 
-    static func sharedInstance() -> AnimeRepository {
-        AnimeRepository()
+    private init(_ statusDelegate: StatusDelegateProtocol) {
+        _statusDelegate = statusDelegate
     }
 
-    private init() {
-        // todo -> add delegate as param
-    }
 
     func downloadCollection() {
+
+        if (isInProgress || !dataList.isEmpty) {
+            return
+        }
+
+        _statusDelegate.postStatus(.Loading)
+
         AF.request(AnimFyAPI.anime).responseJSON { [self] response in
-
-            // todo -> post loading status
-
+            isInProgress = true
             switch response.result {
             case .success(_):
 
@@ -43,32 +48,22 @@ class AnimeRepository: DataRepositoryProtocol {
                                 imageURL: tryGetImageURL(link: datum.attributes.posterImage?.large)
                         )
                     }
-
-
-                // todo -> Post Success
-
-
+                    setCompletedStatus(.Success)
                 } catch {
-                // todo -> Post error
+                    setCompletedStatus(.Error(error: error))
 
                 }
 
             case .failure(let error):
-                // todo -> Post error
-                print(error.localizedDescription)
-
+                setCompletedStatus(.Error(error: error))
             }
 
         }
-
     }
 
-    private func getDataCellModel() -> Array<DataCellModel> {
-        if (!_dataList.isEmpty){
-            return _dataList
-        } else {
-            downloadCollection()
-            return _dataList
-        }
+    private func setCompletedStatus(_ status: Status) {
+        isInProgress = false
+        _statusDelegate.postStatus(status)
     }
+
 }

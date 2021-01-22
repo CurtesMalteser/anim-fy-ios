@@ -42,7 +42,7 @@ struct AnimeAttributes: Attributes {
     let ageRating: AgeRating?
     let ageRatingGuide: String?
     let subtype: AnimeTypeEnum
-    let status: Status
+    let status: DataStatus
     let tba: String?
     let posterImage: PosterImage?
     let coverImage: CoverImage?
@@ -157,7 +157,7 @@ enum AgeRating: String, Codable {
     case R18 = "R18"
 }
 
-enum Status: String, Codable {
+enum DataStatus: String, Codable {
     case current = "current"
     case finished = "finished"
     case tba = "tba"

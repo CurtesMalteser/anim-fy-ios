@@ -22,7 +22,7 @@ protocol Attributes: Codable {
     var ratingRank: Int? { get }
     var ageRating: AgeRating? { get }
     var ageRatingGuide: String? { get }
-    var status: Status { get }
+    var status: DataStatus { get }
     var tba: String? { get }
     var posterImage: PosterImage? { get }
     var coverImage: CoverImage? { get }

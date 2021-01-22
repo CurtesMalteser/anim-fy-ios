@@ -10,11 +10,12 @@ import Alamofire
 
 class AnimeCollectionVC: BaseCollectionVC, BaseCollectionDelegate {
 
+
     @IBOutlet var animeCollectionView: UICollectionView!
 
     @IBOutlet weak var animeFlowLayout: UICollectionViewFlowLayout!
 
-    let dataRepository: DataRepositoryProtocol = AnimeRepository.sharedInstance()
+    var dataRepository: DataRepositoryProtocol?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,11 +23,12 @@ class AnimeCollectionVC: BaseCollectionVC, BaseCollectionDelegate {
         delegate = self
         animeCollectionView.delegate = self
         animeCollectionView.dataSource = self
+        dataRepository = AnimeRepository.sharedInstance(statusDelegate: statusDelegate)
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        downloadCollection(of: AnimFyAPI.anime)
+        downloadCollection()
     }
 
     func reloadData() {

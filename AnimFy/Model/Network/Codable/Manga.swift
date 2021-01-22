@@ -42,7 +42,7 @@ struct MangaAttributes: Attributes {
     let ageRating: AgeRating?
     let ageRatingGuide: String?
     let subtype: MangaTypeEnum
-    let status: Status
+    let status: DataStatus
     let tba: String?
     let posterImage: PosterImage?
     let coverImage: CoverImage?

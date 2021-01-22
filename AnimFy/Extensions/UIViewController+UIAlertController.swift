@@ -44,4 +44,25 @@ extension UIViewController {
         }
 
     }
+
+    /**
+    Convenience function to show UIAlertController to sign background (internet or access DB) activity.
+    */
+    func showNetworkActivityAlert() -> UIAlertController{
+        let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
+
+        alert.view.tintColor = UIColor.black
+
+        let loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50)) as UIActivityIndicatorView
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.style = UIActivityIndicatorView.Style.large
+        loadingIndicator.color = UIColor.systemBlue
+        loadingIndicator.startAnimating();
+
+        alert.view.addSubview(loadingIndicator)
+
+        present(alert, animated: true)
+
+       return alert
+    }
 }
