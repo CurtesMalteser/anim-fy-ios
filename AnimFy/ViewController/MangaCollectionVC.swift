@@ -11,13 +11,17 @@ class MangaCollectionVC: BaseCollectionVC, BaseCollectionDelegate {
 
     @IBOutlet var mangaCollectionView: UICollectionView!
 
-    @IBOutlet weak var mangaFlowLayout: UICollectionViewFlowLayout!
+    @IBOutlet weak var mangaFlowLayout: UICollectionViewFlowLayout! {
+        didSet {
+            setCollectionViewCellDimensions(collectionView: mangaCollectionView, flowLayout: mangaFlowLayout)
+        }
+    }
+
 
     var dataRepository: DataRepositoryProtocol?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setCollectionViewCellDimensions(collectionView: mangaCollectionView, flowLayout: mangaFlowLayout)
         delegate = self
         mangaCollectionView.delegate = self
         mangaCollectionView.dataSource = self

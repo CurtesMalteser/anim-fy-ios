@@ -21,7 +21,7 @@ class MangaRepository: DataRepositoryProtocol {
         MangaRepository(statusDelegate)
     }
 
-    private init(_ statusDelegate: StatusDelegateProtocol) {
+    fileprivate init(_ statusDelegate: StatusDelegateProtocol) {
         _statusDelegate = statusDelegate
     }
 

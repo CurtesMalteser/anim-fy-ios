@@ -9,7 +9,7 @@ import UIKit
 import Alamofire
 import Kingfisher
 
-class BaseCollectionVC: UICollectionViewController, StatusDelegateProtocol {
+class BaseCollectionVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, StatusDelegateProtocol {
 
     var delegate: BaseCollectionDelegate!
 
@@ -45,7 +45,7 @@ class BaseCollectionVC: UICollectionViewController, StatusDelegateProtocol {
         }
     }
 
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PosterViewCell.identifier, for: indexPath) as! PosterViewCell
         if let imageURL = delegate.dataRepository!.dataList[indexPath.row].imageURL {
             cell.posterView.kf.setImage(with: imageURL, placeholder: UIImage.imagePlaceholder())
@@ -55,25 +55,26 @@ class BaseCollectionVC: UICollectionViewController, StatusDelegateProtocol {
         return cell
     }
 
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         delegate.dataRepository!.dataList.count
     }
 
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let title = delegate.dataRepository!.dataList[indexPath.row].title
         print("title: \(title) row \(indexPath.row)")
     }
 
     func setCollectionViewCellDimensions(collectionView view: UIView, flowLayout: UICollectionViewFlowLayout) {
 
-        //let space: CGFloat = 3
-        //let numberOfItemsPerRow: CGFloat = 3
-//
-        //let dimension = (view.frame.size.width - (space * (numberOfItemsPerRow - 1))) / numberOfItemsPerRow
-//
-        //flowLayout.minimumInteritemSpacing = space
-        //flowLayout.minimumLineSpacing = space
-        //flowLayout.itemSize = CGSize(width: dimension, height: dimension)
+        let space: CGFloat = 3
+        let numberOfItemsPerRow: CGFloat = 3
+
+        let dimension = (view.frame.size.width - (space * (numberOfItemsPerRow - 1))) / numberOfItemsPerRow
+
+        flowLayout.minimumInteritemSpacing = space
+        flowLayout.minimumLineSpacing = space
+        flowLayout.itemSize = CGSize(width: dimension, height: dimension)
+
     }
 
 }

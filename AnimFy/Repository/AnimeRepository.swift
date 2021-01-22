@@ -19,7 +19,7 @@ class AnimeRepository: DataRepositoryProtocol {
         AnimeRepository(statusDelegate)
     }
 
-    private init(_ statusDelegate: StatusDelegateProtocol) {
+    fileprivate init(_ statusDelegate: StatusDelegateProtocol) {
         _statusDelegate = statusDelegate
     }
 

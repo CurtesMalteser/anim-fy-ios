@@ -3,61 +3,12 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
-        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Anime-->
-        <scene sceneID="dsH-aL-hQ0">
-            <objects>
-                <collectionViewController id="RZ4-yf-Jgp" customClass="AnimeCollectionVC" customModule="AnimFy" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Iyg-Ff-3hI">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5Hb-0a-ddy">
-                            <size key="itemSize" width="128" height="128"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PosterViewCell" id="INE-dY-ayW" customClass="PosterViewCell" customModule="AnimFy" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="PCN-ls-8DS">
-                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="bfe-q4-DvM" customClass="AnimatedImageView" customModule="Kingfisher">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <imageReference key="image" image="ImagePlaceholder" symbolScale="default"/>
-                                        </imageView>
-                                    </subviews>
-                                </collectionViewCellContentView>
-                                <connections>
-                                    <outlet property="posterView" destination="bfe-q4-DvM" id="daw-Tg-F5q"/>
-                                </connections>
-                            </collectionViewCell>
-                        </cells>
-                        <connections>
-                            <outlet property="dataSource" destination="RZ4-yf-Jgp" id="6zF-ZY-KNk"/>
-                            <outlet property="delegate" destination="RZ4-yf-Jgp" id="Z9w-MU-vdU"/>
-                        </connections>
-                    </collectionView>
-                    <tabBarItem key="tabBarItem" title="Anime" id="vc2-Hx-odn"/>
-                    <connections>
-                        <outlet property="animeCollectionView" destination="Iyg-Ff-3hI" id="1We-KZ-oRn"/>
-                        <outlet property="animeFlowLayout" destination="5Hb-0a-ddy" id="UnC-c1-Q8W"/>
-                    </connections>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="m4d-in-yKm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="590" y="-421"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="KiG-9A-fCH">
             <objects>
@@ -68,61 +19,161 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="RZ4-yf-Jgp" kind="relationship" relationship="viewControllers" id="VuJ-VJ-ewS"/>
-                        <segue destination="Zm6-Zs-1mn" kind="relationship" relationship="viewControllers" id="gpN-gl-9Zk"/>
+                        <segue destination="ZuM-iy-ZhE" kind="relationship" relationship="viewControllers" id="ozs-Pk-RzE"/>
+                        <segue destination="5Y1-SN-pg7" kind="relationship" relationship="viewControllers" id="bFm-nW-ewg"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VMo-mW-INe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-300" y="-57"/>
         </scene>
-        <!--Manga-->
-        <scene sceneID="4Yp-wj-NVb">
+        <!--Item-->
+        <scene sceneID="NFz-Kh-7v4">
             <objects>
-                <collectionViewController id="Zm6-Zs-1mn" customClass="MangaCollectionVC" customModule="AnimFy" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="fZE-qI-qef">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mdl-5A-BDS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationController id="5Y1-SN-pg7" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="BJi-Fy-SGE" userLabel="Manga"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vWE-7T-yH8">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="sBG-lT-AAg" kind="relationship" relationship="rootViewController" id="YaL-b8-vcK"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="936" y="318"/>
+        </scene>
+        <!--Manga-->
+        <scene sceneID="W9I-rr-Isj">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mF0-op-77r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController id="sBG-lT-AAg" customClass="MangaCollectionVC" customModule="AnimFy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xRN-SQ-xvW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6f1-kH-ioh">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Dug-QT-usK">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PosterViewCell" id="7Wy-Vh-5rB" customClass="PosterViewCell" customModule="AnimFy" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Sqb-vc-4y0">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ImagePlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="NH9-qr-JnH">
+                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="posterView" destination="NH9-qr-JnH" id="eMs-uO-6qP"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="F9h-Xh-9ZW"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tos-Qs-cxk">
-                            <size key="itemSize" width="128" height="128"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PosterViewCell" id="Dys-73-we2" customClass="PosterViewCell" customModule="AnimFy" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="gmU-e8-Ikg">
-                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ImagePlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="2NA-vC-8gl">
-                                            <rect key="frame" x="-56" y="0.0" width="240" height="128"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
-                                    </subviews>
-                                </collectionViewCellContentView>
-                                <connections>
-                                    <outlet property="posterView" destination="2NA-vC-8gl" id="ItW-9I-PmI"/>
-                                </connections>
-                            </collectionViewCell>
-                        </cells>
-                        <connections>
-                            <outlet property="dataSource" destination="Zm6-Zs-1mn" id="g9U-FO-HDE"/>
-                            <outlet property="delegate" destination="Zm6-Zs-1mn" id="4fl-dX-Kxr"/>
-                        </connections>
-                    </collectionView>
-                    <tabBarItem key="tabBarItem" title="Manga" id="5KI-sC-bcB"/>
+                        <constraints>
+                            <constraint firstItem="F9h-Xh-9ZW" firstAttribute="bottom" secondItem="6f1-kH-ioh" secondAttribute="bottom" id="AfM-HR-hNE"/>
+                            <constraint firstItem="F9h-Xh-9ZW" firstAttribute="trailing" secondItem="6f1-kH-ioh" secondAttribute="trailing" id="EcG-lG-hn9"/>
+                            <constraint firstItem="6f1-kH-ioh" firstAttribute="leading" secondItem="F9h-Xh-9ZW" secondAttribute="leading" id="NbT-iT-n7g"/>
+                            <constraint firstItem="6f1-kH-ioh" firstAttribute="top" secondItem="F9h-Xh-9ZW" secondAttribute="top" id="pmn-Az-Fox"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Manga" id="tew-FI-MHT"/>
                     <connections>
-                        <outlet property="mangaCollectionView" destination="fZE-qI-qef" id="T6v-3Z-r3G"/>
-                        <outlet property="mangaFlowLayout" destination="tos-Qs-cxk" id="BFM-3V-8qw"/>
+                        <outlet property="mangaCollectionView" destination="6f1-kH-ioh" id="Qls-mK-MPV"/>
+                        <outlet property="mangaFlowLayout" destination="Dug-QT-usK" id="LG2-ZC-9kX"/>
                     </connections>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8ib-Wy-ugh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                </viewController>
             </objects>
-            <point key="canvasLocation" x="613" y="316"/>
+            <point key="canvasLocation" x="1958" y="317"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="Q94-tT-WgI">
+            <objects>
+                <navigationController id="ZuM-iy-ZhE" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="yZE-ZQ-ZoV" userLabel="Anime"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Te6-Tv-2Rq">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="xUj-Ow-4BI" kind="relationship" relationship="rootViewController" id="Hc7-Bd-Nn6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Sg-TW-NxJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="862" y="-410"/>
+        </scene>
+        <!--Anime-->
+        <scene sceneID="o5c-Z9-0jI">
+            <objects>
+                <viewController id="xUj-Ow-4BI" customClass="AnimeCollectionVC" customModule="AnimFy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Plw-hE-r7D">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="q6D-ZS-I2k">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="7Fz-Cz-ds9">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PosterViewCell" id="ENs-G7-Os4" customClass="PosterViewCell" customModule="AnimFy" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="krJ-WG-0ce">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ImagePlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="1Xs-WF-CLq">
+                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="posterView" destination="1Xs-WF-CLq" id="PqK-Qr-NVV"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Rrf-eG-6Af"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="q6D-ZS-I2k" firstAttribute="leading" secondItem="Rrf-eG-6Af" secondAttribute="leading" id="Dev-d9-y5c"/>
+                            <constraint firstItem="q6D-ZS-I2k" firstAttribute="top" secondItem="Rrf-eG-6Af" secondAttribute="top" id="jED-0N-nrY"/>
+                            <constraint firstItem="Rrf-eG-6Af" firstAttribute="bottom" secondItem="q6D-ZS-I2k" secondAttribute="bottom" id="jbE-tS-Nz0"/>
+                            <constraint firstItem="Rrf-eG-6Af" firstAttribute="trailing" secondItem="q6D-ZS-I2k" secondAttribute="trailing" id="vwN-8k-K5Y"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Anime" id="gNp-4e-JSi"/>
+                    <connections>
+                        <outlet property="animeCollectionView" destination="q6D-ZS-I2k" id="a8h-OC-TUg"/>
+                        <outlet property="animeFlowLayout" destination="7Fz-Cz-ds9" id="B8l-7H-BUN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="prm-Tr-He5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1958" y="-410"/>
         </scene>
     </scenes>
     <resources>

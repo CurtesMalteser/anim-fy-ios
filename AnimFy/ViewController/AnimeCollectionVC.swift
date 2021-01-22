@@ -10,16 +10,19 @@ import Alamofire
 
 class AnimeCollectionVC: BaseCollectionVC, BaseCollectionDelegate {
 
-
     @IBOutlet var animeCollectionView: UICollectionView!
 
-    @IBOutlet weak var animeFlowLayout: UICollectionViewFlowLayout!
+    @IBOutlet weak var animeFlowLayout: UICollectionViewFlowLayout! {
+        didSet {
+            setCollectionViewCellDimensions(collectionView: animeCollectionView, flowLayout: animeFlowLayout)
+        }
+    }
 
     var dataRepository: DataRepositoryProtocol?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setCollectionViewCellDimensions(collectionView: animeCollectionView, flowLayout: animeFlowLayout)
+
         delegate = self
         animeCollectionView.delegate = self
         animeCollectionView.dataSource = self
