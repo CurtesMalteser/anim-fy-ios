@@ -13,7 +13,9 @@ class AnimeCollectionVC: BaseCollectionVC, BaseCollectionDelegate {
     @IBOutlet var animeCollectionView: UICollectionView!
 
     @IBOutlet weak var animeFlowLayout: UICollectionViewFlowLayout!
-    
+
+    let dataRepository: DataRepositoryProtocol = AnimeRepository.sharedInstance()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setCollectionViewCellDimensions(collectionView: animeCollectionView, flowLayout: animeFlowLayout)

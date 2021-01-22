@@ -16,6 +16,14 @@ class AnimeRepository: DataRepositoryProtocol {
         set { _dataList = newValue}
     }
 
+    static func sharedInstance() -> AnimeRepository {
+        AnimeRepository()
+    }
+
+    private init() {
+        // todo -> add delegate as param
+    }
+
     func downloadCollection() {
         AF.request(AnimFyAPI.anime).responseJSON { [self] response in
 

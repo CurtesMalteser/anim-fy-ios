@@ -101,6 +101,7 @@ class BaseCollectionVC: UICollectionViewController {
 }
 
 protocol BaseCollectionDelegate {
+    var dataRepository: DataRepositoryProtocol { get }
     func reloadData()
 }
 

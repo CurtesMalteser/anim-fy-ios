@@ -12,6 +12,8 @@ class MangaCollectionVC: BaseCollectionVC, BaseCollectionDelegate {
     @IBOutlet var mangaCollectionView: UICollectionView!
 
     @IBOutlet weak var mangaFlowLayout: UICollectionViewFlowLayout!
+
+    let dataRepository: DataRepositoryProtocol = MangaRepository.sharedInstance()
     
     override func viewDidLoad() {
         super.viewDidLoad()

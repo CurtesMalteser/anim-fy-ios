@@ -13,6 +13,14 @@ class MangaRepository: DataRepositoryProtocol {
 
     var dataList: [DataCellModel] = []
 
+    static func sharedInstance() -> MangaRepository {
+        MangaRepository()
+    }
+
+    private init() {
+        // todo -> add delegate as param
+    }
+
     func downloadCollection() {
         AF.request(AnimFyAPI.manga).responseJSON { [self] response in
 
