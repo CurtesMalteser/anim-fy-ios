@@ -95,6 +95,7 @@
                     <connections>
                         <outlet property="mangaCollectionView" destination="6f1-kH-ioh" id="Qls-mK-MPV"/>
                         <outlet property="mangaFlowLayout" destination="Dug-QT-usK" id="LG2-ZC-9kX"/>
+                        <segue destination="mkO-ub-b9a" kind="show" id="ztm-sH-lzR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mF0-op-77r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -169,6 +170,7 @@
                     <connections>
                         <outlet property="animeCollectionView" destination="q6D-ZS-I2k" id="a8h-OC-TUg"/>
                         <outlet property="animeFlowLayout" destination="7Fz-Cz-ds9" id="B8l-7H-BUN"/>
+                        <segue destination="mkO-ub-b9a" kind="show" id="gSv-wL-r8I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="prm-Tr-He5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -176,32 +178,25 @@
             <point key="canvasLocation" x="1958" y="-410"/>
         </scene>
         <!--Details View Controller-->
-        <scene sceneID="ilM-Jv-V3C">
+        <scene sceneID="26Q-Zg-GVq">
             <objects>
-                <tableViewController id="G3m-TV-WFf" userLabel="Details View Controller" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" title="Root View Controller" id="TNR-wB-4ja"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Jj9-tw-hzr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="DetailsVC" id="mkO-ub-b9a" userLabel="Details View Controller" customClass="DetailsVC" customModule="AnimFy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ztc-qR-LyH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="GIY-gL-wTO"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="1zr-ot-CAk"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jAL-3m-VcC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4025" y="-142"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="XxQ-fS-bcQ">
-            <objects>
-                <navigationController id="ATR-jP-Lpj" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Crz-bb-3cx">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="G3m-TV-WFf" kind="relationship" relationship="rootViewController" id="ttb-Jp-zSK"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SxP-eU-Y2o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3136" y="-142"/>
+            <point key="canvasLocation" x="3951" y="-58"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="ztm-sH-lzR"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="ImagePlaceholder" width="14" height="16"/>
         <systemColor name="systemBackgroundColor">

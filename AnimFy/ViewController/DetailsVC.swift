@@ -9,6 +9,8 @@ import UIKit
 
 class DetailsVC: UIViewController {
 
+    static let identifier: String = "DetailsVC"
+
     var datumID: String!
     var dataRepository: DataRepositoryProtocol!
     

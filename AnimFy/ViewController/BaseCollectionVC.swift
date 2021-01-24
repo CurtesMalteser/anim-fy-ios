@@ -59,8 +59,8 @@ class BaseCollectionVC: UIViewController, UICollectionViewDelegate, UICollection
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let title = delegate.dataRepository!.dataList[indexPath.row].title
-        print("title: \(title) row \(indexPath.row)")
+        let id = delegate.dataRepository!.dataList[indexPath.row].datumID
+        pushDetailsVC(datumID: id)
     }
 
     func setCollectionViewCellDimensions(collectionView view: UIView, flowLayout: UICollectionViewFlowLayout) {
@@ -73,6 +73,20 @@ class BaseCollectionVC: UIViewController, UICollectionViewDelegate, UICollection
         flowLayout.minimumInteritemSpacing = space
         flowLayout.minimumLineSpacing = space
         flowLayout.itemSize = CGSize(width: dimension, height: dimension)
+
+    }
+
+    private func pushDetailsVC(datumID id: String) {
+        pushViewControllerWithInject(storyboard: storyboard,
+                identifier: DetailsVC.identifier,
+                navigationController: navigationController) { viewController in
+
+            let detailsVC = viewController as! DetailsVC
+
+            detailsVC.datumID = id
+            detailsVC.dataRepository = delegate.dataRepository
+
+        }
 
     }
 
