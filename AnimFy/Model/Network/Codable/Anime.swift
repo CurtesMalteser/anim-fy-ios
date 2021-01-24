@@ -16,7 +16,7 @@ struct AnimeData: Codable {
     let links:Links
 }
 
-// MARK: - Datum
+// MARK: - AnimeDatum
 struct AnimeDatum: Datum {
     let id: String
     let type: AnimeTypeEnum

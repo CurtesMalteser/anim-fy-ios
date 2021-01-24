@@ -9,12 +9,12 @@ import Foundation
 
 class DataCellModel {
 
-    let id: String
+    let datumID: String
     let title: String
     let imageURL: URL?
 
     init(id: String, title: String, imageURL: URL?) {
-        self.id = id
+        datumID = id
         self.title = title
         self.imageURL = imageURL
     }

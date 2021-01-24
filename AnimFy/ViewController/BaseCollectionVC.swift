@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Alamofire
 import Kingfisher
 
 class BaseCollectionVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, StatusDelegateProtocol {

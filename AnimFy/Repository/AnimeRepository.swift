@@ -13,6 +13,8 @@ class AnimeRepository: DataRepositoryProtocol {
 
     private var isInProgress = false
 
+    private var animeDataList: [AnimeDatum] = []
+
     var dataList: [DataCellModel] = []
 
     static func sharedInstance(statusDelegate: StatusDelegateProtocol) -> AnimeRepository {
@@ -42,6 +44,7 @@ class AnimeRepository: DataRepositoryProtocol {
                     let data = try decoder.decode(AnimeData.self, from: response.data!)
                     print(data.data.count)
 
+                    animeDataList = data.data
                     dataList = data.data.map { datum -> DataCellModel in
                         DataCellModel(
                                 id: datum.id, title: datum.attributes.titles.en ?? datum.attributes.titles.enJp,
@@ -59,6 +62,10 @@ class AnimeRepository: DataRepositoryProtocol {
             }
 
         }
+    }
+
+    func getDatumDetailsBy(id: String) {
+
     }
 
     private func setCompletedStatus(_ status: Status) {

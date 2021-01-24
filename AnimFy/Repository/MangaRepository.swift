@@ -15,6 +15,8 @@ class MangaRepository: DataRepositoryProtocol {
 
     private var isInProgress = false
 
+    private var mangaDataList: [MangaDatum] = []
+
     var dataList: [DataCellModel] = []
 
     static func sharedInstance(statusDelegate: StatusDelegateProtocol) -> MangaRepository {
@@ -44,6 +46,7 @@ class MangaRepository: DataRepositoryProtocol {
                     let data = try decoder.decode(MangaData.self, from: response.data!)
                     print(data.data.count)
 
+                    mangaDataList = data.data
                     dataList = data.data.map { datum -> DataCellModel in
                         DataCellModel(
                                 id: datum.id, title: datum.attributes.titles.en ?? datum.attributes.titles.enJp,
@@ -62,6 +65,10 @@ class MangaRepository: DataRepositoryProtocol {
             }
 
         }
+    }
+
+    func getDatumDetailsBy(id: String) {
+
     }
 
     private func setCompletedStatus(_ status: Status) {
