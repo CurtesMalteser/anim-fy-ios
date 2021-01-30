@@ -11,6 +11,8 @@ import Alamofire
 
 class MangaRepository: DataRepositoryProtocol {
 
+    let type: DataRepositoryType = .manga
+
     var statusDelegate: StatusDelegateProtocol!
 
     private var isInProgress = false

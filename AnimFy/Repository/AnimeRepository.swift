@@ -9,6 +9,8 @@ import Alamofire
 
 class AnimeRepository: DataRepositoryProtocol {
 
+    let type: DataRepositoryType = .anime
+
     var statusDelegate: StatusDelegateProtocol!
 
     private var isInProgress = false

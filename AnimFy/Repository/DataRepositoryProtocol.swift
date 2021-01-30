@@ -8,8 +8,9 @@
 import Foundation
 
 protocol DataRepositoryProtocol {
+    var type: DataRepositoryType { get }
     var dataList: Array<DataCellModel> { get set }
-    var statusDelegate:StatusDelegateProtocol! { get set }
+    var statusDelegate: StatusDelegateProtocol! { get set }
     func downloadCollection()
     func getDatumDetailsBy(id: String)
 }
@@ -22,4 +23,9 @@ extension DataRepositoryProtocol {
             return nil
         }
     }
+}
+
+enum DataRepositoryType {
+    case anime
+    case manga
 }

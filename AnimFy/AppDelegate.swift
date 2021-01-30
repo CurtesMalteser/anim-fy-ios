@@ -90,8 +90,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     // MARK: - Dependency Injection
-    func injectDetailsViewModel() -> DetailsViewModel {
-        injector.injectDetailsViewModel()
+    func injectDetailsViewModel(repositoryType type: DataRepositoryType) -> DetailsViewModel {
+        injector.injectDetailsViewModel(repositoryType: type)
     }
 
     func destroyDetailsViewModel() {
