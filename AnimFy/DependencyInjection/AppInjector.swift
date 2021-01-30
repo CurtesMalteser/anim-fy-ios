@@ -9,6 +9,7 @@ import Foundation
 
 class AppInjector {
 
+    let animeRepository = AnimeRepository()
     let mangaRepository = MangaRepository()
 
 }

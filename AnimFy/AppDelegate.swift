@@ -11,10 +11,17 @@ import CoreData
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    let injector = AppInjector()
+    private let injector = AppInjector()
+
     var mangaRepository: MangaRepository {
         get {
             injector.mangaRepository
+        }
+    }
+
+    var animeRepository: AnimeRepository {
+        get {
+            injector.animeRepository
         }
     }
 

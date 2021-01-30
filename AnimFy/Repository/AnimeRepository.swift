@@ -15,14 +15,6 @@ class AnimeRepository: DataRepositoryProtocol {
 
     var dataList: [DataCellModel] = []
 
-    static func sharedInstance(statusDelegate: StatusDelegateProtocol) -> AnimeRepository {
-        AnimeRepository(statusDelegate)
-    }
-
-    fileprivate init(_ statusDelegate: StatusDelegateProtocol) {
-        self.statusDelegate = statusDelegate
-    }
-
 
     func downloadCollection() {
 

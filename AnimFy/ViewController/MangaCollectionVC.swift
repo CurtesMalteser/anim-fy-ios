@@ -24,7 +24,7 @@ class MangaCollectionVC: BaseCollectionVC, BaseCollectionDelegate {
         delegate = self
         mangaCollectionView.delegate = self
         mangaCollectionView.dataSource = self
-        dataRepository = (UIApplication.shared.delegate as! AppDelegate).mangaRepository//MangaRepository.sharedInstance(statusDelegate: statusDelegate)
+        dataRepository = (UIApplication.shared.delegate as! AppDelegate).mangaRepository
         dataRepository?.statusDelegate = statusDelegate
     }
 
