@@ -23,14 +23,14 @@ class DetailsViewModelTest: XCTestCase {
         SUT = nil
     }
 
-    func testDetailsViewModelGetValidDataCellByID() throws {
+    func testDetailsViewModelGetsValidDataCellByID() throws {
 
         let dataCell = SUT.getData(datumID: "1stID")
 
         assert (dataCell != nil)
     }
 
-    func testDetailsViewModelGetNilDataCellByID() throws {
+    func testDetailsViewModelGetsNilDataCellByID() throws {
 
         let dataCell = SUT.getData(datumID: "InvalidID")
 

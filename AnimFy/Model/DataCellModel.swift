@@ -7,7 +7,7 @@
 
 import Foundation
 
-class DataCellModel {
+struct DataCellModel {
 
     let datumID: String
     let title: String

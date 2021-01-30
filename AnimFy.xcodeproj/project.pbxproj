@@ -30,6 +30,8 @@
 		92AE69C225C5E5FA00E675D6 /* AppInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AE69C125C5E5FA00E675D6 /* AppInjector.swift */; };
 		92AF41C325C5F16000CF5DDD /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AF41C225C5F16000CF5DDD /* DetailsViewModel.swift */; };
 		92AF41C825C6009D00CF5DDD /* DetailsViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AF41C725C6009D00CF5DDD /* DetailsViewModelTest.swift */; };
+		92AF41CE25C6076C00CF5DDD /* DetailsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AF41CD25C6076C00CF5DDD /* DetailsDataModel.swift */; };
+		92AF41D425C6083400CF5DDD /* DetailsSectionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AF41D325C6083400CF5DDD /* DetailsSectionProtocol.swift */; };
 		92C6BF8225BB672900D3D4A6 /* StatusDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C6BF8125BB672900D3D4A6 /* StatusDelegateProtocol.swift */; };
 		92D3FE6A25AB1771009B6981 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D3FE6925AB1771009B6981 /* AppDelegate.swift */; };
 		92D3FE6C25AB1771009B6981 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D3FE6B25AB1771009B6981 /* SceneDelegate.swift */; };
@@ -92,6 +94,8 @@
 		92AE69C125C5E5FA00E675D6 /* AppInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInjector.swift; sourceTree = "<group>"; };
 		92AF41C225C5F16000CF5DDD /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
 		92AF41C725C6009D00CF5DDD /* DetailsViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModelTest.swift; sourceTree = "<group>"; };
+		92AF41CD25C6076C00CF5DDD /* DetailsDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsDataModel.swift; sourceTree = "<group>"; };
+		92AF41D325C6083400CF5DDD /* DetailsSectionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsSectionProtocol.swift; sourceTree = "<group>"; };
 		92C6BF8125BB672900D3D4A6 /* StatusDelegateProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusDelegateProtocol.swift; sourceTree = "<group>"; };
 		92D3FE6625AB1771009B6981 /* AnimFy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimFy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92D3FE6925AB1771009B6981 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -202,6 +206,15 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		92AF41D225C6081200CF5DDD /* DetailsModel */ = {
+			isa = PBXGroup;
+			children = (
+				92AF41CD25C6076C00CF5DDD /* DetailsDataModel.swift */,
+				92AF41D325C6083400CF5DDD /* DetailsSectionProtocol.swift */,
+			);
+			path = DetailsModel;
+			sourceTree = "<group>";
+		};
 		92D3FE5D25AB1771009B6981 = {
 			isa = PBXGroup;
 			children = (
@@ -278,6 +291,7 @@
 		92D3FEA025AB325D009B6981 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				92AF41D225C6081200CF5DDD /* DetailsModel */,
 				92D3FED025AB41EB009B6981 /* Network */,
 				71A92641D4F9559D4A0C873E /* DataController.swift */,
 				71A92A6969DFB5CBDCA68346 /* AnimFy.xcdatamodel */,
@@ -583,11 +597,13 @@
 				92D3FE6A25AB1771009B6981 /* AppDelegate.swift in Sources */,
 				92D3FEBB25AB3B3F009B6981 /* AnimeCollectionVC.swift in Sources */,
 				92D3FE6C25AB1771009B6981 /* SceneDelegate.swift in Sources */,
+				92AF41CE25C6076C00CF5DDD /* DetailsDataModel.swift in Sources */,
 				92D3FE7425AB1771009B6981 /* AnimFy.xcdatamodeld in Sources */,
 				92AF41C325C5F16000CF5DDD /* DetailsViewModel.swift in Sources */,
 				71A9227F2D0A14F1F408609A /* Window+Injection.swift in Sources */,
 				924ACBF925BDBBC90039D1FD /* DetailsVC.swift in Sources */,
 				71A92AB8EA1E1F09193E4115 /* UIViewController+UIAlertController.swift in Sources */,
+				92AF41D425C6083400CF5DDD /* DetailsSectionProtocol.swift in Sources */,
 				71A92BFFDE186CA768CEF090 /* UIViewController+Navigation.swift in Sources */,
 				925DB8AD25B8C4D100F8607D /* MangaRepository.swift in Sources */,
 				71A92AF973DFB6C47A7EC08E /* UIImage+ImagePlaceHolder.swift in Sources */,

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class DetailsVC: UIViewController {
 
@@ -26,7 +27,14 @@ class DetailsVC: UIViewController {
 
         if let cell = viewModel?.getData(datumID: datumID) {
             print("message: \(cell.title)")
+
+            // todo -> get image from view model or download if isn't cached
+            if let imageURL = cell.imageURL?.absoluteString {
+                let result = ImageCache.default.isCached(forKey: imageURL)
+                print("result: \(result) imageURL: \(imageURL)")
+            }
         }
+
     }
 
     deinit {
