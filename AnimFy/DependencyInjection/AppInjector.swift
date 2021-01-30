@@ -19,8 +19,12 @@ class AppInjector {
         if let detailsViewModel = detailsViewModel {
             return detailsViewModel
         } else {
-            detailsViewModel = DetailsViewModel()
+            detailsViewModel = DetailsViewModel(dataRepository: animeRepository)
             return detailsViewModel!
         }
+    }
+
+    func destroyDetailsViewModel() {
+        detailsViewModel = nil
     }
 }

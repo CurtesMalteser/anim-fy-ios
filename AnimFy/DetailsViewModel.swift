@@ -6,5 +6,16 @@
 //
 
 class DetailsViewModel {
-    let hello = "Hello from DetailsViewModel"
+
+    private let _repository: DataRepositoryProtocol
+
+    init(dataRepository repository: DataRepositoryProtocol) {
+        _repository = repository
+    }
+
+    func getData(datumID id: String) -> DataCellModel? {
+        _repository.dataList.first { model in
+            model.datumID == id
+        }
+    }
 }

@@ -94,5 +94,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         injector.injectDetailsViewModel()
     }
 
+    func destroyDetailsViewModel() {
+        injector.destroyDetailsViewModel()
+    }
+
 }
 
