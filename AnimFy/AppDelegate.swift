@@ -90,6 +90,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     // MARK: - Dependency Injection
+    func injectDetailsViewModel() -> DetailsViewModel {
+        injector.injectDetailsViewModel()
+    }
 
 }
 

@@ -13,5 +13,11 @@ class DetailsVC: UIViewController {
 
     var datumID: String!
     var dataRepository: DataRepositoryProtocol!
-    
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        let viewModel = (UIApplication.shared.delegate as! AppDelegate).injectDetailsViewModel()
+        print("message: \(viewModel.hello)")
+    }
 }
