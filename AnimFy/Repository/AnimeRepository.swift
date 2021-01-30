@@ -59,7 +59,7 @@ class AnimeRepository: DataRepositoryProtocol {
     }
 
     func getDatumDetailsBy(id: String) {
-
+        // todo
     }
 
     private func setCompletedStatus(_ status: Status) {

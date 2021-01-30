@@ -29,6 +29,7 @@
 		9260ABA125B35D5400AC0EF4 /* PosterViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9260ABA025B35D5400AC0EF4 /* PosterViewCell.swift */; };
 		92AE69C225C5E5FA00E675D6 /* AppInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AE69C125C5E5FA00E675D6 /* AppInjector.swift */; };
 		92AF41C325C5F16000CF5DDD /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AF41C225C5F16000CF5DDD /* DetailsViewModel.swift */; };
+		92AF41C825C6009D00CF5DDD /* DetailsViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AF41C725C6009D00CF5DDD /* DetailsViewModelTest.swift */; };
 		92C6BF8225BB672900D3D4A6 /* StatusDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C6BF8125BB672900D3D4A6 /* StatusDelegateProtocol.swift */; };
 		92D3FE6A25AB1771009B6981 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D3FE6925AB1771009B6981 /* AppDelegate.swift */; };
 		92D3FE6C25AB1771009B6981 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D3FE6B25AB1771009B6981 /* SceneDelegate.swift */; };
@@ -90,6 +91,7 @@
 		9260ABA025B35D5400AC0EF4 /* PosterViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterViewCell.swift; sourceTree = "<group>"; };
 		92AE69C125C5E5FA00E675D6 /* AppInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInjector.swift; sourceTree = "<group>"; };
 		92AF41C225C5F16000CF5DDD /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
+		92AF41C725C6009D00CF5DDD /* DetailsViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModelTest.swift; sourceTree = "<group>"; };
 		92C6BF8125BB672900D3D4A6 /* StatusDelegateProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusDelegateProtocol.swift; sourceTree = "<group>"; };
 		92D3FE6625AB1771009B6981 /* AnimFy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimFy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92D3FE6925AB1771009B6981 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -192,6 +194,14 @@
 			path = DependencyInjection;
 			sourceTree = "<group>";
 		};
+		92AF41CC25C6015B00CF5DDD /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				92AF41C225C5F16000CF5DDD /* DetailsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		92D3FE5D25AB1771009B6981 = {
 			isa = PBXGroup;
 			children = (
@@ -217,6 +227,7 @@
 		92D3FE6825AB1771009B6981 /* AnimFy */ = {
 			isa = PBXGroup;
 			children = (
+				92AF41CC25C6015B00CF5DDD /* ViewModel */,
 				92AE69C025C5E5D700E675D6 /* DependencyInjection */,
 				925DB8A125B8C26D00F8607D /* Repository */,
 				9260AB9F25B35D3E00AC0EF4 /* View */,
@@ -229,7 +240,6 @@
 				92D3FE6B25AB1771009B6981 /* SceneDelegate.swift */,
 				92D3FE7A25AB1772009B6981 /* Info.plist */,
 				92D3FE7225AB1771009B6981 /* AnimFy.xcdatamodeld */,
-				92AF41C225C5F16000CF5DDD /* DetailsViewModel.swift */,
 			);
 			path = AnimFy;
 			sourceTree = "<group>";
@@ -239,6 +249,7 @@
 			children = (
 				92D3FE8325AB1772009B6981 /* AnimFyTests.swift */,
 				92D3FE8525AB1772009B6981 /* Info.plist */,
+				92AF41C725C6009D00CF5DDD /* DetailsViewModelTest.swift */,
 			);
 			path = AnimFyTests;
 			sourceTree = "<group>";
@@ -598,6 +609,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92D3FE8425AB1772009B6981 /* AnimFyTests.swift in Sources */,
+				92AF41C825C6009D00CF5DDD /* DetailsViewModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
