@@ -9,7 +9,7 @@ import Alamofire
 
 class AnimeRepository: DataRepositoryProtocol {
 
-    private var _statusDelegate: StatusDelegateProtocol
+    var statusDelegate: StatusDelegateProtocol!
 
     private var isInProgress = false
 
@@ -20,7 +20,7 @@ class AnimeRepository: DataRepositoryProtocol {
     }
 
     fileprivate init(_ statusDelegate: StatusDelegateProtocol) {
-        _statusDelegate = statusDelegate
+        self.statusDelegate = statusDelegate
     }
 
 
@@ -30,7 +30,7 @@ class AnimeRepository: DataRepositoryProtocol {
             return
         }
 
-        _statusDelegate.postStatus(.Loading)
+        statusDelegate.postStatus(.Loading)
 
         AF.request(AnimFyAPI.anime).responseJSON { [self] response in
             isInProgress = true
@@ -63,7 +63,7 @@ class AnimeRepository: DataRepositoryProtocol {
 
     private func setCompletedStatus(_ status: Status) {
         isInProgress = false
-        _statusDelegate.postStatus(status)
+        statusDelegate.postStatus(status)
     }
 
 }
