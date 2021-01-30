@@ -11,7 +11,7 @@ import Alamofire
 
 class MangaRepository: DataRepositoryProtocol {
 
-    private var _statusDelegate: StatusDelegateProtocol
+    var statusDelegate: StatusDelegateProtocol!
 
     private var isInProgress = false
 
@@ -19,22 +19,13 @@ class MangaRepository: DataRepositoryProtocol {
 
     var dataList: [DataCellModel] = []
 
-    static func sharedInstance(statusDelegate: StatusDelegateProtocol) -> MangaRepository {
-        MangaRepository(statusDelegate)
-    }
-
-    fileprivate init(_ statusDelegate: StatusDelegateProtocol) {
-        _statusDelegate = statusDelegate
-    }
-
-
     func downloadCollection() {
 
         if (isInProgress || !dataList.isEmpty) {
             return
         }
 
-        _statusDelegate.postStatus(.Loading)
+        statusDelegate.postStatus(.Loading)
 
         AF.request(AnimFyAPI.manga).responseJSON { [self] response in
             isInProgress = true
@@ -73,6 +64,6 @@ class MangaRepository: DataRepositoryProtocol {
 
     private func setCompletedStatus(_ status: Status) {
         isInProgress = false
-        _statusDelegate.postStatus(status)
+        statusDelegate.postStatus(status)
     }
 }

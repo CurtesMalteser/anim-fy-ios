@@ -9,6 +9,7 @@ import Foundation
 
 protocol DataRepositoryProtocol {
     var dataList: Array<DataCellModel> { get set }
+    var statusDelegate:StatusDelegateProtocol! { get set }
     func downloadCollection()
     func getDatumDetailsBy(id: String)
 }

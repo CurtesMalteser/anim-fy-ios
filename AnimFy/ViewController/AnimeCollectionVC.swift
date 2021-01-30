@@ -26,7 +26,8 @@ class AnimeCollectionVC: BaseCollectionVC, BaseCollectionDelegate {
         delegate = self
         animeCollectionView.delegate = self
         animeCollectionView.dataSource = self
-        dataRepository = AnimeRepository.sharedInstance(statusDelegate: statusDelegate)
+        dataRepository = (UIApplication.shared.delegate as! AppDelegate).animeRepository
+        dataRepository?.statusDelegate = statusDelegate
     }
 
     override func viewDidAppear(_ animated: Bool) {

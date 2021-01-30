@@ -78,5 +78,4 @@ enum AnimFyAPI: APIConfiguration {
         return urlRequest
     }
 
-
 }
