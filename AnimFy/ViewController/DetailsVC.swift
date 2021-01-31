@@ -43,12 +43,9 @@ class DetailsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-
         tableView.delegate = dataSource
         tableView.dataSource = dataSource
 
-        tableView.estimatedRowHeight = 100
-        tableView.rowHeight = 100
     }
 
     deinit {

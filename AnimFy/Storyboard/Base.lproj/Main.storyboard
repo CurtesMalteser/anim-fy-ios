@@ -95,7 +95,7 @@
                     <connections>
                         <outlet property="mangaCollectionView" destination="6f1-kH-ioh" id="Qls-mK-MPV"/>
                         <outlet property="mangaFlowLayout" destination="Dug-QT-usK" id="LG2-ZC-9kX"/>
-                        <segue destination="mkO-ub-b9a" kind="show" id="ztm-sH-lzR"/>
+                        <segue destination="mkO-ub-b9a" kind="show" identifier="DetailsVC" id="ztm-sH-lzR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mF0-op-77r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -170,7 +170,7 @@
                     <connections>
                         <outlet property="animeCollectionView" destination="q6D-ZS-I2k" id="a8h-OC-TUg"/>
                         <outlet property="animeFlowLayout" destination="7Fz-Cz-ds9" id="B8l-7H-BUN"/>
-                        <segue destination="mkO-ub-b9a" kind="show" id="gSv-wL-r8I"/>
+                        <segue destination="mkO-ub-b9a" kind="show" identifier="DetailsVC" id="gSv-wL-r8I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="prm-Tr-He5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
