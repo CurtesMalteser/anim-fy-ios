@@ -16,7 +16,6 @@ class PosterDetailsHeaderView: UITableViewHeaderFooterView {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        poster.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0)
     }
 
     

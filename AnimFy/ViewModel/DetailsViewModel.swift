@@ -9,10 +9,10 @@ class DetailsViewModel {
 
     private let _repository: DataRepositoryProtocol
 
-    private var _datumID : String!
+    private let _datumID : String
 
-    private var _dataCell: DataCellModel? = nil
-    var dataCell: DataCellModel? {
+    private var _dataCell: Array<DetailsSectionProtocol> = []
+    var dataCell: Array<DetailsSectionProtocol> {
         get {
             _dataCell
         }
@@ -21,14 +21,13 @@ class DetailsViewModel {
     init(datumID: String, dataRepository repository: DataRepositoryProtocol) {
         _datumID = datumID
         _repository = repository
-        getData(datumID: _datumID)
+        getData()
     }
 
-    private func getData(datumID id: String) -> DataCellModel? {
-        _dataCell = _repository.dataList.first { model in
-            model.datumID == id
+    private func getData()  {
+        if let datumDetails = _repository.getDatumDetailsBy(id: _datumID) {
+            _dataCell = datumDetails
         }
-        return _dataCell
     }
 
 }

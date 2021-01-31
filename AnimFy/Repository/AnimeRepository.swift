@@ -19,6 +19,7 @@ class AnimeRepository: DataRepositoryProtocol {
 
     var dataList: [DataCellModel] = []
 
+    var detailsSectionDictionary: Dictionary<String, Array<DetailsSectionProtocol>> = [:]
 
     func downloadCollection() {
 
@@ -47,10 +48,19 @@ class AnimeRepository: DataRepositoryProtocol {
 
                     animeDataList = data.data
                     dataList = data.data.map { datum -> DataCellModel in
-                        DataCellModel(
+
+                        let dataCell =  DataCellModel(
                                 id: datum.id, title: datum.attributes.titles.en ?? datum.attributes.titles.enJp,
-                                imageURL: tryGetImageURL(link: datum.attributes.posterImage?.large)
+                                imageURL: tryGetImageURL(link: datum.attributes.posterImage?.large),
+                                synopsis: datum.attributes.synopsis
                         )
+
+                        detailsSectionDictionary[datum.id] = [
+                            dataCell
+                        ]
+
+                        return dataCell
+
                     }
                     setCompletedStatus(.Success)
                 } catch {
@@ -72,8 +82,8 @@ class AnimeRepository: DataRepositoryProtocol {
         }
     }
 
-    func getDatumDetailsBy(id: String) {
-        // todo
+    func getDatumDetailsBy(id: String) -> Array<DetailsSectionProtocol>?{
+        detailsSectionDictionary[id]
     }
 
     private func setCompletedStatus(_ status: Status) {
@@ -305,10 +315,19 @@ extension AnimeRepository {
 
             animeDataList = data.data
             dataList = data.data.map { datum -> DataCellModel in
-                DataCellModel(
+
+                let dataCell =  DataCellModel(
                         id: datum.id, title: datum.attributes.titles.en ?? datum.attributes.titles.enJp,
-                        imageURL: tryGetImageURL(link: datum.attributes.posterImage?.large)
+                        imageURL: tryGetImageURL(link: datum.attributes.posterImage?.large),
+                        synopsis: datum.attributes.synopsis
                 )
+
+                detailsSectionDictionary[datum.id] = [
+                    dataCell
+                ]
+
+                return dataCell
+
             }
             setCompletedStatus(.Success)
         } catch {

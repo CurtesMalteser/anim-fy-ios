@@ -10,9 +10,10 @@ import Foundation
 protocol DataRepositoryProtocol {
     var type: DataRepositoryType { get }
     var dataList: Array<DataCellModel> { get set }
+    var detailsSectionDictionary: Dictionary<String, Array<DetailsSectionProtocol>> { get set }
     var statusDelegate: StatusDelegateProtocol! { get set }
     func downloadCollection()
-    func getDatumDetailsBy(id: String)
+    func getDatumDetailsBy(id: String) -> Array<DetailsSectionProtocol>?
 }
 
 extension DataRepositoryProtocol {
