@@ -29,10 +29,10 @@ struct AnimeDatum: Datum {
 struct AnimeAttributes: Attributes {
     let createdAt: String
     let updatedAt: String
-    let slug, synopsis, attributesDescription: String
+    let slug, synopsis/*, attributesDescription*/: String
     let titles: Titles
     let canonicalTitle: String
-    let abbreviatedTitles: [String]
+    let abbreviatedTitles: [String]?
     let averageRating: String?
     let ratingFrequencies: [String: String]
     let userCount, favoritesCount: Int
@@ -53,7 +53,7 @@ struct AnimeAttributes: Attributes {
 
     enum CodingKeys: String, CodingKey {
         case createdAt, updatedAt, slug, synopsis
-        case attributesDescription = "description"
+        //case attributesDescription = "description"
         case titles,
              canonicalTitle,
              abbreviatedTitles,

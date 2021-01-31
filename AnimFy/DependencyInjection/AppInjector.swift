@@ -14,14 +14,14 @@ class AppInjector {
     let animeRepository = AnimeRepository()
     let mangaRepository = MangaRepository()
 
-    func injectDetailsViewModel(repositoryType type: DataRepositoryType) -> DetailsViewModel {
+    func injectDetailsViewModel(datumID: String, repositoryType type: DataRepositoryType) -> DetailsViewModel {
         if let detailsViewModel = detailsViewModel {
             return detailsViewModel
         } else {
             if (type == .anime) {
-                detailsViewModel = DetailsViewModel(dataRepository: animeRepository)
+                detailsViewModel = DetailsViewModel(datumID: datumID, dataRepository: animeRepository)
             } else if (type == .manga) {
-                detailsViewModel = DetailsViewModel(dataRepository: mangaRepository)
+                detailsViewModel = DetailsViewModel(datumID: datumID, dataRepository: mangaRepository)
             }
             return detailsViewModel!
         }

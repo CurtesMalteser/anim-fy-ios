@@ -27,8 +27,9 @@ class BaseCollectionVC: UIViewController, UICollectionViewDelegate, UICollection
             networkActivityIndicator = showNetworkActivityAlert()
 
         case .Error(let error):
-            networkActivityIndicator?.dismiss(animated: true)
-            showErrorAlert(message: error.localizedDescription)
+            networkActivityIndicator?.dismiss(animated: true) {
+                self.showErrorAlert(message: error.localizedDescription)
+            }
         }
     }
 
@@ -84,7 +85,7 @@ class BaseCollectionVC: UIViewController, UICollectionViewDelegate, UICollection
             let detailsVC = viewController as! DetailsVC
 
             detailsVC.datumID = id
-            detailsVC.dataRepository = delegate.dataRepository
+            detailsVC.dataRepositoryType = delegate.dataRepository?.type
 
         }
 

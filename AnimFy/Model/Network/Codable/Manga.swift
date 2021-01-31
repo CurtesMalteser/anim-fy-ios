@@ -32,7 +32,7 @@ struct MangaAttributes: Attributes {
     let slug, synopsis: String
     let titles: Titles
     let canonicalTitle: String
-    let abbreviatedTitles: [String]
+    let abbreviatedTitles: [String]?
     let averageRating: String?
     let ratingFrequencies: [String: String]
     let userCount, favoritesCount: Int

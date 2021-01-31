@@ -11,7 +11,7 @@ protocol Attributes: Codable {
     var synopsis: String { get }
     var titles: Titles { get }
     var canonicalTitle: String { get }
-    var abbreviatedTitles: [String] { get }
+    var abbreviatedTitles: [String]? { get }
     var averageRating: String? { get }
     var ratingFrequencies: [String: String] { get }
     var userCount: Int { get }

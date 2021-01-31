@@ -14,27 +14,41 @@ class DetailsVC: UIViewController {
 
     var datumID: String!
 
-    var dataRepository: DataRepositoryProtocol!
+    var dataRepositoryType: DataRepositoryType!
 
-    private var viewModel: DetailsViewModel? {
+
+    var viewModel: DetailsViewModel {
         get {
-            (UIApplication.shared.delegate as! AppDelegate).injectDetailsViewModel(repositoryType: dataRepository.type)
+            (UIApplication.shared.delegate as! AppDelegate).injectDetailsViewModel(datumID: self.datumID, repositoryType: dataRepositoryType)
         }
     }
+
+    lazy var dataSource: DetailsTableDataSourceDelegate = DetailsTableDataSourceDelegate(detailsViewModel: viewModel)
+
+
+    @IBOutlet weak var tableView: UITableView!
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        if let cell = viewModel?.getData(datumID: datumID) {
-            print("message: \(cell.title)")
+       tableView.register(
+                UINib(nibName: "PosterDetailsHeaderView", bundle: nil)
+                , forHeaderFooterViewReuseIdentifier: PosterDetailsHeaderView.identifier)
 
-            // todo -> get image from view model or download if isn't cached
-            if let imageURL = cell.imageURL?.absoluteString {
-                let result = ImageCache.default.isCached(forKey: imageURL)
-                print("result: \(result) imageURL: \(imageURL)")
-            }
-        }
+        tableView.register(
+                UINib(nibName: "DetailsViewCell", bundle: nil)
+                , forCellReuseIdentifier: DetailsViewCell.identifier)
+    }
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+
+        tableView.delegate = dataSource
+        tableView.dataSource = dataSource
+
+        tableView.estimatedRowHeight = 100
+        tableView.rowHeight = 100
     }
 
     deinit {

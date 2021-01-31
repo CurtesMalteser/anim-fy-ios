@@ -184,14 +184,29 @@
                     <view key="view" contentMode="scaleToFill" id="ztc-qR-LyH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="o1r-UP-2lb">
+                                <rect key="frame" x="20" y="88" width="374" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="GIY-gL-wTO"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="o1r-UP-2lb" firstAttribute="top" secondItem="GIY-gL-wTO" secondAttribute="top" id="2Go-cp-qmT"/>
+                            <constraint firstItem="GIY-gL-wTO" firstAttribute="trailing" secondItem="o1r-UP-2lb" secondAttribute="trailing" constant="20" id="Q1Y-cj-e1f"/>
+                            <constraint firstItem="o1r-UP-2lb" firstAttribute="bottom" secondItem="GIY-gL-wTO" secondAttribute="bottom" id="h9O-Xx-SJu"/>
+                            <constraint firstItem="o1r-UP-2lb" firstAttribute="leading" secondItem="GIY-gL-wTO" secondAttribute="leading" constant="20" id="qmA-BX-uBw"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="1zr-ot-CAk"/>
+                    <connections>
+                        <outlet property="tableView" destination="o1r-UP-2lb" id="gPa-RD-GAa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jAL-3m-VcC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3951" y="-58"/>
+            <point key="canvasLocation" x="3950.7246376811599" y="-58.258928571428569"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
