@@ -7,18 +7,9 @@
 
 import Foundation
 
-struct DataCellModel: DetailsSectionProtocol {
-
+struct DataCellModel: RowsProtocol {
     let datumID: String
     let title: String
     let imageURL: URL?
     let synopsis: String
-
-    init(id: String, title: String, imageURL: URL?, synopsis: String) {
-        datumID = id
-        self.title = title
-        self.imageURL = imageURL
-        self.synopsis = synopsis
-    }
-
 }
