@@ -55,31 +55,40 @@ class DetailsTableDataSourceDelegate: NSObject, UITableViewDelegate, UITableView
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        200
+        let sectionHeader = _viewModel.dataCell[section]
+        switch sectionHeader {
+        case is PosterSection:
+            return 200
+        default:
+            return 44
+        }
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let sectionHeader = _viewModel.dataCell[section]
 
-        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: PosterDetailsHeaderView.identifier) as! PosterDetailsHeaderView
-
-        let dataCell = _viewModel.dataCell[section]
-
-        switch dataCell {
-
+        switch sectionHeader {
         case is PosterSection:
-            let cell = dataCell as! PosterSection
+            let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: PosterDetailsHeaderView.identifier) as! PosterDetailsHeaderView
+            let cell = sectionHeader as! PosterSection
             if let imageURL = (cell.rows.first as! DataCellModel).imageURL {
                 headerView.poster.kf.setImage(with: imageURL, placeholder: UIImage.imagePlaceholder())
             }
+            return headerView
 
         case is AttributesSection:
-            headerView.poster.image = UIImage.imagePlaceholder()
+            return dequeueAttributesHeaderView(tableView: tableView, label: sectionHeader.label)
 
         default:
-            break
+            return dequeueAttributesHeaderView(tableView: tableView, label: sectionHeader.label)
         }
 
+    }
 
+    private func dequeueAttributesHeaderView(tableView: UITableView, label: String) -> UIView? {
+        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: AttributesSectionHeaderView.identifier) as! AttributesSectionHeaderView
+        headerView.label.text = label
         return headerView
     }
 }

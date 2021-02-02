@@ -43,7 +43,7 @@ class MangaRepository: DataRepositoryProtocol {
                     mangaDataList = data.data
                     dataList = data.data.map { datum -> DataCellModel in
 
-                        let dataCell =  DataCellModel(
+                        let dataCell = DataCellModel(
                                 datumID: datum.id,
                                 title: datum.attributes.titles.en ?? datum.attributes.titles.enJp,
                                 imageURL: tryGetImageURL(link: datum.attributes.posterImage?.large),
@@ -51,7 +51,10 @@ class MangaRepository: DataRepositoryProtocol {
                         )
 
                         detailsSectionDictionary[datum.id] = [
-                            PosterSection(rows: [dataCell]),
+                            PosterSection(
+                                    // fixme -> title not needed on DataCell this way
+                                    label: datum.attributes.titles.en ?? datum.attributes.titles.enJp,
+                                    rows: [dataCell]),
                         ]
 
                         return dataCell
@@ -70,7 +73,7 @@ class MangaRepository: DataRepositoryProtocol {
         }
     }
 
-    func getDatumDetailsBy(id: String) -> Array<DetailsSectionProtocol>?{
+    func getDatumDetailsBy(id: String) -> Array<DetailsSectionProtocol>? {
         detailsSectionDictionary[id]
     }
 

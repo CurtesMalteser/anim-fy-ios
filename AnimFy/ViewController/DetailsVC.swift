@@ -31,13 +31,18 @@ class DetailsVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-       tableView.register(
-                UINib(nibName: "PosterDetailsHeaderView", bundle: nil)
-                , forHeaderFooterViewReuseIdentifier: PosterDetailsHeaderView.identifier)
+        tableView.register(
+                UINib(nibName: "PosterDetailsHeaderView", bundle: nil),
+               forHeaderFooterViewReuseIdentifier: PosterDetailsHeaderView.identifier)
 
         tableView.register(
-                UINib(nibName: "DetailsViewCell", bundle: nil)
-                , forCellReuseIdentifier: DetailsViewCell.identifier)
+                UINib(nibName: "AttributesSectionHeaderView", bundle: nil),
+                forHeaderFooterViewReuseIdentifier: AttributesSectionHeaderView.identifier)
+
+        tableView.register(
+                UINib(nibName: "DetailsViewCell", bundle: nil),
+                forCellReuseIdentifier: DetailsViewCell.identifier)
+
     }
 
     override func viewDidLoad() {

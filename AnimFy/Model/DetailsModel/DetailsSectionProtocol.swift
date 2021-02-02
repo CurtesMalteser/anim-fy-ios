@@ -7,14 +7,17 @@
 
 // MARK: - Sections
 protocol DetailsSectionProtocol {
+        var label: String { get }
         var rows: [RowsProtocol] { get }
 }
 
 struct PosterSection: DetailsSectionProtocol {
+        var label: String
         let rows: [RowsProtocol]
 }
 
 struct AttributesSection: DetailsSectionProtocol {
+        var label: String
         let rows: [RowsProtocol]
 }
 
