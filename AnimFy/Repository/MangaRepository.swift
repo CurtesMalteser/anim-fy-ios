@@ -50,12 +50,7 @@ class MangaRepository: DataRepositoryProtocol {
                                 synopsis: datum.attributes.synopsis
                         )
 
-                        detailsSectionDictionary[datum.id] = [
-                            PosterSection(
-                                    // fixme -> title not needed on DataCell this way
-                                    label: datum.attributes.titles.en ?? datum.attributes.titles.enJp,
-                                    rows: [dataCell]),
-                        ]
+                        composeMangaDetailRows(datum: datum as MangaDatum, dataCell: dataCell)
 
                         return dataCell
                     }
@@ -80,5 +75,34 @@ class MangaRepository: DataRepositoryProtocol {
     private func setCompletedStatus(_ status: Status) {
         isInProgress = false
         statusDelegate.postStatus(status)
+    }
+
+    private func composeMangaDetailRows(datum: MangaDatum, dataCell: DataCellModel) {
+        let attrs = datum.attributes
+
+        let ageRating: String = attrs.ageRating?.rawValue ?? "N/A"
+        let ageRatingGuide = attrs.ageRatingGuide ?? "N/A"
+
+        let episodeCount = attrs.chapterCount != nil ? String(attrs.chapterCount!) : "N/A"
+        let volumeCount = attrs.volumeCount != nil ? String(attrs.volumeCount!) : "N/A"
+
+        detailsSectionDictionary[datum.id] = [
+            PosterSection(
+                    label: attrs.titles.en ?? attrs.titles.enJp,
+                    rows: [dataCell]),
+            AttributesSection(
+                    rows: [
+                        RatingRow(title: "Anime type", value: datum.type),
+                        RatingRow(title: "Status", value: attrs.status.rawValue),
+                        RatingRow(title: "Number of Chapter", value: episodeCount),
+                        RatingRow(title: "Number of Volumes", value: volumeCount),
+                        RatingRow(title: "User Count", value: String(attrs.userCount)),
+                        RatingRow(title: "Favorites Count", value: String(attrs.favoritesCount)),
+                        RatingRow(title: "Popularity Rank", value: String(attrs.popularityRank)),
+                        RatingRow(title: "Rating Rank", value: String(format: "%d", attrs.ratingRank ?? "N/A")),
+                        RatingRow(title: "Age Rating", value: ageRating),
+                        RatingRow(title: "Age Rating Guide", value: ageRatingGuide),
+                    ])
+        ]
     }
 }
