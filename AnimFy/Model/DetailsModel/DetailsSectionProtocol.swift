@@ -25,9 +25,6 @@ struct AttributesSection: DetailsSectionProtocol {
 protocol RowsProtocol {}
 
 struct RatingRow: RowsProtocol {
-        let userCount: Int
-        let favoritesCount: Int
-        let popularityRank: Int
-        let ratingRank: Int?
-        let ageRating: AgeRating?
+        let title: String
+        let value: String
 }

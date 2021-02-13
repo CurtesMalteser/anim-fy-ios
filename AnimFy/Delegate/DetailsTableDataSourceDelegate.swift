@@ -41,8 +41,8 @@ class DetailsTableDataSourceDelegate: NSObject, UITableViewDelegate, UITableView
         case is AttributesSection:
             let viewCell = tableView.dequeueReusableCell(withIdentifier: DetailsViewCell.identifier, for: indexPath) as! DetailsViewCell
             let cellModel = (section as! AttributesSection).rows[indexPath.row] as! RatingRow
-            viewCell.label.text = String(cellModel.userCount)
-            viewCell.value.text = String(cellModel.favoritesCount)
+            viewCell.label.text = cellModel.title
+            viewCell.value.text = cellModel.value
             viewCell.icon.image = UIImage.imagePlaceholder()
             return viewCell
 
