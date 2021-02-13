@@ -32,15 +32,19 @@ class DetailsVC: UIViewController {
         super.viewWillAppear(animated)
 
         tableView.register(
-                UINib(nibName: "PosterDetailsHeaderView", bundle: nil),
+                UINib(nibName: PosterDetailsHeaderView.identifier, bundle: nil),
                forHeaderFooterViewReuseIdentifier: PosterDetailsHeaderView.identifier)
 
         tableView.register(
-                UINib(nibName: "AttributesSectionHeaderView", bundle: nil),
+                UINib(nibName: TitleSynopsisViewCell.identifier, bundle: nil),
+                forCellReuseIdentifier: TitleSynopsisViewCell.identifier)
+
+        tableView.register(
+                UINib(nibName: AttributesSectionHeaderView.identifier, bundle: nil),
                 forHeaderFooterViewReuseIdentifier: AttributesSectionHeaderView.identifier)
 
         tableView.register(
-                UINib(nibName: "DetailsViewCell", bundle: nil),
+                UINib(nibName:DetailsViewCell.identifier, bundle: nil),
                 forCellReuseIdentifier: DetailsViewCell.identifier)
 
     }

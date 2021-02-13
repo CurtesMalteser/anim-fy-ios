@@ -52,6 +52,8 @@
 		92D3FEBB25AB3B3F009B6981 /* AnimeCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D3FEBA25AB3B3F009B6981 /* AnimeCollectionVC.swift */; };
 		92D3FEC025AB3B98009B6981 /* MangaCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D3FEBF25AB3B98009B6981 /* MangaCollectionVC.swift */; };
 		92D3FED225AB420A009B6981 /* AnimFyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D3FED125AB420A009B6981 /* AnimFyAPI.swift */; };
+		92DF057E25D7EB480049314C /* TitleSynopsisViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DF057C25D7EB480049314C /* TitleSynopsisViewCell.swift */; };
+		92DF057F25D7EB480049314C /* TitleSynopsisViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92DF057D25D7EB480049314C /* TitleSynopsisViewCell.xib */; };
 		D4BD755561004E0F1192760B /* Pods_AnimFy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8B12A2EE73263C34F54647B /* Pods_AnimFy.framework */; };
 /* End PBXBuildFile section */
 
@@ -128,6 +130,8 @@
 		92D3FEBA25AB3B3F009B6981 /* AnimeCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeCollectionVC.swift; sourceTree = "<group>"; };
 		92D3FEBF25AB3B98009B6981 /* MangaCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaCollectionVC.swift; sourceTree = "<group>"; };
 		92D3FED125AB420A009B6981 /* AnimFyAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimFyAPI.swift; sourceTree = "<group>"; };
+		92DF057C25D7EB480049314C /* TitleSynopsisViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleSynopsisViewCell.swift; sourceTree = "<group>"; };
+		92DF057D25D7EB480049314C /* TitleSynopsisViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleSynopsisViewCell.xib; sourceTree = "<group>"; };
 		9C44EB59C10EC97D02CDC451 /* Pods-AnimFy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimFy.debug.xcconfig"; path = "Target Support Files/Pods-AnimFy/Pods-AnimFy.debug.xcconfig"; sourceTree = "<group>"; };
 		CA06E335C38F7AC03BEE325A /* Pods-AnimFy-AnimFyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimFy-AnimFyUITests.debug.xcconfig"; path = "Target Support Files/Pods-AnimFy-AnimFyUITests/Pods-AnimFy-AnimFyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F8B12A2EE73263C34F54647B /* Pods_AnimFy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnimFy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -214,6 +218,8 @@
 				92717F6825C6CD93004CD4F8 /* DetailsViewCell.xib */,
 				924DD03025C9F822005EE8CA /* AttributesSectionHeaderView.swift */,
 				924DD03125C9F822005EE8CA /* AttributesSectionHeaderView.xib */,
+				92DF057C25D7EB480049314C /* TitleSynopsisViewCell.swift */,
+				92DF057D25D7EB480049314C /* TitleSynopsisViewCell.xib */,
 			);
 			path = DetailsViews;
 			sourceTree = "<group>";
@@ -495,6 +501,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92717F5625C6C2E1004CD4F8 /* PosterDetailsHeaderView.xib in Resources */,
+				92DF057F25D7EB480049314C /* TitleSynopsisViewCell.xib in Resources */,
 				92D3FE7925AB1772009B6981 /* LaunchScreen.storyboard in Resources */,
 				92717F6A25C6CD93004CD4F8 /* DetailsViewCell.xib in Resources */,
 				92D3FE7625AB1772009B6981 /* Assets.xcassets in Resources */,
@@ -638,6 +645,7 @@
 				92AE69C225C5E5FA00E675D6 /* AppInjector.swift in Sources */,
 				92D3FE6E25AB1771009B6981 /* BaseCollectionVC.swift in Sources */,
 				92D3FE6A25AB1771009B6981 /* AppDelegate.swift in Sources */,
+				92DF057E25D7EB480049314C /* TitleSynopsisViewCell.swift in Sources */,
 				92D3FEBB25AB3B3F009B6981 /* AnimeCollectionVC.swift in Sources */,
 				92D3FE6C25AB1771009B6981 /* SceneDelegate.swift in Sources */,
 				92AF41CE25C6076C00CF5DDD /* DetailsDataModel.swift in Sources */,

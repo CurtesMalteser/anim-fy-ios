@@ -9,7 +9,7 @@ import UIKit
 
 class PosterDetailsHeaderView: UITableViewHeaderFooterView {
 
-    static let identifier = "PosterDetailsHeader"
+    static let identifier = "PosterDetailsHeaderView"
 
     @IBOutlet weak var poster: UIImageView!
     
