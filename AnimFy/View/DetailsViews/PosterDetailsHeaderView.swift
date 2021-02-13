@@ -1,5 +1,5 @@
 //
-//  PosterDetailsViewCell.swift
+//  PosterDetailsHeaderView.swift
 //  AnimFy
 //
 //  Created by António Bastião on 31.01.21.
@@ -12,11 +12,5 @@ class PosterDetailsHeaderView: UITableViewHeaderFooterView {
     static let identifier = "PosterDetailsHeaderView"
 
     @IBOutlet weak var poster: UIImageView!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
     
 }

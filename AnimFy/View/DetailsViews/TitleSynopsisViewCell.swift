@@ -11,6 +11,10 @@ class TitleSynopsisViewCell: UITableViewCell {
 
     static let identifier: String = "TitleSynopsisViewCell"
 
+    @IBOutlet weak var title: UILabel!
+
+    @IBOutlet weak var synopsis: UILabel!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

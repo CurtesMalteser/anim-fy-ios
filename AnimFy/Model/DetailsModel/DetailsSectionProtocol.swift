@@ -17,7 +17,7 @@ struct PosterSection: DetailsSectionProtocol {
 }
 
 struct AttributesSection: DetailsSectionProtocol {
-        var label: String
+        let label: String = "Attributes"
         let rows: [RowsProtocol]
 }
 

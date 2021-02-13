@@ -32,10 +32,10 @@ class DetailsTableDataSourceDelegate: NSObject, UITableViewDelegate, UITableView
 
         switch section {
         case is PosterSection:
-            let viewCell = tableView.dequeueReusableCell(withIdentifier: DetailsViewCell.identifier, for: indexPath) as! DetailsViewCell
+            let viewCell = tableView.dequeueReusableCell(withIdentifier: TitleSynopsisViewCell.identifier, for: indexPath) as! TitleSynopsisViewCell
             let cellModel = (section as! PosterSection).rows[indexPath.row] as! DataCellModel
-            viewCell.label.text = cellModel.title
-            viewCell.value.text = cellModel.synopsis
+            viewCell.title.text = cellModel.title
+            viewCell.synopsis.text = cellModel.synopsis
             return viewCell
 
         case is AttributesSection:

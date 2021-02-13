@@ -52,11 +52,9 @@ class AnimeRepository: DataRepositoryProtocol {
                         let attrs = datum.attributes
                         detailsSectionDictionary[datum.id] = [
                             PosterSection(
-                                    // fixme -> title not needed on DataCell this way
                                     label: datum.attributes.titles.en ?? datum.attributes.titles.enJp,
                                     rows: [dataCell]),
                             AttributesSection(
-                                    label: "Attributes",
                                     rows: [
                                 RatingRow(userCount: attrs.userCount,
                                         favoritesCount: attrs.favoritesCount,
