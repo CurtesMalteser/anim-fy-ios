@@ -50,6 +50,12 @@ class AnimeRepository: DataRepositoryProtocol {
                         )
 
                         let attrs = datum.attributes
+
+                        let ageRating: String = attrs.ageRating?.rawValue ?? "N/A"
+                        let ageRatingGuide = attrs.ageRatingGuide ?? "N/A"
+
+                        let episodeCount = attrs.episodeCount != nil ? String(attrs.episodeCount!) : "N/A"
+
                         detailsSectionDictionary[datum.id] = [
                             PosterSection(
                                     // fixme -> title not needed on DataCell this way
@@ -57,11 +63,15 @@ class AnimeRepository: DataRepositoryProtocol {
                                     rows: [dataCell]),
                             AttributesSection(
                                     rows: [
+                                        RatingRow(title: "Anime type", value: datum.type.rawValue),
+                                        RatingRow(title: "Status", value: attrs.status.rawValue),
+                                        RatingRow(title: "Number of Episodes", value: episodeCount),
                                         RatingRow(title: "User Count", value: String(attrs.userCount)),
                                         RatingRow(title: "Favorites Count", value: String(attrs.favoritesCount)),
                                         RatingRow(title: "Popularity Rank", value: String(attrs.popularityRank)),
                                         RatingRow(title: "Rating Rank", value: String(format: "%d", attrs.ratingRank ?? "N/A")),
-                                        RatingRow(title: "Age Rating", value: String(format: "%d", attrs.ageRating?.rawValue ?? "N/A")),
+                                        RatingRow(title: "Age Rating", value: ageRating),
+                                        RatingRow(title: "Age Rating Guide", value: ageRatingGuide),
                                     ])
                         ]
 

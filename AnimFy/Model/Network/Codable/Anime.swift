@@ -29,7 +29,7 @@ struct AnimeDatum: Datum {
 struct AnimeAttributes: Attributes {
     let createdAt: String
     let updatedAt: String
-    let slug, synopsis/*, attributesDescription*/: String
+    let slug, synopsis: String
     let titles: Titles
     let canonicalTitle: String
     let abbreviatedTitles: [String]?
