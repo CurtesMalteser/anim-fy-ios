@@ -14,8 +14,10 @@ class DetailsViewCell: UITableViewCell {
 
     @IBOutlet weak var label: UILabel!
     
-    @IBOutlet weak var synopsis: UILabel!
+    @IBOutlet weak var value: UILabel!
 
+    @IBOutlet weak var icon: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

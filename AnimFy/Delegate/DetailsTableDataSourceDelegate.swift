@@ -35,20 +35,21 @@ class DetailsTableDataSourceDelegate: NSObject, UITableViewDelegate, UITableView
             let viewCell = tableView.dequeueReusableCell(withIdentifier: DetailsViewCell.identifier, for: indexPath) as! DetailsViewCell
             let cellModel = (section as! PosterSection).rows[indexPath.row] as! DataCellModel
             viewCell.label.text = cellModel.title
-            viewCell.synopsis.text = cellModel.synopsis
+            viewCell.value.text = cellModel.synopsis
             return viewCell
 
         case is AttributesSection:
             let viewCell = tableView.dequeueReusableCell(withIdentifier: DetailsViewCell.identifier, for: indexPath) as! DetailsViewCell
             let cellModel = (section as! AttributesSection).rows[indexPath.row] as! RatingRow
             viewCell.label.text = String(cellModel.userCount)
-            viewCell.synopsis.text = "aiahi"//String(cellModel.favoritesCount)
+            viewCell.value.text = String(cellModel.favoritesCount)
+            viewCell.icon.image = UIImage.imagePlaceholder()
             return viewCell
 
         default:
             let viewCell = tableView.dequeueReusableCell(withIdentifier: DetailsViewCell.identifier, for: indexPath) as! DetailsViewCell
             viewCell.label.text = "N/A"
-            viewCell.synopsis.text = "N/A"
+            viewCell.value.text = "N/A"
             return viewCell
 
         }
