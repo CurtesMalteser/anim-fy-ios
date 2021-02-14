@@ -27,3 +27,23 @@ protocol Attributes: Codable {
     var posterImage: PosterImage? { get }
     var coverImage: CoverImage? { get }
 }
+
+extension Attributes {
+
+    func optionalAttrToString<T: Attributes>(val: (T) -> String) -> String {
+        val(self as! T)
+    }
+
+    func optionalAgeRatingToString() -> String {
+        ageRating?.rawValue ?? "N/A"
+    }
+
+    func optionalAgeRatingGuideToString() -> String {
+        ageRatingGuide ?? "N/A"
+    }
+
+    func optionalRatingRankToString() -> String {
+        ratingRank != nil ? String(ratingRank!) : "N/A"
+    }
+
+}

@@ -78,12 +78,12 @@ class AnimeRepository: DataRepositoryProtocol {
     }
 
     private func composeAnimeDetailRows(datum: AnimeDatum, dataCell: DataCellModel) {
+
         let attrs = datum.attributes
 
-        let ageRating: String = attrs.ageRating?.rawValue ?? "N/A"
-        let ageRatingGuide = attrs.ageRatingGuide ?? "N/A"
-
-        let episodeCount = attrs.episodeCount != nil ? String(attrs.episodeCount!) : "N/A"
+        let episodeCount: String = attrs.optionalAttrToString { (attributes: AnimeAttributes) in
+            attributes.episodeCount != nil ? String(attributes.episodeCount!) : "N/A"
+        }
 
         detailsSectionDictionary[datum.id] = [
             PosterSection(
@@ -91,15 +91,15 @@ class AnimeRepository: DataRepositoryProtocol {
                     rows: [dataCell]),
             AttributesSection(
                     rows: [
-                        RatingRow(title: "Anime type", value: datum.type.rawValue),
-                        RatingRow(title: "Status", value: attrs.status.rawValue),
-                        RatingRow(title: "Number of Episodes", value: episodeCount),
-                        RatingRow(title: "User Count", value: String(attrs.userCount)),
-                        RatingRow(title: "Favorites Count", value: String(attrs.favoritesCount)),
-                        RatingRow(title: "Popularity Rank", value: String(attrs.popularityRank)),
-                        RatingRow(title: "Rating Rank", value: String(format: "%d", attrs.ratingRank ?? "N/A")),
-                        RatingRow(title: "Age Rating", value: ageRating),
-                        RatingRow(title: "Age Rating Guide", value: ageRatingGuide),
+                        RatingRow(icon: UIImage.imagePlaceholder(), title: "Anime type", value: datum.type.rawValue),
+                        RatingRow(icon: UIImage.imagePlaceholder(), title: "Status", value: attrs.status.rawValue),
+                        RatingRow(icon: UIImage.imagePlaceholder(), title: "Number of Episodes", value: episodeCount),
+                        RatingRow(icon: UIImage.imageUserCount(), title: "User Count", value: String(attrs.userCount)),
+                        RatingRow(icon: UIImage.imageFavoritesCount(), title: "Favorites Count", value: String(attrs.favoritesCount)),
+                        RatingRow(icon: UIImage.imagePlaceholder(), title: "Popularity Rank", value: String(attrs.popularityRank)),
+                        RatingRow(icon: UIImage.imagePlaceholder(), title: "Rating Rank", value: attrs.optionalRatingRankToString()),
+                        RatingRow(icon: UIImage.imagePlaceholder(), title: "Age Rating", value: attrs.optionalAgeRatingToString()),
+                        RatingRow(icon: UIImage.imagePlaceholder(), title: "Age Rating Guide", value: attrs.optionalAgeRatingGuideToString()),
                     ])
         ]
     }

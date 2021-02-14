@@ -43,7 +43,7 @@ class DetailsTableDataSourceDelegate: NSObject, UITableViewDelegate, UITableView
             let cellModel = (section as! AttributesSection).rows[indexPath.row] as! RatingRow
             viewCell.label.text = cellModel.title
             viewCell.value.text = cellModel.value
-            viewCell.icon.image = UIImage.imagePlaceholder()
+            viewCell.icon.image = cellModel.icon
             return viewCell
 
         default:
@@ -61,7 +61,7 @@ class DetailsTableDataSourceDelegate: NSObject, UITableViewDelegate, UITableView
         case is PosterSection:
             return 200
         default:
-            return 44
+            return 48
         }
     }
 

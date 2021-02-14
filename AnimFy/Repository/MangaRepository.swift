@@ -78,13 +78,16 @@ class MangaRepository: DataRepositoryProtocol {
     }
 
     private func composeMangaDetailRows(datum: MangaDatum, dataCell: DataCellModel) {
+
         let attrs = datum.attributes
 
-        let ageRating: String = attrs.ageRating?.rawValue ?? "N/A"
-        let ageRatingGuide = attrs.ageRatingGuide ?? "N/A"
+        let chapterCount: String = attrs.optionalAttrToString { (attributes: MangaAttributes) in
+            attributes.chapterCount != nil ? String(attributes.chapterCount!) : "N/A"
+        }
 
-        let episodeCount = attrs.chapterCount != nil ? String(attrs.chapterCount!) : "N/A"
-        let volumeCount = attrs.volumeCount != nil ? String(attrs.volumeCount!) : "N/A"
+        let volumeCount: String = attrs.optionalAttrToString { (attributes: MangaAttributes) in
+            attributes.volumeCount != nil ? String(attributes.volumeCount!) : "N/A"
+        }
 
         detailsSectionDictionary[datum.id] = [
             PosterSection(
@@ -92,16 +95,16 @@ class MangaRepository: DataRepositoryProtocol {
                     rows: [dataCell]),
             AttributesSection(
                     rows: [
-                        RatingRow(title: "Anime type", value: datum.type),
-                        RatingRow(title: "Status", value: attrs.status.rawValue),
-                        RatingRow(title: "Number of Chapter", value: episodeCount),
-                        RatingRow(title: "Number of Volumes", value: volumeCount),
-                        RatingRow(title: "User Count", value: String(attrs.userCount)),
-                        RatingRow(title: "Favorites Count", value: String(attrs.favoritesCount)),
-                        RatingRow(title: "Popularity Rank", value: String(attrs.popularityRank)),
-                        RatingRow(title: "Rating Rank", value: String(format: "%d", attrs.ratingRank ?? "N/A")),
-                        RatingRow(title: "Age Rating", value: ageRating),
-                        RatingRow(title: "Age Rating Guide", value: ageRatingGuide),
+                        RatingRow(icon: UIImage.imagePlaceholder(), title: "Anime type", value: datum.type),
+                        RatingRow(icon: UIImage.imagePlaceholder(), title: "Status", value: attrs.status.rawValue),
+                        RatingRow(icon: UIImage.imagePlaceholder(), title: "Number of Chapter", value: chapterCount),
+                        RatingRow(icon: UIImage.imagePlaceholder(), title: "Number of Volumes", value: volumeCount),
+                        RatingRow(icon: UIImage.imageUserCount(), title: "User Count", value: String(attrs.userCount)),
+                        RatingRow(icon: UIImage.imageFavoritesCount(), title: "Favorites Count", value: String(attrs.favoritesCount)),
+                        RatingRow(icon: UIImage.imagePlaceholder(), title: "Popularity Rank", value: String(attrs.popularityRank)),
+                        RatingRow(icon: UIImage.imagePlaceholder(), title: "Rating Rank", value: String(format: "%d", attrs.ratingRank ?? "N/A")),
+                        RatingRow(icon: UIImage.imagePlaceholder(), title: "Age Rating", value: attrs.optionalAgeRatingToString()),
+                        RatingRow(icon: UIImage.imagePlaceholder(), title: "Age Rating Guide", value: attrs.optionalAgeRatingGuideToString()),
                     ])
         ]
     }

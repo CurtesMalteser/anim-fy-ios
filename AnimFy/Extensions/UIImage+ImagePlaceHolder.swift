@@ -11,4 +11,12 @@ extension UIImage {
     class func imagePlaceholder() -> UIImage? {
         self.init(named: "ImagePlaceholder")
     }
+
+    class func imageUserCount() -> UIImage? {
+        self.init(named: "UserCount")
+    }
+
+    class func imageFavoritesCount() -> UIImage? {
+        self.init(named: "FavoritesCount")
+    }
 }

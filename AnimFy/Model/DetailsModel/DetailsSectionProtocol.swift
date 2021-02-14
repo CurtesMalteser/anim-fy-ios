@@ -5,6 +5,8 @@
 //  Created by António Bastião on 30.01.21.
 //
 
+import UIKit
+
 // MARK: - Sections
 protocol DetailsSectionProtocol {
         var label: String { get }
@@ -25,6 +27,7 @@ struct AttributesSection: DetailsSectionProtocol {
 protocol RowsProtocol {}
 
 struct RatingRow: RowsProtocol {
+        let icon: UIImage?
         let title: String
         let value: String
 }
