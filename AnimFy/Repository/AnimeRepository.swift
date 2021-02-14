@@ -91,15 +91,15 @@ class AnimeRepository: DataRepositoryProtocol {
                     rows: [dataCell]),
             AttributesSection(
                     rows: [
-                        RatingRow(icon: UIImage.imagePlaceholder(), title: "Anime type", value: datum.type.rawValue),
-                        RatingRow(icon: UIImage.imagePlaceholder(), title: "Status", value: attrs.status.rawValue),
-                        RatingRow(icon: UIImage.imagePlaceholder(), title: "Number of Episodes", value: episodeCount),
+                        RatingRow(icon: UIImage.imageAnime(), title: "Anime type", value: datum.type.rawValue),
+                        RatingRow(icon: UIImage.imageStatus(), title: "Status", value: attrs.status.rawValue),
+                        RatingRow(icon: UIImage.imageAnimeEpisodes(), title: "Number of Episodes", value: episodeCount),
                         RatingRow(icon: UIImage.imageUserCount(), title: "User Count", value: String(attrs.userCount)),
                         RatingRow(icon: UIImage.imageFavoritesCount(), title: "Favorites Count", value: String(attrs.favoritesCount)),
-                        RatingRow(icon: UIImage.imagePlaceholder(), title: "Popularity Rank", value: String(attrs.popularityRank)),
-                        RatingRow(icon: UIImage.imagePlaceholder(), title: "Rating Rank", value: attrs.optionalRatingRankToString()),
-                        RatingRow(icon: UIImage.imagePlaceholder(), title: "Age Rating", value: attrs.optionalAgeRatingToString()),
-                        RatingRow(icon: UIImage.imagePlaceholder(), title: "Age Rating Guide", value: attrs.optionalAgeRatingGuideToString()),
+                        RatingRow(icon: UIImage.imagePopularityRank(), title: "Popularity Rank", value: String(attrs.popularityRank)),
+                        RatingRow(icon: UIImage.imageRatingRank(), title: "Rating Rank", value: attrs.optionalRatingRankToString()),
+                        RatingRow(icon: UIImage.imageAgeRating(), title: "Age Rating", value: attrs.optionalAgeRatingToString()),
+                        RatingRow(icon: UIImage.imageInfo(), title: "Age Rating Guide", value: attrs.optionalAgeRatingGuideToString()),
                     ])
         ]
     }
