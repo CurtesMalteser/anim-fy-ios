@@ -40,9 +40,8 @@ class SettingsLauncher: NSObject {
             _cv = collectionView(window.frame.width, window.frame.height)
             window.addSubview(_cv)
 
-            UIView.animate(withDuration: 0.4) {
+            UIView.animate(withDuration: 0.4, delay: 0, options: .curveEaseInOut) {
                 self.blackView.alpha = 1
-
                 let y = window.frame.height - self._cv.frame.height
                 self._cv.frame = CGRect(x: 0, y: y, width: self._cv.frame.width, height: self._cv.frame.height)
             }
@@ -51,7 +50,7 @@ class SettingsLauncher: NSObject {
     }
 
     @objc private func handleDismiss() {
-        UIView.animate(withDuration: 0.4) {
+        UIView.animate(withDuration: 0.4, delay: 0, options: .curveEaseInOut) {
             self.blackView.alpha = 0
             self._cv.frame = CGRect(x: 0, y: self.blackView.frame.height, width: self._cv.frame.width, height: self._cv.frame.height)
         }
