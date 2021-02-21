@@ -40,6 +40,11 @@ class AnimeCollectionVC: BaseCollectionVC, BaseCollectionDelegate {
 
             window.addSubview(blackView)
             blackView.frame = window.frame
+            blackView.alpha = 0
+
+            UIView.animate(withDuration: 0.6) {
+                blackView.alpha = 1
+            }
         }
 
     }
