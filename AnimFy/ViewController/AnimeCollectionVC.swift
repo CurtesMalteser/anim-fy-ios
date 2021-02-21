@@ -30,8 +30,18 @@ class AnimeCollectionVC: BaseCollectionVC, BaseCollectionDelegate {
         dataRepository?.statusDelegate = statusDelegate
     }
 
+    /// source: https://www.youtube.com/watch?v=2kwCfFG5fDA
     @objc private func setupAnimeMenu() {
         print("more anime")
+
+        if let window = UIApplication.firstKeyWindow() {
+            let blackView = UIView()
+            blackView.backgroundColor = UIColor(white: 0, alpha: 0.5)
+
+            window.addSubview(blackView)
+            blackView.frame = window.frame
+        }
+
     }
 
     override func viewDidAppear(_ animated: Bool) {

@@ -21,6 +21,7 @@
 		920141F825AB4897008D2E24 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920141F725AB4897008D2E24 /* Endpoint.swift */; };
 		920141FD25AB4B3E008D2E24 /* AnimFyApiConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920141FC25AB4B3E008D2E24 /* AnimFyApiConfiguration.swift */; };
 		9201420B25AB9CC6008D2E24 /* Anime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9201420A25AB9CC6008D2E24 /* Anime.swift */; };
+		92272C6425E2A6E9007036DD /* UIApplication+UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92272C6325E2A6E9007036DD /* UIApplication+UIWindow.swift */; };
 		924ACBF925BDBBC90039D1FD /* DetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924ACBF825BDBBC90039D1FD /* DetailsVC.swift */; };
 		924DD03225C9F822005EE8CA /* AttributesSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924DD03025C9F822005EE8CA /* AttributesSectionHeaderView.swift */; };
 		924DD03325C9F822005EE8CA /* AttributesSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 924DD03125C9F822005EE8CA /* AttributesSectionHeaderView.xib */; };
@@ -94,6 +95,7 @@
 		920141F725AB4897008D2E24 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		920141FC25AB4B3E008D2E24 /* AnimFyApiConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimFyApiConfiguration.swift; sourceTree = "<group>"; };
 		9201420A25AB9CC6008D2E24 /* Anime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Anime.swift; sourceTree = "<group>"; };
+		92272C6325E2A6E9007036DD /* UIApplication+UIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+UIWindow.swift"; sourceTree = "<group>"; };
 		924ACBF825BDBBC90039D1FD /* DetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsVC.swift; sourceTree = "<group>"; };
 		924DD03025C9F822005EE8CA /* AttributesSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributesSectionHeaderView.swift; sourceTree = "<group>"; };
 		924DD03125C9F822005EE8CA /* AttributesSectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AttributesSectionHeaderView.xib; sourceTree = "<group>"; };
@@ -327,6 +329,7 @@
 				71A9286E2255DE5DC9DDD579 /* UIViewController+Navigation.swift */,
 				71A92E347C9617AC2C11E8F7 /* UIImage+ImagePlaceHolder.swift */,
 				71A921137FA306E5203FE2DB /* UICollectionView+EmptyMessage.swift */,
+				92272C6325E2A6E9007036DD /* UIApplication+UIWindow.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -644,6 +647,7 @@
 				92C6BF8225BB672900D3D4A6 /* StatusDelegateProtocol.swift in Sources */,
 				92AE69C225C5E5FA00E675D6 /* AppInjector.swift in Sources */,
 				92D3FE6E25AB1771009B6981 /* BaseCollectionVC.swift in Sources */,
+				92272C6425E2A6E9007036DD /* UIApplication+UIWindow.swift in Sources */,
 				92D3FE6A25AB1771009B6981 /* AppDelegate.swift in Sources */,
 				92DF057E25D7EB480049314C /* TitleSynopsisViewCell.swift in Sources */,
 				92D3FEBB25AB3B3F009B6981 /* AnimeCollectionVC.swift in Sources */,
