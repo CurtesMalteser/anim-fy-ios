@@ -20,6 +20,8 @@ class AnimeCollectionVC: BaseCollectionVC, BaseCollectionDelegate {
 
     var dataRepository: DataRepositoryProtocol?
 
+    let settingsLauncher = SettingsLauncher()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpNavBarButton(selector: #selector(setupAnimeMenu))
@@ -30,33 +32,10 @@ class AnimeCollectionVC: BaseCollectionVC, BaseCollectionDelegate {
         dataRepository?.statusDelegate = statusDelegate
     }
 
-    let blackView = UIView()
-
-    /// source: https://www.youtube.com/watch?v=2kwCfFG5fDA
     @objc private func setupAnimeMenu() {
-        print("more anime")
-
-        if let window = UIApplication.firstKeyWindow() {
-            blackView.backgroundColor = UIColor(white: 0, alpha: 0.5)
-
-            blackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleDismiss)))
-
-            window.addSubview(blackView)
-            blackView.frame = window.frame
-            blackView.alpha = 0
-
-            UIView.animate(withDuration: 0.6) {
-                self.blackView.alpha = 1
-            }
-        }
-
+        settingsLauncher.showSettings()
     }
 
-    @objc private func handleDismiss() {
-        UIView.animate(withDuration: 0.4) {
-            self.blackView.alpha = 0
-        }
-    }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
