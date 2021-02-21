@@ -21,11 +21,18 @@ class MangaCollectionVC: BaseCollectionVC, BaseCollectionDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        setUpNavBarButton(selector: #selector(setupMangaMenu))
+
         delegate = self
         mangaCollectionView.delegate = self
         mangaCollectionView.dataSource = self
         dataRepository = (UIApplication.shared.delegate as! AppDelegate).mangaRepository
         dataRepository?.statusDelegate = statusDelegate
+    }
+
+    @objc private func setupMangaMenu() {
+        print("more manga")
     }
 
     override func viewDidAppear(_ animated: Bool) {

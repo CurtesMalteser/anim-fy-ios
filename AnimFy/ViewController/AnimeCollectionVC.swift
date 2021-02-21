@@ -22,12 +22,16 @@ class AnimeCollectionVC: BaseCollectionVC, BaseCollectionDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setUpNavBarButton(selector: #selector(setupAnimeMenu))
         delegate = self
         animeCollectionView.delegate = self
         animeCollectionView.dataSource = self
         dataRepository = (UIApplication.shared.delegate as! AppDelegate).animeRepository
         dataRepository?.statusDelegate = statusDelegate
+    }
+
+    @objc private func setupAnimeMenu() {
+        print("more anime")
     }
 
     override func viewDidAppear(_ animated: Bool) {

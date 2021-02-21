@@ -60,4 +60,8 @@ extension UIImage {
         self.init(named: "SquareStack")
     }
 
+    class func imageShowMore() -> UIImage? {
+        self.init(systemName: "ellipsis")?.withRenderingMode(.alwaysOriginal)
+    }
+
 }

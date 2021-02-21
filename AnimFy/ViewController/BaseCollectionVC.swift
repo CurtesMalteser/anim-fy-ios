@@ -16,6 +16,11 @@ class BaseCollectionVC: UIViewController, UICollectionViewDelegate, UICollection
 
     lazy var statusDelegate: StatusDelegateProtocol = self
 
+    func setUpNavBarButton(selector: Selector) {
+        let optionsButton = UIBarButtonItem(image: UIImage.imageShowMore(), style: .plain, target: self, action: selector)
+        navigationItem.rightBarButtonItem = optionsButton
+    }
+
     func postStatus(_ status: Status) {
         print("status: \(status)")
         switch (status) {
