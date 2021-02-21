@@ -24,6 +24,15 @@ class AnimeCollectionVC: BaseCollectionVC, BaseCollectionDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        settingsLauncher.viewModel = SettingsViewModel(rows: [
+            SettingsRow(label: "Favorites", icon: UIImage.imageUserCount(), completion: nil),
+            SettingsRow(label: "Watch later", icon: UIImage.imagePlaceholder(), completion: nil),
+            SettingsRow(label: "Cancel", icon: UIImage(systemName: "xmark"), completion: nil)
+        ]
+
+        )
+
         setUpNavBarButton(selector: #selector(setupAnimeMenu))
         delegate = self
         animeCollectionView.delegate = self

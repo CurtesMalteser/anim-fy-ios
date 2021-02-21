@@ -19,7 +19,7 @@ class DetailsVC: UIViewController {
 
     var viewModel: DetailsViewModel {
         get {
-            (UIApplication.shared.delegate as! AppDelegate).injectDetailsViewModel(datumID: self.datumID, repositoryType: dataRepositoryType)
+            (UIApplication.shared.delegate as! AppDelegate).injectDetailsViewModel(datumID: datumID, repositoryType: dataRepositoryType)
         }
     }
 

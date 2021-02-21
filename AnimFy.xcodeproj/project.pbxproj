@@ -23,6 +23,10 @@
 		9201420B25AB9CC6008D2E24 /* Anime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9201420A25AB9CC6008D2E24 /* Anime.swift */; };
 		92272C6425E2A6E9007036DD /* UIApplication+UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92272C6325E2A6E9007036DD /* UIApplication+UIWindow.swift */; };
 		92272C6925E2AD78007036DD /* SettingsLaucher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92272C6825E2AD78007036DD /* SettingsLaucher.swift */; };
+		92272C7825E2C666007036DD /* OptionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92272C7625E2C666007036DD /* OptionsCell.swift */; };
+		92272C7925E2C666007036DD /* OptionsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92272C7725E2C666007036DD /* OptionsCell.xib */; };
+		92272C7E25E2D099007036DD /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92272C7D25E2D099007036DD /* SettingsViewModel.swift */; };
+		92272C8725E2D1AA007036DD /* SettingsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92272C8625E2D1AA007036DD /* SettingsRow.swift */; };
 		924ACBF925BDBBC90039D1FD /* DetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924ACBF825BDBBC90039D1FD /* DetailsVC.swift */; };
 		924DD03225C9F822005EE8CA /* AttributesSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924DD03025C9F822005EE8CA /* AttributesSectionHeaderView.swift */; };
 		924DD03325C9F822005EE8CA /* AttributesSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 924DD03125C9F822005EE8CA /* AttributesSectionHeaderView.xib */; };
@@ -98,6 +102,10 @@
 		9201420A25AB9CC6008D2E24 /* Anime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Anime.swift; sourceTree = "<group>"; };
 		92272C6325E2A6E9007036DD /* UIApplication+UIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+UIWindow.swift"; sourceTree = "<group>"; };
 		92272C6825E2AD78007036DD /* SettingsLaucher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLaucher.swift; sourceTree = "<group>"; };
+		92272C7625E2C666007036DD /* OptionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsCell.swift; sourceTree = "<group>"; };
+		92272C7725E2C666007036DD /* OptionsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OptionsCell.xib; sourceTree = "<group>"; };
+		92272C7D25E2D099007036DD /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		92272C8625E2D1AA007036DD /* SettingsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRow.swift; sourceTree = "<group>"; };
 		924ACBF825BDBBC90039D1FD /* DetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsVC.swift; sourceTree = "<group>"; };
 		924DD03025C9F822005EE8CA /* AttributesSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributesSectionHeaderView.swift; sourceTree = "<group>"; };
 		924DD03125C9F822005EE8CA /* AttributesSectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AttributesSectionHeaderView.xib; sourceTree = "<group>"; };
@@ -193,6 +201,25 @@
 			path = Codable;
 			sourceTree = "<group>";
 		};
+		92272C7225E2C5F4007036DD /* OptionsView */ = {
+			isa = PBXGroup;
+			children = (
+				92272C6825E2AD78007036DD /* SettingsLaucher.swift */,
+				92272C7625E2C666007036DD /* OptionsCell.swift */,
+				92272C7725E2C666007036DD /* OptionsCell.xib */,
+			);
+			path = OptionsView;
+			sourceTree = "<group>";
+		};
+		92272C8B25E2D263007036DD /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				92272C7D25E2D099007036DD /* SettingsViewModel.swift */,
+				92272C8625E2D1AA007036DD /* SettingsRow.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		925DB8A125B8C26D00F8607D /* Repository */ = {
 			isa = PBXGroup;
 			children = (
@@ -207,6 +234,7 @@
 		9260AB9F25B35D3E00AC0EF4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				92272C7225E2C5F4007036DD /* OptionsView */,
 				92717F5A25C6C2F3004CD4F8 /* DetailsViews */,
 				9260ABA025B35D5400AC0EF4 /* PosterViewCell.swift */,
 			);
@@ -339,6 +367,7 @@
 		92D3FEA025AB325D009B6981 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				92272C8B25E2D263007036DD /* Settings */,
 				92AF41D225C6081200CF5DDD /* DetailsModel */,
 				92D3FED025AB41EB009B6981 /* Network */,
 				71A92641D4F9559D4A0C873E /* DataController.swift */,
@@ -364,7 +393,6 @@
 				92D3FEBA25AB3B3F009B6981 /* AnimeCollectionVC.swift */,
 				92D3FEBF25AB3B98009B6981 /* MangaCollectionVC.swift */,
 				924ACBF825BDBBC90039D1FD /* DetailsVC.swift */,
-				92272C6825E2AD78007036DD /* SettingsLaucher.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -510,6 +538,7 @@
 				92DF057F25D7EB480049314C /* TitleSynopsisViewCell.xib in Resources */,
 				92D3FE7925AB1772009B6981 /* LaunchScreen.storyboard in Resources */,
 				92717F6A25C6CD93004CD4F8 /* DetailsViewCell.xib in Resources */,
+				92272C7925E2C666007036DD /* OptionsCell.xib in Resources */,
 				92D3FE7625AB1772009B6981 /* Assets.xcassets in Resources */,
 				924DD03325C9F822005EE8CA /* AttributesSectionHeaderView.xib in Resources */,
 				92D3FE7125AB1771009B6981 /* Main.storyboard in Resources */,
@@ -648,6 +677,7 @@
 				92717F5525C6C2E1004CD4F8 /* PosterDetailsHeaderView.swift in Sources */,
 				92D3FED225AB420A009B6981 /* AnimFyAPI.swift in Sources */,
 				92C6BF8225BB672900D3D4A6 /* StatusDelegateProtocol.swift in Sources */,
+				92272C7E25E2D099007036DD /* SettingsViewModel.swift in Sources */,
 				92AE69C225C5E5FA00E675D6 /* AppInjector.swift in Sources */,
 				92D3FE6E25AB1771009B6981 /* BaseCollectionVC.swift in Sources */,
 				92272C6425E2A6E9007036DD /* UIApplication+UIWindow.swift in Sources */,
@@ -670,11 +700,13 @@
 				71A92FA0D7AD73FBA21E764D /* DataController.swift in Sources */,
 				920141FD25AB4B3E008D2E24 /* AnimFyApiConfiguration.swift in Sources */,
 				92272C6925E2AD78007036DD /* SettingsLaucher.swift in Sources */,
+				92272C7825E2C666007036DD /* OptionsCell.swift in Sources */,
 				9260ABA125B35D5400AC0EF4 /* PosterViewCell.swift in Sources */,
 				92717F6925C6CD93004CD4F8 /* DetailsViewCell.swift in Sources */,
 				925DB8A325B8C2DD00F8607D /* DataRepositoryProtocol.swift in Sources */,
 				92D3FEC025AB3B98009B6981 /* MangaCollectionVC.swift in Sources */,
 				71A92B6B8701E303AAD70C83 /* Manga.swift in Sources */,
+				92272C8725E2D1AA007036DD /* SettingsRow.swift in Sources */,
 				71A921CA052F92FFEC838BD6 /* AttributesProtocol.swift in Sources */,
 				71A924DFE136C5CCE4F5687D /* DatumProtocol.swift in Sources */,
 			);
