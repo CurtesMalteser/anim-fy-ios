@@ -11,8 +11,11 @@ class AppInjector {
 
     private var detailsViewModel: DetailsViewModel? = nil
 
-    let animeRepository = AnimeRepository()
-    let mangaRepository = MangaRepository()
+    let dataController: DataController = DataController()
+
+    lazy var animeRepository = AnimeRepository(dataController: dataController)
+    lazy var mangaRepository = MangaRepository(dataController: dataController)
+
 
     func injectDetailsViewModel(datumID: String, repositoryType type: DataRepositoryType) -> DetailsViewModel {
         if let detailsViewModel = detailsViewModel {

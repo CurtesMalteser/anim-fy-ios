@@ -23,6 +23,12 @@ class MangaRepository: DataRepositoryProtocol {
 
     var detailsSectionDictionary: Dictionary<String, Array<DetailsSectionProtocol>> = [:]
 
+    private let _dataController: DataController
+
+    init(dataController: DataController) {
+        _dataController = dataController
+    }
+
     func downloadCollection() {
 
         if (isInProgress || !dataList.isEmpty) {
