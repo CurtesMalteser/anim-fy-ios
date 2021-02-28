@@ -32,11 +32,30 @@ class DetailsTableDataSourceDelegate: NSObject, UITableViewDelegate, UITableView
 
         switch section {
         case is PosterSection:
-            let viewCell = tableView.dequeueReusableCell(withIdentifier: TitleSynopsisViewCell.identifier, for: indexPath) as! TitleSynopsisViewCell
-            let cellModel = (section as! PosterSection).rows[indexPath.row] as! DataCellModel
-            viewCell.title.text = cellModel.title
-            viewCell.synopsis.text = cellModel.synopsis
-            return viewCell
+
+            let cellModel = (section as! PosterSection).rows[indexPath.row]
+            switch cellModel {
+            case is DataCellModel:
+
+                let cell = cellModel as! DataCellModel
+                let viewCell = tableView.dequeueReusableCell(withIdentifier: TitleSynopsisViewCell.identifier, for: indexPath) as! TitleSynopsisViewCell
+                viewCell.title.text = cell.title
+                viewCell.synopsis.text = cell.synopsis
+                return viewCell
+
+            case is UserOptionRowModel:
+                let rowCell = cellModel as! UserOptionRowModel
+                print("rowCell \(rowCell)")
+                let viewCell = tableView.dequeueReusableCell(withIdentifier: UserOptionsViewCell.identifier, for: indexPath) as! UserOptionsViewCell
+                return viewCell
+
+            default:
+                let viewCell = tableView.dequeueReusableCell(withIdentifier: DetailsViewCell.identifier, for: indexPath) as! DetailsViewCell
+                viewCell.label.text = "N/A"
+                viewCell.value.text = "N/A"
+                return viewCell
+
+            }
 
         case is AttributesSection:
             let viewCell = tableView.dequeueReusableCell(withIdentifier: DetailsViewCell.identifier, for: indexPath) as! DetailsViewCell
@@ -66,7 +85,7 @@ class DetailsTableDataSourceDelegate: NSObject, UITableViewDelegate, UITableView
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
+
         let sectionHeader = _viewModel.dataCell[section]
 
         switch sectionHeader {

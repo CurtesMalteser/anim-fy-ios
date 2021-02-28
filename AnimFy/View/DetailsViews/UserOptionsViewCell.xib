@@ -18,31 +18,37 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ASI-sh-J7g">
-                        <rect key="frame" x="16" y="0.0" width="288" height="44"/>
+                        <rect key="frame" x="16" y="8" width="288" height="28"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yCt-E9-NSe">
-                                <rect key="frame" x="0.0" y="0.0" width="140" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="140" height="28"/>
                                 <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="Like" image="suit.heart" catalog="system">
                                     <color key="titleColor" systemColor="systemBlueColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="likeButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="G4T-y2-e4S"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1rF-9J-7K1">
-                                <rect key="frame" x="148" y="0.0" width="140" height="44"/>
+                                <rect key="frame" x="148" y="0.0" width="140" height="28"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="add to list" image="ArrowUpDown">
+                                <state key="normal" title="add to list" image="plus" catalog="system">
                                     <color key="titleColor" systemColor="systemBlueColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="addButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="BSC-mD-UXF"/>
+                                </connections>
                             </button>
                         </subviews>
                     </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="ASI-sh-J7g" secondAttribute="bottom" id="1HW-6C-7YE"/>
+                    <constraint firstAttribute="bottom" secondItem="ASI-sh-J7g" secondAttribute="bottom" constant="8" id="1HW-6C-7YE"/>
                     <constraint firstAttribute="trailing" secondItem="ASI-sh-J7g" secondAttribute="trailing" constant="16" id="5m8-O3-YLm"/>
                     <constraint firstItem="ASI-sh-J7g" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="u72-3e-6gb"/>
-                    <constraint firstItem="ASI-sh-J7g" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="yid-2b-0MT"/>
+                    <constraint firstItem="ASI-sh-J7g" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="yid-2b-0MT"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -50,7 +56,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="ArrowUpDown" width="15" height="12"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="suit.heart" catalog="system" width="128" height="109"/>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

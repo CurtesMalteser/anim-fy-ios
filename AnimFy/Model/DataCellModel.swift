@@ -13,3 +13,8 @@ struct DataCellModel: RowsProtocol {
     let imageURL: URL?
     let synopsis: String
 }
+
+struct UserOptionRowModel: RowsProtocol {
+    let favorite: Bool
+    let forLater: Bool
+}

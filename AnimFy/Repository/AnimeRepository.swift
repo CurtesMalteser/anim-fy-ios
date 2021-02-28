@@ -98,7 +98,9 @@ class AnimeRepository: NSObject, DataRepositoryProtocol {
         detailsSectionDictionary[datum.id] = [
             PosterSection(
                     label: attrs.titles.en ?? attrs.titles.enJp,
-                    rows: [dataCell]),
+                    rows: [dataCell,
+                           UserOptionRowModel(favorite: false, forLater: false)
+                    ]),
             AttributesSection(
                     rows: [
                         RatingRow(icon: UIImage.imageAnime(), title: "Anime type", value: datum.type.rawValue),

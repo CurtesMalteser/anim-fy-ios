@@ -11,6 +11,16 @@ class UserOptionsViewCell: UITableViewCell {
 
     public static let identifier = "UserOptionsViewCell"
 
+
+    @IBAction func likeButtonPressed(_ sender: Any) {
+        print("likeButtonPressed")
+    }
+
+    @IBAction func addButtonPressed(_ sender: Any) {
+        print("addButtonPressed")
+    }
+
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
