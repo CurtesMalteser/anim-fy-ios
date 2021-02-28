@@ -44,8 +44,12 @@ class DetailsVC: UIViewController {
                 forHeaderFooterViewReuseIdentifier: AttributesSectionHeaderView.identifier)
 
         tableView.register(
-                UINib(nibName:DetailsViewCell.identifier, bundle: nil),
+                UINib(nibName: DetailsViewCell.identifier, bundle: nil),
                 forCellReuseIdentifier: DetailsViewCell.identifier)
+
+        tableView.register(
+                UINib(nibName: UserOptionsViewCell.identifier, bundle: nil),
+                forCellReuseIdentifier: UserOptionsViewCell.identifier)
 
     }
 
