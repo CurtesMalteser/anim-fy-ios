@@ -6,8 +6,9 @@
 //
 
 import Alamofire
+import CoreData
 
-class AnimeRepository: DataRepositoryProtocol {
+class AnimeRepository: NSObject, DataRepositoryProtocol {
 
     let type: DataRepositoryType = .anime
 
@@ -22,6 +23,8 @@ class AnimeRepository: DataRepositoryProtocol {
     var detailsSectionDictionary: Dictionary<String, Array<DetailsSectionProtocol>> = [:]
 
     private let _dataController: DataController
+
+    private var fetchedResultsController: NSFetchedResultsController<DatumDetails>!
 
     init(dataController: DataController) {
         _dataController = dataController
@@ -75,7 +78,8 @@ class AnimeRepository: DataRepositoryProtocol {
     }
 
     func getDatumDetailsBy(id: String) -> Array<DetailsSectionProtocol>? {
-        detailsSectionDictionary[id]
+        initFetchPhotosController(id: id)
+        return detailsSectionDictionary[id]
     }
 
     private func setCompletedStatus(_ status: Status) {
@@ -110,4 +114,74 @@ class AnimeRepository: DataRepositoryProtocol {
         ]
     }
 
+    /**
+     Initializes the fetchedResultsController and fetch the DatumDetails for datumID.
+    */
+    private func initFetchPhotosController(id: String) {
+        let fetchRequest: NSFetchRequest<DatumDetails> = DatumDetails.fetchRequest()
+
+        fetchRequest.predicate = NSPredicate(format: "datumID == %@", id)
+
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "datumID", ascending: false)]
+
+        fetchedResultsController = NSFetchedResultsController(
+                fetchRequest: fetchRequest,
+                managedObjectContext: _dataController.backgroundContext,
+                sectionNameKeyPath: nil,
+                cacheName: nil//""
+        )
+
+        fetchedResultsController.delegate = self
+
+        do {
+            try fetchedResultsController.performFetch()
+        } catch {
+            fatalError("Could not perform fetch:\n\(error.localizedDescription)")
+        }
+    }
+
+/*    func deletePhoto(at indexPath: IndexPath) {
+
+        showNetworkActivityAlert { [self] deletePhotoIndicator in
+            context.doTry(onSuccess: { context in
+                let photoToDelete = fetchedResultsController.object(at: indexPath)
+                context.delete(photoToDelete)
+                try context.save()
+                deletePhotoIndicator.dismiss(animated: false)
+            }, onError: { _ in
+                showErrorAlert(message: deletePhotoErrorMessage) {
+                    deletePhotoIndicator.dismiss(animated: false)
+                }
+            })
+        }
+
+    }*/
+
+    func storeDatumDetailsFor(selection: SelectionType) {
+
+    }
+
+    private func initializeDatumDetails(context: NSManagedObjectContext, dataCell: DataCellModel, selection: SelectionType) {
+        let datum = DatumDetails(context: context)
+        datum.datumType = type.rawValue
+        datum.datumID = dataCell.datumID
+        datum.imageURL = dataCell.imageURL
+        datum.synopsys = dataCell.synopsis
+        datum.title = dataCell.title
+
+        if (selection == .favorite) {
+            datum.favorite.toggle()
+        }
+
+        if (selection == .forLater) {
+            datum.saveForLater = false
+        }
+
+    }
+
+}
+
+enum SelectionType {
+    case favorite
+    case forLater
 }

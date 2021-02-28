@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreData
 
 protocol DataRepositoryProtocol {
     var type: DataRepositoryType { get }
@@ -29,4 +30,27 @@ extension DataRepositoryProtocol {
 enum DataRepositoryType: Int16 {
     case anime = 0
     case manga = 1
+}
+
+extension AnimeRepository: NSFetchedResultsControllerDelegate {
+
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+
+        switch type {
+        case .insert:
+            if let id = (anObject as! DatumDetails).datumID {
+                let x = detailsSectionDictionary[id]
+                print("insert \(id)")
+            }
+
+        case .delete:
+            if let id = (anObject as! DatumDetails).datumID {
+                let x = detailsSectionDictionary[id]
+                print("delete \(id)")
+            }
+
+        default:
+            print("NSFetchedResultsControllerDelegate type: \(type) not handled!")
+        }
+    }
 }
