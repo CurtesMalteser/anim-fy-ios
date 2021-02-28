@@ -1,5 +1,5 @@
 //
-//  SettingsLaucher.swift
+//  SettingsLauncher.swift
 //  AnimFy
 //
 //  Created by António Bastião on 21.02.21.
