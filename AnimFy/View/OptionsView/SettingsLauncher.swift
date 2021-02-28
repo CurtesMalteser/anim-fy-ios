@@ -51,7 +51,7 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource,
 
         if let window = UIApplication.firstKeyWindow() {
             blackView.backgroundColor = UIColor(white: 0, alpha: 0.5)
-            blackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleDismiss)))
+            blackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleDismissSelector)))
             blackView.frame = window.frame
             blackView.alpha = 0
 
@@ -69,11 +69,21 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource,
 
     }
 
-    @objc private func handleDismiss() {
-        UIView.animate(withDuration: 0.4, delay: 0, options: .curveEaseInOut) {
+    @objc private func handleDismissSelector() {
+        handleDismiss(settingRow: nil)
+    }
+
+    private func handleDismiss(settingRow: SettingsRow? = nil) {
+        UIView.animate(withDuration: 0.4, delay: 0, options: .curveEaseInOut, animations: {
             self.blackView.alpha = 0
             self._cv.frame = CGRect(x: 0, y: self.blackView.frame.height, width: self._cv.frame.width, height: self._cv.frame.height)
-        }
+        }, completion: { _ in
+
+            if let setting = settingRow {
+                setting.completion?()
+            }
+
+        })
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -97,4 +107,8 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource,
         0
     }
 
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let setting = viewModel.getRows()[indexPath.row]
+        handleDismiss(settingRow: setting)
+    }
 }
