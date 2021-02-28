@@ -17,6 +17,15 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource,
 
     private let blackView = UIView()
 
+    private let _cellHeight: CGFloat = 48
+    private var _bottomSafeArea: CGFloat {
+        if let window = UIApplication.firstKeyWindow() {
+            return window.safeAreaInsets.bottom
+        } else {
+            return CGFloat(0)
+        }
+    }
+
     private var _cv: UICollectionView!
 
     override init() {
@@ -26,7 +35,10 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource,
     private func collectionView(_ frameWidth: CGFloat, _ frameHeight: CGFloat) -> UICollectionView {
         let layout = UICollectionViewFlowLayout()
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        cv.frame = CGRect(x: 0, y: frameHeight, width: frameWidth, height: 200)
+
+        let height: CGFloat = (CGFloat(viewModel.getRows().count) * _cellHeight) + _bottomSafeArea
+
+        cv.frame = CGRect(x: 0, y: frameHeight, width: frameWidth, height: height)
         cv.backgroundColor = .white
         cv.delegate = self
         cv.dataSource = self
@@ -78,7 +90,7 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource,
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: collectionView.frame.width, height: 48)
+        CGSize(width: collectionView.frame.width, height: _cellHeight)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

@@ -20,4 +20,16 @@ class OptionsCell: UICollectionViewCell {
         // Initialization code
     }
 
+    override var isHighlighted: Bool {
+        get {
+            let highlighted = super.isHighlighted
+            backgroundColor = highlighted ? .systemBlue : .white
+            label.textColor = highlighted ? .white : .black
+            icon.tintColor = highlighted ? .white : .systemBlue
+            return highlighted
+        }
+        set {
+            super.isHighlighted = newValue
+        }
+    }
 }
