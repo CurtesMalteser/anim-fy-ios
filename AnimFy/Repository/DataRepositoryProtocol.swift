@@ -26,7 +26,7 @@ extension DataRepositoryProtocol {
     }
 }
 
-enum DataRepositoryType {
-    case anime
-    case manga
+enum DataRepositoryType: Int16 {
+    case anime = 0
+    case manga = 1
 }
