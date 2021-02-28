@@ -16,8 +16,8 @@ class DataController {
 
     lazy var backgroundContext: NSManagedObjectContext = persistentContainer.newBackgroundContext()
 
-    init(modelName: String) {
-        persistentContainer = NSPersistentContainer(name: modelName)
+    init() {
+        persistentContainer = NSPersistentContainer(name: "AnimFy")
     }
 
     func load(completion: (() -> Void)? = nil) {
