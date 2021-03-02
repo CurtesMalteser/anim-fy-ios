@@ -15,6 +15,6 @@ struct DataCellModel: RowsProtocol {
 }
 
 struct UserOptionRowModel: RowsProtocol {
-    let favorite: Bool
-    let forLater: Bool
+    var favorite: Bool
+    var forLater: Bool
 }

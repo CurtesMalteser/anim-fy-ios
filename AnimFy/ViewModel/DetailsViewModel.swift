@@ -24,10 +24,14 @@ class DetailsViewModel {
         getData()
     }
 
-    private func getData()  {
+    private func getData() {
         if let datumDetails = _repository.getDatumDetailsBy(id: _datumID) {
             _dataCell = datumDetails
         }
     }
 
+    func saveUserOption(cell rowCell: UserOptionRowModel) {
+        print("saveUserOption \(rowCell)")
+
+    }
 }

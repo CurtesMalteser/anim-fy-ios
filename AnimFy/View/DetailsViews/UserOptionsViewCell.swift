@@ -11,13 +11,18 @@ class UserOptionsViewCell: UITableViewCell {
 
     public static let identifier = "UserOptionsViewCell"
 
+    var toggleFavorite: () -> Void = {
+    }
+    var toggleForLater: () -> Void = {
+    }
+
 
     @IBAction func likeButtonPressed(_ sender: Any) {
-        print("likeButtonPressed")
+        toggleFavorite()
     }
 
     @IBAction func addButtonPressed(_ sender: Any) {
-        print("addButtonPressed")
+        toggleForLater()
     }
 
 

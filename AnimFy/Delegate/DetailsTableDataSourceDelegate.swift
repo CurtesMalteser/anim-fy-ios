@@ -44,9 +44,19 @@ class DetailsTableDataSourceDelegate: NSObject, UITableViewDelegate, UITableView
                 return viewCell
 
             case is UserOptionRowModel:
-                let rowCell = cellModel as! UserOptionRowModel
-                print("rowCell \(rowCell)")
+                var rowCell = cellModel as! UserOptionRowModel
                 let viewCell = tableView.dequeueReusableCell(withIdentifier: UserOptionsViewCell.identifier, for: indexPath) as! UserOptionsViewCell
+                viewCell.toggleFavorite = {
+                    rowCell.favorite.toggle()
+                    print("likeButtonPressed \(rowCell.favorite)")
+                    self._viewModel.saveUserOption(cell: rowCell)
+                }
+
+                viewCell.toggleForLater = {
+                    rowCell.forLater.toggle()
+                    print("addButtonPressed \(rowCell.forLater)")
+                    self._viewModel.saveUserOption(cell: rowCell)
+                }
                 return viewCell
 
             default:
