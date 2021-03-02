@@ -31,7 +31,6 @@ class DetailsViewModel {
     }
 
     func saveUserOption(cell rowCell: UserOptionRowModel) {
-        print("saveUserOption \(rowCell)")
-
+        _repository.storeDatumDetailsFor(cell: rowCell, datumID: _datumID)
     }
 }

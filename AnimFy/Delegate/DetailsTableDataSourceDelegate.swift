@@ -48,13 +48,11 @@ class DetailsTableDataSourceDelegate: NSObject, UITableViewDelegate, UITableView
                 let viewCell = tableView.dequeueReusableCell(withIdentifier: UserOptionsViewCell.identifier, for: indexPath) as! UserOptionsViewCell
                 viewCell.toggleFavorite = {
                     rowCell.favorite.toggle()
-                    print("likeButtonPressed \(rowCell.favorite)")
                     self._viewModel.saveUserOption(cell: rowCell)
                 }
 
                 viewCell.toggleForLater = {
                     rowCell.forLater.toggle()
-                    print("addButtonPressed \(rowCell.forLater)")
                     self._viewModel.saveUserOption(cell: rowCell)
                 }
                 return viewCell

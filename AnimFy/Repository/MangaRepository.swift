@@ -114,4 +114,9 @@ class MangaRepository: DataRepositoryProtocol {
                     ])
         ]
     }
+
+    func storeDatumDetailsFor(cell rowCell: UserOptionRowModel, datumID id: String) {
+        fatalError("Manga repository storeDatumDetailsFor")
+    }
+
 }

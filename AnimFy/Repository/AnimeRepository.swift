@@ -159,31 +159,34 @@ class AnimeRepository: NSObject, DataRepositoryProtocol {
 
     }*/
 
-    func storeDatumDetailsFor(selection: SelectionType) {
+    func storeDatumDetailsFor(cell rowCell: UserOptionRowModel, datumID id: String) {
+
+        if let datumDetails = getDatumDetailsBy(id: id) {
+
+            let section = datumDetails.first { section in
+                section is PosterSection
+            } as! PosterSection
+            let dataCell = section.rows.first { row in
+                row is DataCellModel
+            } as! DataCellModel
+            // todo: Update dictionary if save the details succeed and notify the view model
+            //detailsSectionDictionary[id] = datumDetails
+            initializeDatumDetails(context: _dataController.backgroundContext, dataCell: dataCell, rowCell: rowCell)
+        }
 
     }
 
-    private func initializeDatumDetails(context: NSManagedObjectContext, dataCell: DataCellModel, selection: SelectionType) {
+    private func initializeDatumDetails(context: NSManagedObjectContext, dataCell: DataCellModel, rowCell: UserOptionRowModel) {
+        print("dataCell: \(dataCell)")
+        print("rowCell: \(rowCell)")
         let datum = DatumDetails(context: context)
         datum.datumType = type.rawValue
         datum.datumID = dataCell.datumID
         datum.imageURL = dataCell.imageURL
         datum.synopsys = dataCell.synopsis
         datum.title = dataCell.title
-
-        if (selection == .favorite) {
-            datum.favorite.toggle()
-        }
-
-        if (selection == .forLater) {
-            datum.saveForLater = false
-        }
-
+        datum.favorite = rowCell.favorite
+        datum.saveForLater = rowCell.forLater
     }
 
-}
-
-enum SelectionType {
-    case favorite
-    case forLater
 }
