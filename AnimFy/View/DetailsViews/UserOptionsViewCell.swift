@@ -11,6 +11,26 @@ class UserOptionsViewCell: UITableViewCell {
 
     public static let identifier = "UserOptionsViewCell"
 
+    var favorite: Bool = false {
+        didSet {
+            if (favorite) {
+                likeButton.setImage(UIImage.imageFavorite(), for: .normal)
+            } else {
+                likeButton.setImage(UIImage.imageNotFavorite(), for: .normal)
+            }
+        }
+    }
+
+    var forLater: Bool = false {
+        didSet {
+            if (forLater) {
+                forLaterButton.setImage(UIImage.imageCheck(), for: .normal)
+            } else {
+                forLaterButton.setImage(UIImage.imagePlus(), for: .normal)
+            }
+        }
+    }
+
     var toggleFavorite: () -> Void = {
     }
     var toggleForLater: () -> Void = {
@@ -25,6 +45,9 @@ class UserOptionsViewCell: UITableViewCell {
         toggleForLater()
     }
 
+    @IBOutlet weak var likeButton: UIButton!
+
+    @IBOutlet weak var forLaterButton: UIButton!
 
     override func awakeFromNib() {
         super.awakeFromNib()

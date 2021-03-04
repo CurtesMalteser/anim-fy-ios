@@ -52,6 +52,10 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="forLaterButton" destination="1rF-9J-7K1" id="eVR-Lu-KKb"/>
+                <outlet property="likeButton" destination="yCt-E9-NSe" id="k9C-hx-Ick"/>
+            </connections>
             <point key="canvasLocation" x="132" y="132"/>
         </tableViewCell>
     </objects>

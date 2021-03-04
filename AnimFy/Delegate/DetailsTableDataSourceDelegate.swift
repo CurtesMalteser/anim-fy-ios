@@ -46,13 +46,19 @@ class DetailsTableDataSourceDelegate: NSObject, UITableViewDelegate, UITableView
             case is UserOptionRowModel:
                 var rowCell = cellModel as! UserOptionRowModel
                 let viewCell = tableView.dequeueReusableCell(withIdentifier: UserOptionsViewCell.identifier, for: indexPath) as! UserOptionsViewCell
+
+                viewCell.favorite = rowCell.favorite
+                viewCell.forLater = rowCell.forLater
+
                 viewCell.toggleFavorite = {
                     rowCell.favorite.toggle()
+                    viewCell.favorite = rowCell.favorite
                     self._viewModel.saveUserOption(cell: rowCell)
                 }
 
                 viewCell.toggleForLater = {
                     rowCell.forLater.toggle()
+                    viewCell.forLater = rowCell.forLater
                     self._viewModel.saveUserOption(cell: rowCell)
                 }
                 return viewCell

@@ -78,8 +78,7 @@ class AnimeRepository: NSObject, DataRepositoryProtocol {
     }
 
     func getDatumDetailsBy(id: String) -> Array<DetailsSectionProtocol>? {
-        initFetchPhotosController(id: id)
-        return detailsSectionDictionary[id]
+        detailsSectionDictionary[id]
     }
 
     private func setCompletedStatus(_ status: Status) {
@@ -99,7 +98,7 @@ class AnimeRepository: NSObject, DataRepositoryProtocol {
             PosterSection(
                     label: attrs.titles.en ?? attrs.titles.enJp,
                     rows: [dataCell,
-                           UserOptionRowModel(favorite: false, forLater: false)
+                           initFetchPhotosController(id: datum.id)
                     ]),
             AttributesSection(
                     rows: [
@@ -119,7 +118,7 @@ class AnimeRepository: NSObject, DataRepositoryProtocol {
     /**
      Initializes the fetchedResultsController and fetch the DatumDetails for datumID.
     */
-    private func initFetchPhotosController(id: String) {
+    private func initFetchPhotosController(id: String) -> UserOptionRowModel {
         let fetchRequest: NSFetchRequest<DatumDetails> = DatumDetails.fetchRequest()
 
         fetchRequest.predicate = NSPredicate(format: "datumID == %@", id)
@@ -130,27 +129,28 @@ class AnimeRepository: NSObject, DataRepositoryProtocol {
                 fetchRequest: fetchRequest,
                 managedObjectContext: _dataController.backgroundContext,
                 sectionNameKeyPath: nil,
-                cacheName: nil//""
+                cacheName: nil
         )
 
         fetchedResultsController.delegate = self
 
+        var userOptionRowModel: UserOptionRowModel = UserOptionRowModel(favorite: false, forLater: false)
+
         fetchedResultsController.managedObjectContext.doTry(
                 onSuccess: { context in
                     let result = try context.fetch(fetchRequest)
-                    //pushPhotoAlbumViewController(pin: pin)
-                    print("fetch result \(result.count)")
 
-                    result.forEach { datum in
-                        print("fetch result \(datum.title)")
+                    if let datumDetail = result.first {
+                        userOptionRowModel = UserOptionRowModel(favorite: datumDetail.favorite, forLater: datumDetail.saveForLater)
                     }
-                },
-                onError: { _ in
-                    //showErrorAlert(message: fetchPinForSegueErrorMessage)
 
+                },
+                onError: { error in
+                    print("fetch result \(error.localizedDescription)")
                 }
         )
 
+        return userOptionRowModel
     }
 
 /*    func deletePhoto(at indexPath: IndexPath) {
@@ -172,18 +172,28 @@ class AnimeRepository: NSObject, DataRepositoryProtocol {
 
     func storeDatumDetailsFor(cell rowCell: UserOptionRowModel, datumID id: String) {
 
+        if (rowCell.favorite == false && rowCell.forLater == false) {
+            deletePhoto(datumID: id)
+        } else {
+            saveDatumDetailsFor(datumID: id, rowCell: rowCell)
+        }
+
+    }
+
+    private func saveDatumDetailsFor(datumID id: String, rowCell: UserOptionRowModel) {
         if let datumDetails = getDatumDetailsBy(id: id) {
 
             let section = datumDetails.first { section in
                 section is PosterSection
             } as! PosterSection
+
             let dataCell = section.rows.first { row in
                 row is DataCellModel
             } as! DataCellModel
             // todo: Update dictionary if save the details succeed and notify the view model
             //detailsSectionDictionary[id] = datumDetails
 
-            _dataController.backgroundContext.doTry(onSuccess: { context in
+            fetchedResultsController.managedObjectContext.doTry(onSuccess: { context in
                 initializeDatumDetails(context: context, dataCell: dataCell, rowCell: rowCell)
                 try context.save()
             }, onError: { error in
@@ -191,11 +201,33 @@ class AnimeRepository: NSObject, DataRepositoryProtocol {
             })
 
         }
+    }
 
+    private func deletePhoto(datumID id: String) {
+
+        print("deletePhoto: \(id)")
+
+        let fetchRequest = fetchedResultsController.fetchRequest
+
+        fetchRequest.predicate = NSPredicate(format: "datumID == %@", id)
+
+        fetchedResultsController.managedObjectContext.doTry(onSuccess: { context in
+
+            let result = try context.fetch(fetchRequest)
+            result.forEach { result in
+                context.doTry(onSuccess: { context in
+                    context.delete(result)
+                }, onError: { error in
+                    print("Failed to delete DatumDetails \(error)")
+                })
+            }
+        }, onError: { error in
+            print("Failed to fetch DatumDetails to delete \(error)")
+        })
     }
 
     private func initializeDatumDetails(context: NSManagedObjectContext, dataCell: DataCellModel, rowCell: UserOptionRowModel) {
-        print("dataCell: \(dataCell)")
+        //print("dataCell: \(dataCell)")
         print("rowCell: \(rowCell)")
         let datum = DatumDetails(context: context)
         datum.datumType = type.rawValue
@@ -206,5 +238,6 @@ class AnimeRepository: NSObject, DataRepositoryProtocol {
         datum.favorite = rowCell.favorite
         datum.saveForLater = rowCell.forLater
     }
+
 
 }

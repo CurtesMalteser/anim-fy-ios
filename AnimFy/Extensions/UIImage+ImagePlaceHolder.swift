@@ -61,7 +61,23 @@ extension UIImage {
     }
 
     class func imageShowMore() -> UIImage? {
-        self.init(systemName: "ellipsis")?.withRenderingMode(.alwaysOriginal)
+        self.init(systemName: "ellipsis")?.withRenderingMode(.alwaysTemplate)
+    }
+
+    class func imageNotFavorite() -> UIImage? {
+        self.init(systemName: "suit.heart")?.withRenderingMode(.alwaysTemplate)
+    }
+
+    class func imageFavorite() -> UIImage? {
+        self.init(systemName: "suit.heart.fill")?.withRenderingMode(.alwaysTemplate)
+    }
+
+    class func imagePlus() -> UIImage? {
+        self.init(systemName: "plus")?.withRenderingMode(.alwaysTemplate)
+    }
+
+    class func imageCheck() -> UIImage? {
+        self.init(systemName: "checkmark")?.withRenderingMode(.alwaysTemplate)
     }
 
 }
