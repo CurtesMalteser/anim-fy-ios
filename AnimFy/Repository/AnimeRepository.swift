@@ -135,11 +135,22 @@ class AnimeRepository: NSObject, DataRepositoryProtocol {
 
         fetchedResultsController.delegate = self
 
-        do {
-            try fetchedResultsController.performFetch()
-        } catch {
-            fatalError("Could not perform fetch:\n\(error.localizedDescription)")
-        }
+        fetchedResultsController.managedObjectContext.doTry(
+                onSuccess: { context in
+                    let result = try context.fetch(fetchRequest)
+                    //pushPhotoAlbumViewController(pin: pin)
+                    print("fetch result \(result.count)")
+
+                    result.forEach { datum in
+                        print("fetch result \(datum.title)")
+                    }
+                },
+                onError: { _ in
+                    //showErrorAlert(message: fetchPinForSegueErrorMessage)
+
+                }
+        )
+
     }
 
 /*    func deletePhoto(at indexPath: IndexPath) {
@@ -171,7 +182,14 @@ class AnimeRepository: NSObject, DataRepositoryProtocol {
             } as! DataCellModel
             // todo: Update dictionary if save the details succeed and notify the view model
             //detailsSectionDictionary[id] = datumDetails
-            initializeDatumDetails(context: _dataController.backgroundContext, dataCell: dataCell, rowCell: rowCell)
+
+            _dataController.backgroundContext.doTry(onSuccess: { context in
+                initializeDatumDetails(context: context, dataCell: dataCell, rowCell: rowCell)
+                try context.save()
+            }, onError: { error in
+                print("Failed to store DatumDetails \(error)")
+            })
+
         }
 
     }

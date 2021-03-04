@@ -28,6 +28,7 @@
 		92272C7E25E2D099007036DD /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92272C7D25E2D099007036DD /* SettingsViewModel.swift */; };
 		92272C8725E2D1AA007036DD /* SettingsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92272C8625E2D1AA007036DD /* SettingsRow.swift */; };
 		924ACBF925BDBBC90039D1FD /* DetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924ACBF825BDBBC90039D1FD /* DetailsVC.swift */; };
+		924C04E525F16CC60056539C /* NSManagedObjectContext+Try.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924C04E425F16CC60056539C /* NSManagedObjectContext+Try.swift */; };
 		924DD03225C9F822005EE8CA /* AttributesSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924DD03025C9F822005EE8CA /* AttributesSectionHeaderView.swift */; };
 		924DD03325C9F822005EE8CA /* AttributesSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 924DD03125C9F822005EE8CA /* AttributesSectionHeaderView.xib */; };
 		925DB89D25B8BD3E00F8607D /* DataCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925DB89C25B8BD3E00F8607D /* DataCellModel.swift */; };
@@ -109,6 +110,7 @@
 		92272C7D25E2D099007036DD /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		92272C8625E2D1AA007036DD /* SettingsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRow.swift; sourceTree = "<group>"; };
 		924ACBF825BDBBC90039D1FD /* DetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsVC.swift; sourceTree = "<group>"; };
+		924C04E425F16CC60056539C /* NSManagedObjectContext+Try.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Try.swift"; sourceTree = "<group>"; };
 		924DD03025C9F822005EE8CA /* AttributesSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributesSectionHeaderView.swift; sourceTree = "<group>"; };
 		924DD03125C9F822005EE8CA /* AttributesSectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AttributesSectionHeaderView.xib; sourceTree = "<group>"; };
 		925DB89C25B8BD3E00F8607D /* DataCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCellModel.swift; sourceTree = "<group>"; };
@@ -375,6 +377,7 @@
 				71A92E347C9617AC2C11E8F7 /* UIImage+ImagePlaceHolder.swift */,
 				71A921137FA306E5203FE2DB /* UICollectionView+EmptyMessage.swift */,
 				92272C6325E2A6E9007036DD /* UIApplication+UIWindow.swift */,
+				924C04E425F16CC60056539C /* NSManagedObjectContext+Try.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -711,6 +714,7 @@
 				71A92BFFDE186CA768CEF090 /* UIViewController+Navigation.swift in Sources */,
 				9292B72B25EC033100F29B90 /* AnimFy.xcdatamodeld in Sources */,
 				925DB8AD25B8C4D100F8607D /* MangaRepository.swift in Sources */,
+				924C04E525F16CC60056539C /* NSManagedObjectContext+Try.swift in Sources */,
 				71A92AF973DFB6C47A7EC08E /* UIImage+ImagePlaceHolder.swift in Sources */,
 				925DB8A825B8C4BD00F8607D /* AnimeRepository.swift in Sources */,
 				71A92432BF6B60A39E89227E /* UICollectionView+EmptyMessage.swift in Sources */,

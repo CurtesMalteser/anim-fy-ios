@@ -39,9 +39,9 @@ extension AnimeRepository: NSFetchedResultsControllerDelegate {
 
         switch type {
         case .insert:
-            if let id = (anObject as! DatumDetails).datumID {
-                let x = detailsSectionDictionary[id]
-                print("insert \(id)")
+            if let id = (anObject as? DatumDetails) {
+                let x = detailsSectionDictionary[id.datumID!]
+                print("insert \(id.datumID!) and title \(id.title!)")
             }
 
         case .delete:
