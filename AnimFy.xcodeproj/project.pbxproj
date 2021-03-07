@@ -36,6 +36,8 @@
 		925DB8A825B8C4BD00F8607D /* AnimeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925DB8A725B8C4BD00F8607D /* AnimeRepository.swift */; };
 		925DB8AD25B8C4D100F8607D /* MangaRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925DB8AC25B8C4D100F8607D /* MangaRepository.swift */; };
 		9260ABA125B35D5400AC0EF4 /* PosterViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9260ABA025B35D5400AC0EF4 /* PosterViewCell.swift */; };
+		926AC12C25F57B430064F714 /* DataRepositoryMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926AC12B25F57B430064F714 /* DataRepositoryMapper.swift */; };
+		926AC13125F57BB20064F714 /* DataRepositoryMapper+NSFetchedResultsControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926AC13025F57BB20064F714 /* DataRepositoryMapper+NSFetchedResultsControllerDelegate.swift */; };
 		92717F5525C6C2E1004CD4F8 /* PosterDetailsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92717F5325C6C2E1004CD4F8 /* PosterDetailsHeaderView.swift */; };
 		92717F5625C6C2E1004CD4F8 /* PosterDetailsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92717F5425C6C2E1004CD4F8 /* PosterDetailsHeaderView.xib */; };
 		92717F6025C6C944004CD4F8 /* DetailsTableDataSourceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92717F5F25C6C944004CD4F8 /* DetailsTableDataSourceDelegate.swift */; };
@@ -118,6 +120,8 @@
 		925DB8A725B8C4BD00F8607D /* AnimeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeRepository.swift; sourceTree = "<group>"; };
 		925DB8AC25B8C4D100F8607D /* MangaRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaRepository.swift; sourceTree = "<group>"; };
 		9260ABA025B35D5400AC0EF4 /* PosterViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterViewCell.swift; sourceTree = "<group>"; };
+		926AC12B25F57B430064F714 /* DataRepositoryMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRepositoryMapper.swift; sourceTree = "<group>"; };
+		926AC13025F57BB20064F714 /* DataRepositoryMapper+NSFetchedResultsControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataRepositoryMapper+NSFetchedResultsControllerDelegate.swift"; sourceTree = "<group>"; };
 		92717F5325C6C2E1004CD4F8 /* PosterDetailsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterDetailsHeaderView.swift; sourceTree = "<group>"; };
 		92717F5425C6C2E1004CD4F8 /* PosterDetailsHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PosterDetailsHeaderView.xib; sourceTree = "<group>"; };
 		92717F5F25C6C944004CD4F8 /* DetailsTableDataSourceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsTableDataSourceDelegate.swift; sourceTree = "<group>"; };
@@ -234,6 +238,7 @@
 				925DB8A725B8C4BD00F8607D /* AnimeRepository.swift */,
 				925DB8AC25B8C4D100F8607D /* MangaRepository.swift */,
 				92C6BF8125BB672900D3D4A6 /* StatusDelegateProtocol.swift */,
+				926AC12B25F57B430064F714 /* DataRepositoryMapper.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -378,6 +383,7 @@
 				71A921137FA306E5203FE2DB /* UICollectionView+EmptyMessage.swift */,
 				92272C6325E2A6E9007036DD /* UIApplication+UIWindow.swift */,
 				924C04E425F16CC60056539C /* NSManagedObjectContext+Try.swift */,
+				926AC13025F57BB20064F714 /* DataRepositoryMapper+NSFetchedResultsControllerDelegate.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -720,6 +726,7 @@
 				71A92432BF6B60A39E89227E /* UICollectionView+EmptyMessage.swift in Sources */,
 				71A92FA0D7AD73FBA21E764D /* DataController.swift in Sources */,
 				920141FD25AB4B3E008D2E24 /* AnimFyApiConfiguration.swift in Sources */,
+				926AC12C25F57B430064F714 /* DataRepositoryMapper.swift in Sources */,
 				92272C6925E2AD78007036DD /* SettingsLauncher.swift in Sources */,
 				92272C7825E2C666007036DD /* OptionsCell.swift in Sources */,
 				9260ABA125B35D5400AC0EF4 /* PosterViewCell.swift in Sources */,
@@ -730,6 +737,7 @@
 				92272C8725E2D1AA007036DD /* SettingsRow.swift in Sources */,
 				71A921CA052F92FFEC838BD6 /* AttributesProtocol.swift in Sources */,
 				71A924DFE136C5CCE4F5687D /* DatumProtocol.swift in Sources */,
+				926AC13125F57BB20064F714 /* DataRepositoryMapper+NSFetchedResultsControllerDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
