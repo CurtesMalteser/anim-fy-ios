@@ -25,7 +25,12 @@ class BaseCollectionVC: UIViewController, UICollectionViewDelegate, UICollection
         switch (status) {
         case .Success:
             delegate.collectionView.reloadData()
-            networkActivityIndicator?.dismiss(animated: true)
+            networkActivityIndicator?.dismiss(animated: true) {
+                if(self.delegate.dataRepository!.dataList.count < 30) {
+                    self.downloadMoreCollection()
+                }
+            }
+
 
         case .Loading:
             networkActivityIndicator = showNetworkActivityAlert()

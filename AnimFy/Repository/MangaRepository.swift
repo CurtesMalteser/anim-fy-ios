@@ -47,7 +47,6 @@ class MangaRepository: DataRepositoryProtocol {
 
                     let decoder = JSONDecoder()
                     let data = try decoder.decode(MangaData.self, from: response.data!)
-                    print(data.data.count)
 
                     _nextPageURL = data.links.next
                     _lastPagerURL = data.links.last
@@ -68,8 +67,6 @@ class MangaRepository: DataRepositoryProtocol {
                     }
 
                     setCompletedStatus(.Success)
-
-                    downloadMoreCollection()
 
                 } catch {
 

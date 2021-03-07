@@ -71,8 +71,6 @@ class AnimeRepository: NSObject, DataRepositoryProtocol {
                     }
                     setCompletedStatus(.Success)
 
-                    downloadMoreCollection()
-
                 } catch {
 
                     setCompletedStatus(.Error(error: error))

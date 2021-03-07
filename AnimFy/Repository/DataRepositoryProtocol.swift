@@ -38,6 +38,7 @@ extension AnimeRepository: NSFetchedResultsControllerDelegate {
 
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
 
+        print("did change \(newIndexPath)")
         switch type {
         case .insert:
             if let id = (anObject as? DatumDetails) {
@@ -51,8 +52,17 @@ extension AnimeRepository: NSFetchedResultsControllerDelegate {
                 print("delete \(id)")
             }
 
-        default:
+        /*default:
             print("NSFetchedResultsControllerDelegate type: \(type) not handled!")
+        }*/
+        case .move:
+            print("move:")
+        case .update:
+            print("updaye:")
+
+        @unknown default:
+            print("NSFetchedResultsControllerDelegate type: \(type) not handled!")
+
         }
     }
 }
