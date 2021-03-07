@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-class BaseCollectionVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, StatusDelegateProtocol {
+class BaseCollectionVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, StatusDelegateProtocol, UIScrollViewDelegate {
 
     var delegate: BaseCollectionDelegate!
 
@@ -22,10 +22,9 @@ class BaseCollectionVC: UIViewController, UICollectionViewDelegate, UICollection
     }
 
     func postStatus(_ status: Status) {
-        print("status: \(status)")
         switch (status) {
         case .Success:
-            delegate.reloadData()
+            delegate.collectionView.reloadData()
             networkActivityIndicator?.dismiss(animated: true)
 
         case .Loading:
@@ -40,6 +39,10 @@ class BaseCollectionVC: UIViewController, UICollectionViewDelegate, UICollection
 
     func downloadCollection() {
         delegate.dataRepository!.downloadCollection()
+    }
+
+    func downloadMoreCollection() {
+        delegate.dataRepository!.downloadMoreCollection()
     }
 
     func tryGetImageURL(link: String?) -> URL? {
@@ -96,10 +99,16 @@ class BaseCollectionVC: UIViewController, UICollectionViewDelegate, UICollection
 
     }
 
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let position = scrollView.contentOffset.y
+        if position > (delegate.collectionView.contentSize.height - 100 - scrollView.frame.height) {
+            downloadMoreCollection()
+        }
+    }
 }
 
 protocol BaseCollectionDelegate {
     var dataRepository: DataRepositoryProtocol? { get }
-    func reloadData()
+    var collectionView: UICollectionView { get }
 }
 

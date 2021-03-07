@@ -10,7 +10,14 @@ import Alamofire
 
 class AnimeCollectionVC: BaseCollectionVC, BaseCollectionDelegate {
 
-    @IBOutlet var animeCollectionView: UICollectionView!
+
+    @IBOutlet weak var animeCollectionView: UICollectionView!
+
+    var collectionView: UICollectionView {
+        get {
+            animeCollectionView
+        }
+    }
 
     @IBOutlet weak var animeFlowLayout: UICollectionViewFlowLayout! {
         didSet {
@@ -55,7 +62,4 @@ class AnimeCollectionVC: BaseCollectionVC, BaseCollectionDelegate {
         downloadCollection()
     }
 
-    func reloadData() {
-        animeCollectionView.reloadData()
-    }
 }

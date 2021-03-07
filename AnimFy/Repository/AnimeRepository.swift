@@ -22,6 +22,9 @@ class AnimeRepository: NSObject, DataRepositoryProtocol {
 
     var detailsSectionDictionary: Dictionary<String, Array<DetailsSectionProtocol>> = [:]
 
+    private var _nextPageURL: String? = nil
+    private var _lastPagerURL: String? = nil
+
     private let _dataController: DataController
 
     private var fetchedResultsController: NSFetchedResultsController<DatumDetails>!
@@ -37,9 +40,9 @@ class AnimeRepository: NSObject, DataRepositoryProtocol {
         }
 
         statusDelegate.postStatus(.Loading)
+        isInProgress = true
 
         AF.request(AnimFyAPI.anime).responseJSON { [self] response in
-            isInProgress = true
             switch response.result {
             case .success(_):
                 do {
@@ -47,6 +50,9 @@ class AnimeRepository: NSObject, DataRepositoryProtocol {
                     let decoder = JSONDecoder()
                     let data = try decoder.decode(AnimeData.self, from: response.data!)
                     print(data.data.count)
+
+                    _nextPageURL = data.links.next
+                    _lastPagerURL = data.links.last
 
                     animeDataList = data.data
                     dataList = data.data.map { datum -> DataCellModel in
@@ -65,6 +71,9 @@ class AnimeRepository: NSObject, DataRepositoryProtocol {
 
                     }
                     setCompletedStatus(.Success)
+
+                    downloadMoreCollection()
+
                 } catch {
                     setCompletedStatus(.Error(error: error))
 
@@ -74,6 +83,73 @@ class AnimeRepository: NSObject, DataRepositoryProtocol {
                 setCompletedStatus(.Error(error: error))
             }
 
+        }
+    }
+
+    func downloadMoreCollection() {
+        print("downloadMoreCollection")
+        if (isInProgress) {
+            return
+        }
+
+
+        if let nextPage = _nextPageURL {
+
+            statusDelegate.postStatus(.Loading)
+            isInProgress = true
+
+            do {
+                let request = try AnimFyAPI.pagination.parameterisedURLRequest(url: nextPage)
+
+                print("request: \(request)")
+
+                AF.request(request).responseJSON { [self] response in
+                    switch response.result {
+                    case .success(_):
+
+                        do {
+                            let decoder = JSONDecoder()
+
+                            let data = try decoder.decode(AnimeData.self, from: response.data!)
+                            print(data.data.count)
+
+                            _nextPageURL = data.links.next
+                            _lastPagerURL = data.links.last
+
+
+                            animeDataList.append(contentsOf: data.data)
+
+                            let newDataList = data.data.map { datum -> DataCellModel in
+
+                                let dataCell = DataCellModel(
+                                        datumID: datum.id,
+                                        title: datum.attributes.titles.en ?? datum.attributes.titles.enJp,
+                                        imageURL: tryGetImageURL(link: datum.attributes.posterImage?.large),
+                                        synopsis: datum.attributes.synopsis
+                                )
+
+                                composeAnimeDetailRows(datum: datum, dataCell: dataCell)
+
+
+                                return dataCell
+
+                            }
+
+                            dataList.append(contentsOf: newDataList)
+
+                            setCompletedStatus(.Success)
+                        } catch {
+                            setCompletedStatus(.Error(error: error))
+
+                        }
+
+                    case .failure(let error):
+                        setCompletedStatus(.Error(error: error))
+                    }
+                }
+            } catch {
+                setCompletedStatus(.Error(error: error))
+            }
         }
     }
 

@@ -11,6 +11,12 @@ class MangaCollectionVC: BaseCollectionVC, BaseCollectionDelegate {
 
     @IBOutlet var mangaCollectionView: UICollectionView!
 
+    var collectionView: UICollectionView {
+        get {
+            mangaCollectionView
+        }
+    }
+
     @IBOutlet weak var mangaFlowLayout: UICollectionViewFlowLayout! {
         didSet {
             setCollectionViewCellDimensions(collectionView: mangaCollectionView, flowLayout: mangaFlowLayout)
@@ -40,7 +46,4 @@ class MangaCollectionVC: BaseCollectionVC, BaseCollectionDelegate {
         downloadCollection()
     }
 
-    func reloadData() {
-        mangaCollectionView.reloadData()
-    }
 }

@@ -23,6 +23,9 @@ class MangaRepository: DataRepositoryProtocol {
 
     var detailsSectionDictionary: Dictionary<String, Array<DetailsSectionProtocol>> = [:]
 
+    private var _nextPageURL: String? = nil
+    private var _lastPagerURL: String? = nil
+
     private let _dataController: DataController
 
     init(dataController: DataController) {
@@ -42,9 +45,13 @@ class MangaRepository: DataRepositoryProtocol {
             switch response.result {
             case .success(_):
                 do {
+
                     let decoder = JSONDecoder()
                     let data = try decoder.decode(MangaData.self, from: response.data!)
                     print(data.data.count)
+
+                    _nextPageURL = data.links.next
+                    _lastPagerURL = data.links.last
 
                     mangaDataList = data.data
                     dataList = data.data.map { datum -> DataCellModel in
@@ -72,6 +79,10 @@ class MangaRepository: DataRepositoryProtocol {
             }
 
         }
+    }
+
+    func downloadMoreCollection() {
+
     }
 
     func getDatumDetailsBy(id: String) -> Array<DetailsSectionProtocol>? {

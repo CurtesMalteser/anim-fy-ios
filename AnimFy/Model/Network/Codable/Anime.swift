@@ -48,7 +48,7 @@ struct AnimeAttributes: Attributes {
     let coverImage: CoverImage?
     let episodeCount: Int?
     let episodeLength: Int?
-    let youtubeVideoId: String
+    let youtubeVideoId: String?
     let nsfw: Bool
 
     enum CodingKeys: String, CodingKey {

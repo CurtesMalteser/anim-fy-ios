@@ -14,6 +14,7 @@ protocol DataRepositoryProtocol {
     var detailsSectionDictionary: Dictionary<String, Array<DetailsSectionProtocol>> { get set }
     var statusDelegate: StatusDelegateProtocol! { get set }
     func downloadCollection()
+    func downloadMoreCollection()
     func getDatumDetailsBy(id: String) -> Array<DetailsSectionProtocol>?
     func storeDatumDetailsFor(cell rowCell: UserOptionRowModel, datumID id: String)
 }
