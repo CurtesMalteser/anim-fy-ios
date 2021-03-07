@@ -38,10 +38,9 @@ class MangaRepository: DataRepositoryProtocol {
             return
         }
 
-        statusDelegate.postStatus(.Loading)
+        setDownloadStarted()
 
         AF.request(AnimFyAPI.manga).responseJSON { [self] response in
-            isInProgress = true
             switch response.result {
             case .success(_):
                 do {
@@ -69,24 +68,97 @@ class MangaRepository: DataRepositoryProtocol {
                     }
 
                     setCompletedStatus(.Success)
+
+                    downloadMoreCollection()
+
                 } catch {
+
                     setCompletedStatus(.Error(error: error))
 
                 }
 
             case .failure(let error):
-                setCompletedStatus(.Error(error: error))
-            }
 
+                setCompletedStatus(.Error(error: error))
+
+            }
         }
     }
 
     func downloadMoreCollection() {
 
+        if (isInProgress) {
+            return
+        }
+
+        if let nextPage = _nextPageURL {
+
+            setDownloadStarted()
+
+            do {
+
+                let request = try AnimFyAPI.pagination.parameterisedURLRequest(url: nextPage)
+
+                AF.request(request).responseJSON { [self] response in
+                    switch response.result {
+                    case .success(_):
+
+                        do {
+
+                            let decoder = JSONDecoder()
+                            let data = try decoder.decode(MangaData.self, from: response.data!)
+                            print(data.data.count)
+
+                            _nextPageURL = data.links.next
+                            _lastPagerURL = data.links.last
+
+                            mangaDataList.append(contentsOf: data.data)
+
+                            let newDataList = data.data.map { datum -> DataCellModel in
+
+                                let dataCell = DataCellModel(
+                                        datumID: datum.id,
+                                        title: datum.attributes.titles.en ?? datum.attributes.titles.enJp,
+                                        imageURL: tryGetImageURL(link: datum.attributes.posterImage?.large),
+                                        synopsis: datum.attributes.synopsis
+                                )
+
+                                composeMangaDetailRows(datum: datum as MangaDatum, dataCell: dataCell)
+
+                                return dataCell
+                            }
+
+                            dataList.append(contentsOf: newDataList)
+
+                            setCompletedStatus(.Success)
+
+                        } catch {
+
+                            setCompletedStatus(.Error(error: error))
+
+                        }
+
+                    case .failure(let error):
+
+                        setCompletedStatus(.Error(error: error))
+
+                    }
+                }
+            } catch {
+
+                setCompletedStatus(.Error(error: error))
+
+            }
+        }
     }
 
     func getDatumDetailsBy(id: String) -> Array<DetailsSectionProtocol>? {
         detailsSectionDictionary[id]
+    }
+
+    private func setDownloadStarted() {
+        statusDelegate.postStatus(.Loading)
+        isInProgress = true
     }
 
     private func setCompletedStatus(_ status: Status) {

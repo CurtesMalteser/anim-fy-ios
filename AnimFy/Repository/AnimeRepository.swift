@@ -39,8 +39,7 @@ class AnimeRepository: NSObject, DataRepositoryProtocol {
             return
         }
 
-        statusDelegate.postStatus(.Loading)
-        isInProgress = true
+        setDownloadStarted()
 
         AF.request(AnimFyAPI.anime).responseJSON { [self] response in
             switch response.result {
@@ -75,43 +74,41 @@ class AnimeRepository: NSObject, DataRepositoryProtocol {
                     downloadMoreCollection()
 
                 } catch {
+
                     setCompletedStatus(.Error(error: error))
 
                 }
 
             case .failure(let error):
-                setCompletedStatus(.Error(error: error))
-            }
 
+                setCompletedStatus(.Error(error: error))
+
+            }
         }
     }
 
     func downloadMoreCollection() {
-        print("downloadMoreCollection")
+
         if (isInProgress) {
             return
         }
 
-
         if let nextPage = _nextPageURL {
 
-            statusDelegate.postStatus(.Loading)
-            isInProgress = true
+            setDownloadStarted()
 
             do {
-                let request = try AnimFyAPI.pagination.parameterisedURLRequest(url: nextPage)
 
-                print("request: \(request)")
+                let request = try AnimFyAPI.pagination.parameterisedURLRequest(url: nextPage)
 
                 AF.request(request).responseJSON { [self] response in
                     switch response.result {
                     case .success(_):
 
                         do {
-                            let decoder = JSONDecoder()
 
+                            let decoder = JSONDecoder()
                             let data = try decoder.decode(AnimeData.self, from: response.data!)
-                            print(data.data.count)
 
                             _nextPageURL = data.links.next
                             _lastPagerURL = data.links.last
@@ -138,23 +135,34 @@ class AnimeRepository: NSObject, DataRepositoryProtocol {
                             dataList.append(contentsOf: newDataList)
 
                             setCompletedStatus(.Success)
+
                         } catch {
+
                             setCompletedStatus(.Error(error: error))
 
                         }
 
                     case .failure(let error):
+
                         setCompletedStatus(.Error(error: error))
+
                     }
                 }
             } catch {
+
                 setCompletedStatus(.Error(error: error))
+
             }
         }
     }
 
     func getDatumDetailsBy(id: String) -> Array<DetailsSectionProtocol>? {
         detailsSectionDictionary[id]
+    }
+
+    private func setDownloadStarted() {
+        statusDelegate.postStatus(.Loading)
+        isInProgress = true
     }
 
     private func setCompletedStatus(_ status: Status) {
