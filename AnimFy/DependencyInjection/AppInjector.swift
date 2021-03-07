@@ -13,8 +13,8 @@ class AppInjector {
 
     let dataController: DataController = DataController()
 
-    lazy var animeRepository = AnimeRepository(dataController: dataController)
-    lazy var mangaRepository = MangaRepository(dataController: dataController)
+    lazy var animeRepository = AnimeRepository(repositoryType: .anime, mapper: DataRepositoryMapper(dataController: dataController, repositoryType: .anime))
+    lazy var mangaRepository = MangaRepository(repositoryType: .manga, mapper: DataRepositoryMapper(dataController: dataController, repositoryType: .manga))
 
 
     func injectDetailsViewModel(datumID: String, repositoryType type: DataRepositoryType) -> DetailsViewModel {

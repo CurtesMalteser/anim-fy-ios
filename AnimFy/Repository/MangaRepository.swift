@@ -11,7 +11,7 @@ import Alamofire
 
 class MangaRepository: NSObject, DataRepositoryProtocol {
 
-    let type: DataRepositoryType = .manga
+    let type: DataRepositoryType
 
     var statusDelegate: StatusDelegateProtocol!
 
@@ -23,20 +23,21 @@ class MangaRepository: NSObject, DataRepositoryProtocol {
 
     var detailsSectionDictionary: Dictionary<String, Array<DetailsSectionProtocol>> {
         get {
-            mapper.detailsSectionDictionary
+            _mapper.detailsSectionDictionary
         }
         set {
-            mapper.detailsSectionDictionary = newValue
+            _mapper.detailsSectionDictionary = newValue
         }
     }
 
     private var _nextPageURL: String? = nil
     private var _lastPagerURL: String? = nil
 
-    private let mapper: DataRepositoryMapper
+    private let _mapper: DataRepositoryMapper
 
-    init(dataController: DataController) {
-        mapper = DataRepositoryMapper(dataController: dataController, repositoryType: .anime)
+    init(repositoryType: DataRepositoryType, mapper: DataRepositoryMapper) {
+        type = repositoryType
+        _mapper = mapper
 
     }
 
@@ -158,7 +159,7 @@ class MangaRepository: NSObject, DataRepositoryProtocol {
     }
 
     func getDatumDetailsBy(id: String) -> Array<DetailsSectionProtocol>? {
-        mapper.getDatumDetailsBy(id: id)
+        _mapper.getDatumDetailsBy(id: id)
     }
 
     private func setDownloadStarted() {
@@ -187,7 +188,7 @@ class MangaRepository: NSObject, DataRepositoryProtocol {
             PosterSection(
                     label: attrs.titles.en ?? attrs.titles.enJp,
                     rows: [dataCell,
-                           mapper.initUserOptionRowModel(id: datum.id)
+                           _mapper.initUserOptionRowModel(id: datum.id)
                     ]),
             AttributesSection(
                     rows: [
@@ -206,7 +207,7 @@ class MangaRepository: NSObject, DataRepositoryProtocol {
     }
 
     func storeDatumDetailsFor(cell rowCell: UserOptionRowModel, datumID id: String) {
-        mapper.storeDatumDetailsFor(cell: rowCell, datumID: id)
+        _mapper.storeDatumDetailsFor(cell: rowCell, datumID: id)
     }
 
 }

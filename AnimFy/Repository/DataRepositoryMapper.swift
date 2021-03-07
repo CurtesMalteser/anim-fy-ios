@@ -11,7 +11,6 @@ class DataRepositoryMapper: NSObject {
 
     var detailsSectionDictionary: Dictionary<String, Array<DetailsSectionProtocol>> = [:]
 
-
     private let _dataController: DataController
 
     private var _fetchedResultsController: NSFetchedResultsController<DatumDetails>!
