@@ -38,7 +38,7 @@ extension AnimeRepository: NSFetchedResultsControllerDelegate {
 
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
 
-        print("did change \(newIndexPath)")
+        print("did change \(type)")
         switch type {
         case .insert:
             if let id = (anObject as? DatumDetails) {
