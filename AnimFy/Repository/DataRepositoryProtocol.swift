@@ -52,13 +52,10 @@ extension AnimeRepository: NSFetchedResultsControllerDelegate {
                 print("delete \(id)")
             }
 
-        /*default:
-            print("NSFetchedResultsControllerDelegate type: \(type) not handled!")
-        }*/
         case .move:
             print("move:")
         case .update:
-            print("updaye:")
+            print("update:")
 
         @unknown default:
             print("NSFetchedResultsControllerDelegate type: \(type) not handled!")
