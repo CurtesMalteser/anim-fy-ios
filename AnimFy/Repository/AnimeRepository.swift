@@ -224,11 +224,10 @@ class AnimeRepository: NSObject, DataRepositoryProtocol {
      Initializes the fetchedResultsController and fetch the DatumDetails for datumID.
     */
     private func initFetchPhotosController(id: String) -> UserOptionRowModel {
-
-
+        
         var userOptionRowModel: UserOptionRowModel = UserOptionRowModel(favorite: false, forLater: false)
 
-        _fetchRequest.predicate = NSPredicate(format: "datumID == %@", id)
+        updateRequestPredicate(id: id)
 
         do {
             try _fetchedResultsController.performFetch()
@@ -253,22 +252,16 @@ class AnimeRepository: NSObject, DataRepositoryProtocol {
         return userOptionRowModel
     }
 
-/*    func deletePhoto(at indexPath: IndexPath) {
+    private func updateRequestPredicate(id: String) {
+        let subPredicates = [
+            NSPredicate(format: "datumID == %@", id),
+            NSPredicate(format: "datumType == %@", String(type.rawValue))
+        ]
 
-        showNetworkActivityAlert { [self] deletePhotoIndicator in
-            context.doTry(onSuccess: { context in
-                let photoToDelete = fetchedResultsController.object(at: indexPath)
-                context.delete(photoToDelete)
-                try context.save()
-                deletePhotoIndicator.dismiss(animated: false)
-            }, onError: { _ in
-                showErrorAlert(message: deletePhotoErrorMessage) {
-                    deletePhotoIndicator.dismiss(animated: false)
-                }
-            })
-        }
+        print("delete id: \(id)")
 
-    }*/
+        _fetchRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: subPredicates)
+    }
 
     func storeDatumDetailsFor(cell rowCell: UserOptionRowModel, datumID id: String) {
 
@@ -308,23 +301,20 @@ class AnimeRepository: NSObject, DataRepositoryProtocol {
 
     private func deletePhoto(datumID id: String, datumType: DataRepositoryType) {
 
+        updateRequestPredicate(id: id)
 
-        let subPredicates = [
-            NSPredicate(format: "datumID == %@", id),
-            NSPredicate(format: "datumType == %@", String(datumType.rawValue))
-        ]
-
-        _fetchRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: subPredicates)
-
-       _fetchedResultsController.managedObjectContext.doTry(onSuccess: { context in
+        _fetchedResultsController.managedObjectContext.doTry(onSuccess: { context in
 
             let result = try context.fetch(_fetchRequest)
 
-            result.forEach { result in
+           print("delete result for id: \(result)")
+
+
+           result.forEach { result in
 
                 context.doTry(onSuccess: { context in
                     context.delete(result)
-                    print("deletePhoto onSuccess: \(result.datumType)")
+                    print("deletePhoto onSuccess: \(result.title)")
 
                 }, onError: { error in
                     print("Failed to delete DatumDetails \(error)")
