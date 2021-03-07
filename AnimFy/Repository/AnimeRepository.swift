@@ -241,7 +241,6 @@ class AnimeRepository: NSObject, DataRepositoryProtocol {
 
 
                     if let datumDetail = result.first {
-                        print("result \(datumDetail.title)")
                         userOptionRowModel = UserOptionRowModel(favorite: datumDetail.favorite, forLater: datumDetail.saveForLater)
                     }
 
@@ -296,7 +295,6 @@ class AnimeRepository: NSObject, DataRepositoryProtocol {
             result.favorite = rowCell.favorite
             result.saveForLater = rowCell.forLater
         }
-        print("updateDatumDetails")
     }
 
     private func saveDatumDetails(id: String, rowCell: UserOptionRowModel) {
@@ -309,12 +307,9 @@ class AnimeRepository: NSObject, DataRepositoryProtocol {
             let dataCell = section.rows.first { row in
                 row is DataCellModel
             } as! DataCellModel
-            // todo: Update dictionary if save the details succeed and notify the view model
-            //detailsSectionDictionary[id] = datumDetails
 
             _fetchedResultsController.managedObjectContext.doTry(onSuccess: { context in
                 initializeDatumDetails(context: context, dataCell: dataCell, rowCell: rowCell)
-                print("saveDatumDetails")
             }, onError: { error in
                 print("Failed to store DatumDetails \(error)")
             })
@@ -331,6 +326,7 @@ class AnimeRepository: NSObject, DataRepositoryProtocol {
             let result = try context.fetch(_fetchRequest)
 
             result.forEach { result in
+                print("deleteDatumDetails")
 
                 context.doTry(onSuccess: { context in
                     context.delete(result)
@@ -355,6 +351,5 @@ class AnimeRepository: NSObject, DataRepositoryProtocol {
         datum.favorite = rowCell.favorite
         datum.saveForLater = rowCell.forLater
     }
-
 
 }
