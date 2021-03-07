@@ -9,7 +9,7 @@ import Foundation
 
 import Alamofire
 
-class MangaRepository: DataRepositoryProtocol {
+class MangaRepository: NSObject, DataRepositoryProtocol {
 
     let type: DataRepositoryType = .manga
 
@@ -21,15 +21,23 @@ class MangaRepository: DataRepositoryProtocol {
 
     var dataList: [DataCellModel] = []
 
-    var detailsSectionDictionary: Dictionary<String, Array<DetailsSectionProtocol>> = [:]
+    var detailsSectionDictionary: Dictionary<String, Array<DetailsSectionProtocol>> {
+        get {
+            mapper.detailsSectionDictionary
+        }
+        set {
+            mapper.detailsSectionDictionary = newValue
+        }
+    }
 
     private var _nextPageURL: String? = nil
     private var _lastPagerURL: String? = nil
 
-    private let _dataController: DataController
+    private let mapper: DataRepositoryMapper
 
     init(dataController: DataController) {
-        _dataController = dataController
+        mapper = DataRepositoryMapper(dataController: dataController, repositoryType: .anime)
+
     }
 
     func downloadCollection() {
@@ -150,7 +158,7 @@ class MangaRepository: DataRepositoryProtocol {
     }
 
     func getDatumDetailsBy(id: String) -> Array<DetailsSectionProtocol>? {
-        detailsSectionDictionary[id]
+        mapper.getDatumDetailsBy(id: id)
     }
 
     private func setDownloadStarted() {
@@ -178,7 +186,9 @@ class MangaRepository: DataRepositoryProtocol {
         detailsSectionDictionary[datum.id] = [
             PosterSection(
                     label: attrs.titles.en ?? attrs.titles.enJp,
-                    rows: [dataCell]),
+                    rows: [dataCell,
+                           mapper.initUserOptionRowModel(id: datum.id)
+                    ]),
             AttributesSection(
                     rows: [
                         RatingRow(icon: UIImage.imageManga(), title: "Manga type", value: datum.type),
@@ -196,7 +206,7 @@ class MangaRepository: DataRepositoryProtocol {
     }
 
     func storeDatumDetailsFor(cell rowCell: UserOptionRowModel, datumID id: String) {
-        fatalError("Manga repository storeDatumDetailsFor")
+        mapper.storeDatumDetailsFor(cell: rowCell, datumID: id)
     }
 
 }
