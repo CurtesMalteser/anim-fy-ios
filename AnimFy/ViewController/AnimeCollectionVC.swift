@@ -34,7 +34,11 @@ class AnimeCollectionVC: BaseCollectionVC, BaseCollectionDelegate {
 
         settingsLauncher.viewModel = SettingsViewModel(rows: [
             SettingsRow(label: "Favorites", icon: UIImage.imageUserCount()) {
-                print("cell: Favorites")
+                self.presentViewControllerWithInject(storyboard: self.storyboard,
+                        identifier: FavoritesLaterCollectionVC.identifier,
+                        navigationController: self.navigationController) { (vc: FavoritesLaterCollectionVC) in
+
+                }
             },
             SettingsRow(label: "Watch later", icon: UIImage.imagePlaceholder()) {
                 print("cell: Watch later")

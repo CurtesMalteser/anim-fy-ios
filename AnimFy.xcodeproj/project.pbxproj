@@ -38,6 +38,7 @@
 		9260ABA125B35D5400AC0EF4 /* PosterViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9260ABA025B35D5400AC0EF4 /* PosterViewCell.swift */; };
 		926AC12C25F57B430064F714 /* DataRepositoryMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926AC12B25F57B430064F714 /* DataRepositoryMapper.swift */; };
 		926AC13125F57BB20064F714 /* DataRepositoryMapper+NSFetchedResultsControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926AC13025F57BB20064F714 /* DataRepositoryMapper+NSFetchedResultsControllerDelegate.swift */; };
+		926F66EF25F6CF110034F285 /* FavoritesLaterCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926F66EE25F6CF110034F285 /* FavoritesLaterCollectionVC.swift */; };
 		92717F5525C6C2E1004CD4F8 /* PosterDetailsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92717F5325C6C2E1004CD4F8 /* PosterDetailsHeaderView.swift */; };
 		92717F5625C6C2E1004CD4F8 /* PosterDetailsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92717F5425C6C2E1004CD4F8 /* PosterDetailsHeaderView.xib */; };
 		92717F6025C6C944004CD4F8 /* DetailsTableDataSourceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92717F5F25C6C944004CD4F8 /* DetailsTableDataSourceDelegate.swift */; };
@@ -122,6 +123,7 @@
 		9260ABA025B35D5400AC0EF4 /* PosterViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterViewCell.swift; sourceTree = "<group>"; };
 		926AC12B25F57B430064F714 /* DataRepositoryMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRepositoryMapper.swift; sourceTree = "<group>"; };
 		926AC13025F57BB20064F714 /* DataRepositoryMapper+NSFetchedResultsControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataRepositoryMapper+NSFetchedResultsControllerDelegate.swift"; sourceTree = "<group>"; };
+		926F66EE25F6CF110034F285 /* FavoritesLaterCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesLaterCollectionVC.swift; sourceTree = "<group>"; };
 		92717F5325C6C2E1004CD4F8 /* PosterDetailsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterDetailsHeaderView.swift; sourceTree = "<group>"; };
 		92717F5425C6C2E1004CD4F8 /* PosterDetailsHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PosterDetailsHeaderView.xib; sourceTree = "<group>"; };
 		92717F5F25C6C944004CD4F8 /* DetailsTableDataSourceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsTableDataSourceDelegate.swift; sourceTree = "<group>"; };
@@ -417,6 +419,7 @@
 				92D3FEBA25AB3B3F009B6981 /* AnimeCollectionVC.swift */,
 				92D3FEBF25AB3B98009B6981 /* MangaCollectionVC.swift */,
 				924ACBF825BDBBC90039D1FD /* DetailsVC.swift */,
+				926F66EE25F6CF110034F285 /* FavoritesLaterCollectionVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -721,6 +724,7 @@
 				9292B72B25EC033100F29B90 /* AnimFy.xcdatamodeld in Sources */,
 				925DB8AD25B8C4D100F8607D /* MangaRepository.swift in Sources */,
 				924C04E525F16CC60056539C /* NSManagedObjectContext+Try.swift in Sources */,
+				926F66EF25F6CF110034F285 /* FavoritesLaterCollectionVC.swift in Sources */,
 				71A92AF973DFB6C47A7EC08E /* UIImage+ImagePlaceHolder.swift in Sources */,
 				925DB8A825B8C4BD00F8607D /* AnimeRepository.swift in Sources */,
 				71A92432BF6B60A39E89227E /* UICollectionView+EmptyMessage.swift in Sources */,

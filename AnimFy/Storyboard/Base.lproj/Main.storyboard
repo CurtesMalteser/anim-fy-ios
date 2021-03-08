@@ -102,6 +102,49 @@
             </objects>
             <point key="canvasLocation" x="1958" y="317"/>
         </scene>
+        <!--Favorites Later CollectionVC-->
+        <scene sceneID="3Gk-xG-JLJ">
+            <objects>
+                <viewController storyboardIdentifier="FavoritesLaterCollectionVC" id="Hfu-Vs-HYa" customClass="FavoritesLaterCollectionVC" customModule="AnimFy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KAs-a1-IPp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NcX-WG-gap">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="MEr-89-1Wd">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Kaw-o3-TQX">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="EWm-l9-t7c">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="cGF-Kn-aJO"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="NcX-WG-gap" firstAttribute="leading" secondItem="cGF-Kn-aJO" secondAttribute="leading" id="2Vl-CI-Vsa"/>
+                            <constraint firstItem="cGF-Kn-aJO" firstAttribute="trailing" secondItem="NcX-WG-gap" secondAttribute="trailing" id="RKu-Eo-t83"/>
+                            <constraint firstItem="NcX-WG-gap" firstAttribute="top" secondItem="cGF-Kn-aJO" secondAttribute="top" id="SUM-vq-ZwW"/>
+                            <constraint firstItem="cGF-Kn-aJO" firstAttribute="bottom" secondItem="NcX-WG-gap" secondAttribute="bottom" id="awp-3T-b6j"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pXp-Mj-vQt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3083" y="600"/>
+        </scene>
         <!--Item-->
         <scene sceneID="Q94-tT-WgI">
             <objects>
@@ -210,7 +253,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="gSv-wL-r8I"/>
+        <segue reference="ztm-sH-lzR"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="ImagePlaceholder" width="14" height="16"/>

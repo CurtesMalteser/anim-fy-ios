@@ -31,7 +31,6 @@ class BaseCollectionVC: UIViewController, UICollectionViewDelegate, UICollection
                 }
             }
 
-
         case .Loading:
             networkActivityIndicator = showNetworkActivityAlert()
 
