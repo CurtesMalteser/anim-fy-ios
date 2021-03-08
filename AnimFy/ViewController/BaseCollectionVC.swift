@@ -91,7 +91,7 @@ class BaseCollectionVC: UIViewController, UICollectionViewDelegate, UICollection
     }
 
     private func pushDetailsVC(datumID id: String) {
-        pushViewControllerWithInject(storyboard: storyboard,
+        presentViewControllerWithInject(storyboard: storyboard,
                 identifier: DetailsVC.identifier,
                 navigationController: navigationController) { viewController in
 
