@@ -22,20 +22,23 @@ class DataRepositoryMapper: NSObject {
         return fetchRequest
     }()
 
-    func fetchAllFor(predicate: NSCompoundPredicate) {
+    func fetchAllFor(predicate: NSCompoundPredicate, completion: (_ details: [DatumDetails]) -> Void, errorHandler: (_ error: Error) -> Void) {
 
         _fetchRequest.predicate = predicate
 
         _fetchedResultsController.managedObjectContext.doTry(
                 onSuccess: { context in
-                    let result = try context.fetch(_fetchRequest)
+                    let result: [DatumDetails] = try context.fetch(_fetchRequest)
+
+                    completion(result)
 
                     result.forEach { detail in
-                        print("result \(detail.favorite) title \(detail.title)")
+                        print("result \(detail.favorite) title \(detail.title!)")
                     }
 
                 },
                 onError: { error in
+                    errorHandler(error)
                     print("fetch result \(error.localizedDescription)")
                 }
         )

@@ -16,9 +16,18 @@ class StoredDatumRepository: NSObject, DataRepositoryProtocol {
 
     var dataList: Array<DataCellModel> = []
 
-    var detailsSectionDictionary: Dictionary<String, Array<DetailsSectionProtocol>> = [:]
+    var detailsSectionDictionary: Dictionary<String, Array<DetailsSectionProtocol>> {
+        get {
+            _mapper.detailsSectionDictionary
+        }
+        set {
+            _mapper.detailsSectionDictionary = newValue
+        }
+    }
 
     var statusDelegate: StatusDelegateProtocol!
+
+    private var isInProgress = false
 
     private let _mapper: DataRepositoryMapper
 
@@ -28,6 +37,8 @@ class StoredDatumRepository: NSObject, DataRepositoryProtocol {
     }
 
     func downloadCollection() {
+
+        setDownloadStarted()
 
         var subPredicates: Array<NSPredicate> = [
             NSPredicate(format: "datumType == \(queryType.rawValue)")
@@ -43,7 +54,16 @@ class StoredDatumRepository: NSObject, DataRepositoryProtocol {
 
         let predicate: NSCompoundPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: subPredicates)
 
-        _mapper.fetchAllFor(predicate: predicate)
+        _mapper.fetchAllFor(predicate: predicate,
+                completion: { datumDetailsArray in
+                    datumDetailsArray.forEach { details in
+                        composeAnimeDetailRows(datum: details)
+                    }
+
+                    setCompletedStatus(.Success)
+                }, errorHandler: { error in
+            setCompletedStatus(.Error(error: error))
+        })
     }
 
     func downloadMoreCollection() {
@@ -58,5 +78,28 @@ class StoredDatumRepository: NSObject, DataRepositoryProtocol {
         _mapper.storeDatumDetailsFor(cell: rowCell, datumID: id)
     }
 
+    private func composeAnimeDetailRows(datum: DatumDetails) {
+
+        let dataCell = DataCellModel(datumID: datum.datumID!, title: datum.title!, imageURL: datum.imageURL, synopsis: datum.synopsys!)
+        dataList.append(dataCell)
+
+        detailsSectionDictionary[datum.datumID!] = [
+            PosterSection(
+                    label: datum.title!,
+                    rows: [dataCell,
+                           _mapper.initUserOptionRowModel(id: datum.datumID!)
+                    ]),
+        ]
+    }
+
+    private func setDownloadStarted() {
+        statusDelegate.postStatus(.Loading)
+        isInProgress = true
+    }
+
+    private func setCompletedStatus(_ status: Status) {
+        isInProgress = false
+        statusDelegate.postStatus(status)
+    }
 
 }
