@@ -110,7 +110,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NcX-WG-gap">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NcX-WG-gap" userLabel="Favorite Collection View">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="MEr-89-1Wd">
@@ -140,6 +140,9 @@
                             <constraint firstItem="cGF-Kn-aJO" firstAttribute="bottom" secondItem="NcX-WG-gap" secondAttribute="bottom" id="awp-3T-b6j"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="favoriteCollectionView" destination="NcX-WG-gap" id="60e-i0-0Pf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pXp-Mj-vQt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -253,7 +256,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ztm-sH-lzR"/>
+        <segue reference="gSv-wL-r8I"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="ImagePlaceholder" width="14" height="16"/>

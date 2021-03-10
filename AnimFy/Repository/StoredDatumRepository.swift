@@ -19,12 +19,16 @@ class StoredDatumRepository: NSObject, DataRepositoryProtocol {
 
     var statusDelegate: StatusDelegateProtocol!
 
-    init(repositoryType: DataRepositoryType) {
+    private let _mapper: DataRepositoryMapper
+
+    init(repositoryType: DataRepositoryType, mapper: DataRepositoryMapper) {
         type = repositoryType
+        _mapper = mapper
     }
 
     func downloadCollection() {
-        // todo
+        let predicate = NSPredicate(format: "datumType == \(type.rawValue)")
+        _mapper.fetchAllFor(predicate: predicate)
     }
 
     func downloadMoreCollection() {
@@ -32,11 +36,11 @@ class StoredDatumRepository: NSObject, DataRepositoryProtocol {
     }
 
     func getDatumDetailsBy(id: String) -> Array<DetailsSectionProtocol>? {
-        detailsSectionDictionary.first?.value
+        _mapper.getDatumDetailsBy(id: id)
     }
 
     func storeDatumDetailsFor(cell rowCell: UserOptionRowModel, datumID id: String) {
-        // todo
+        _mapper.storeDatumDetailsFor(cell: rowCell, datumID: id)
     }
 
 

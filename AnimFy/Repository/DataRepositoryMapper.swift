@@ -22,6 +22,9 @@ class DataRepositoryMapper: NSObject {
         return fetchRequest
     }()
 
+    func fetchAllFor(predicate: NSPredicate) {
+    }
+
     private let _type: DataRepositoryType
 
     init(dataController controller: DataController, repositoryType type: DataRepositoryType) {
