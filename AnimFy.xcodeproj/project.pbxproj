@@ -36,6 +36,7 @@
 		925DB8A825B8C4BD00F8607D /* AnimeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925DB8A725B8C4BD00F8607D /* AnimeRepository.swift */; };
 		925DB8AD25B8C4D100F8607D /* MangaRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925DB8AC25B8C4D100F8607D /* MangaRepository.swift */; };
 		9260ABA125B35D5400AC0EF4 /* PosterViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9260ABA025B35D5400AC0EF4 /* PosterViewCell.swift */; };
+		926342DD25F951C80090FEC8 /* StoredDatumRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926342DC25F951C80090FEC8 /* StoredDatumRepository.swift */; };
 		926AC12C25F57B430064F714 /* DataRepositoryMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926AC12B25F57B430064F714 /* DataRepositoryMapper.swift */; };
 		926AC13125F57BB20064F714 /* DataRepositoryMapper+NSFetchedResultsControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926AC13025F57BB20064F714 /* DataRepositoryMapper+NSFetchedResultsControllerDelegate.swift */; };
 		926F66EF25F6CF110034F285 /* FavoritesLaterCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926F66EE25F6CF110034F285 /* FavoritesLaterCollectionVC.swift */; };
@@ -121,6 +122,7 @@
 		925DB8A725B8C4BD00F8607D /* AnimeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeRepository.swift; sourceTree = "<group>"; };
 		925DB8AC25B8C4D100F8607D /* MangaRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaRepository.swift; sourceTree = "<group>"; };
 		9260ABA025B35D5400AC0EF4 /* PosterViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterViewCell.swift; sourceTree = "<group>"; };
+		926342DC25F951C80090FEC8 /* StoredDatumRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoredDatumRepository.swift; sourceTree = "<group>"; };
 		926AC12B25F57B430064F714 /* DataRepositoryMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRepositoryMapper.swift; sourceTree = "<group>"; };
 		926AC13025F57BB20064F714 /* DataRepositoryMapper+NSFetchedResultsControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataRepositoryMapper+NSFetchedResultsControllerDelegate.swift"; sourceTree = "<group>"; };
 		926F66EE25F6CF110034F285 /* FavoritesLaterCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesLaterCollectionVC.swift; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 				925DB8AC25B8C4D100F8607D /* MangaRepository.swift */,
 				92C6BF8125BB672900D3D4A6 /* StatusDelegateProtocol.swift */,
 				926AC12B25F57B430064F714 /* DataRepositoryMapper.swift */,
+				926342DC25F951C80090FEC8 /* StoredDatumRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -725,6 +728,7 @@
 				925DB8AD25B8C4D100F8607D /* MangaRepository.swift in Sources */,
 				924C04E525F16CC60056539C /* NSManagedObjectContext+Try.swift in Sources */,
 				926F66EF25F6CF110034F285 /* FavoritesLaterCollectionVC.swift in Sources */,
+				926342DD25F951C80090FEC8 /* StoredDatumRepository.swift in Sources */,
 				71A92AF973DFB6C47A7EC08E /* UIImage+ImagePlaceHolder.swift in Sources */,
 				925DB8A825B8C4BD00F8607D /* AnimeRepository.swift in Sources */,
 				71A92432BF6B60A39E89227E /* UICollectionView+EmptyMessage.swift in Sources */,

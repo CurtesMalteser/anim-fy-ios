@@ -31,5 +31,7 @@ extension DataRepositoryProtocol {
 enum DataRepositoryType: Int16 {
     case anime = 0
     case manga = 1
+    case favorite = 2
+    case saveForLater = 3
 }
 

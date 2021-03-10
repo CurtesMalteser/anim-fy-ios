@@ -15,17 +15,25 @@ class AppInjector {
 
     lazy var animeRepository = AnimeRepository(repositoryType: .anime, mapper: DataRepositoryMapper(dataController: dataController, repositoryType: .anime))
     lazy var mangaRepository = MangaRepository(repositoryType: .manga, mapper: DataRepositoryMapper(dataController: dataController, repositoryType: .manga))
-
+    private var storedDataRepository: StoredDatumRepository? = nil
 
     func injectDetailsViewModel(datumID: String, repositoryType type: DataRepositoryType) -> DetailsViewModel {
         if let detailsViewModel = detailsViewModel {
             return detailsViewModel
         } else {
-            if (type == .anime) {
+            switch type {
+            case .anime:
                 detailsViewModel = DetailsViewModel(datumID: datumID, dataRepository: animeRepository)
-            } else if (type == .manga) {
+            case .manga:
                 detailsViewModel = DetailsViewModel(datumID: datumID, dataRepository: mangaRepository)
+            case .favorite,
+                 .saveForLater:
+                if storedDataRepository == nil {
+                    storedDataRepository = StoredDatumRepository(repositoryType: type)
+                    detailsViewModel = DetailsViewModel(datumID: datumID, dataRepository: storedDataRepository!)
+                }
             }
+
             return detailsViewModel!
         }
     }

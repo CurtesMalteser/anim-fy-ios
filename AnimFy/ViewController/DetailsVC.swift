@@ -56,15 +56,11 @@ class DetailsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationItem.setLeftBarButton(UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .plain, target: self, action: #selector(dismissController)), animated: true)
+        setUpCloseButton()
 
         tableView.delegate = dataSource
         tableView.dataSource = dataSource
 
-    }
-
-    @objc func dismissController() {
-        navigationController?.dismiss(animated: true)
     }
 
     deinit {

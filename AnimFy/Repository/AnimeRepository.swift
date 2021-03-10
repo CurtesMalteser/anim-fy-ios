@@ -23,7 +23,6 @@ class AnimeRepository: NSObject, DataRepositoryProtocol {
     var detailsSectionDictionary: Dictionary<String, Array<DetailsSectionProtocol>> {
         get {
             _mapper.detailsSectionDictionary
-
         }
         set {
             _mapper.detailsSectionDictionary = newValue

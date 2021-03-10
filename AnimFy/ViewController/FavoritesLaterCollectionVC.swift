@@ -11,8 +11,15 @@ class FavoritesLaterCollectionVC: BaseCollectionVC {
 
     static let identifier: String = "FavoritesLaterCollectionVC"
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        setUpCloseButton()
+    }
+
     // todo -> implement new logic and dedicated repo
     override func postStatus(_ status: Status) {
         super.postStatus(status)
+
     }
 }
