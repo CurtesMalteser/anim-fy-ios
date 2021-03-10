@@ -48,7 +48,11 @@ class AppInjector {
     func injectStoredDatumRepository(repositoryType type: DataRepositoryType) -> DataRepositoryProtocol {
         if storedDataRepository == nil {
             storedDataRepository = StoredDatumRepository(repositoryType: type, mapper: DataRepositoryMapper(dataController: dataController, repositoryType: type))
+        } else if storedDataRepository?.type != type {
+            storedDataRepository = StoredDatumRepository(repositoryType: type, mapper: DataRepositoryMapper(dataController: dataController, repositoryType: type))
+
         }
+
         return storedDataRepository!
     }
 

@@ -32,28 +32,38 @@ class AnimeCollectionVC: BaseCollectionVC, BaseCollectionDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        settingsLauncher.viewModel = SettingsViewModel(rows: [
-            SettingsRow(label: "Favorites", icon: UIImage.imageUserCount()) {
-                self.presentViewControllerWithInject(storyboard: self.storyboard,
-                        identifier: FavoritesLaterCollectionVC.identifier,
-                        navigationController: self.navigationController) { (vc: FavoritesLaterCollectionVC) in
-
-                }
-            },
-            SettingsRow(label: "Watch later", icon: UIImage.imagePlaceholder()) {
-                print("cell: Watch later")
-            },
-            SettingsRow(label: "Cancel", icon: UIImage(systemName: "xmark"), completion: nil)
-        ]
-
-        )
-
         setUpNavBarButton(selector: #selector(setupAnimeMenu))
         delegate = self
         animeCollectionView.delegate = self
         animeCollectionView.dataSource = self
         dataRepository = (UIApplication.shared.delegate as! AppDelegate).animeRepository
         dataRepository?.statusDelegate = statusDelegate
+
+        settingsLauncher.viewModel = SettingsViewModel(rows: [
+
+            SettingsRow(label: "Favorites", icon: UIImage.imageUserCount()) {
+                self.presentFavoriteLaterVC(repoType: .favorite)
+            },
+
+            SettingsRow(label: "Watch later", icon: UIImage.imagePlaceholder()) {
+                self.presentFavoriteLaterVC(repoType: .saveForLater)
+            },
+
+            SettingsRow(label: "Cancel", icon: UIImage(systemName: "xmark"), completion: nil)
+
+        ])
+
+    }
+
+    private func presentFavoriteLaterVC(repoType: DataRepositoryType) {
+        self.presentViewControllerWithInject(storyboard: self.storyboard,
+                identifier: FavoritesLaterCollectionVC.identifier,
+                navigationController: self.navigationController) { (vc: FavoritesLaterCollectionVC) in
+
+            vc.dataRepository = (UIApplication.shared.delegate as! AppDelegate).injectStoredDatumRepository(repositoryType: repoType)
+            (vc.dataRepository as! StoredDatumRepository).queryType = self.dataRepository?.type
+
+        }
     }
 
     @objc private func setupAnimeMenu() {

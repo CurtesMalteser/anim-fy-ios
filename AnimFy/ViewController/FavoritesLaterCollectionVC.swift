@@ -29,7 +29,6 @@ class FavoritesLaterCollectionVC: BaseCollectionVC, BaseCollectionDelegate {
         delegate = self
         favoriteCollectionView.delegate = self
         favoriteCollectionView.dataSource = self
-        dataRepository = (UIApplication.shared.delegate as! AppDelegate).injectStoredDatumRepository(repositoryType: .favorite)
         dataRepository?.statusDelegate = statusDelegate
 
     }

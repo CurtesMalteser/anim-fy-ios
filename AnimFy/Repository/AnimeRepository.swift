@@ -55,7 +55,6 @@ class AnimeRepository: NSObject, DataRepositoryProtocol {
 
                     let decoder = JSONDecoder()
                     let data = try decoder.decode(AnimeData.self, from: response.data!)
-                    print(data.data.count)
 
                     _nextPageURL = data.links.next
                     _lastPagerURL = data.links.last

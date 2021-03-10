@@ -22,7 +22,24 @@ class DataRepositoryMapper: NSObject {
         return fetchRequest
     }()
 
-    func fetchAllFor(predicate: NSPredicate) {
+    func fetchAllFor(predicate: NSCompoundPredicate) {
+
+        _fetchRequest.predicate = predicate
+
+        _fetchedResultsController.managedObjectContext.doTry(
+                onSuccess: { context in
+                    let result = try context.fetch(_fetchRequest)
+
+                    result.forEach { detail in
+                        print("result \(detail.favorite) title \(detail.title)")
+                    }
+
+                },
+                onError: { error in
+                    print("fetch result \(error.localizedDescription)")
+                }
+        )
+
     }
 
     private let _type: DataRepositoryType

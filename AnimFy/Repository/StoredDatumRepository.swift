@@ -12,6 +12,7 @@ import CoreData
 class StoredDatumRepository: NSObject, DataRepositoryProtocol {
 
     var type: DataRepositoryType
+    var queryType: DataRepositoryType!
 
     var dataList: Array<DataCellModel> = []
 
@@ -27,7 +28,21 @@ class StoredDatumRepository: NSObject, DataRepositoryProtocol {
     }
 
     func downloadCollection() {
-        let predicate = NSPredicate(format: "datumType == \(type.rawValue)")
+
+        var subPredicates: Array<NSPredicate> = [
+            NSPredicate(format: "datumType == \(queryType.rawValue)")
+        ]
+
+        if type == .favorite {
+            let query = NSPredicate(format: "favorite == \(true)")
+            subPredicates.append(query)
+        } else if type == .saveForLater {
+            let query = NSPredicate(format: "saveForLater == \(true)")
+            subPredicates.append(query)
+        }
+
+        let predicate: NSCompoundPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: subPredicates)
+
         _mapper.fetchAllFor(predicate: predicate)
     }
 
