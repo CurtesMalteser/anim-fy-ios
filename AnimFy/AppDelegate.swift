@@ -63,8 +63,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         injector.destroyDetailsViewModel()
     }
 
-    func injectStoredDatumRepository(repositoryType type: DataRepositoryType) -> DataRepositoryProtocol {
-        injector.injectStoredDatumRepository(repositoryType: type)
+    func injectStoredDatumRepository(repositoryType type: DataRepositoryType, queryType: DataRepositoryType) -> DataRepositoryProtocol {
+        injector.injectStoredDatumRepository(repositoryType: type, queryType: queryType)
     }
 
     func destroyStoredDatumRepository() {

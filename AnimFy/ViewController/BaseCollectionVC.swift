@@ -104,7 +104,6 @@ class BaseCollectionVC: UIViewController, UICollectionViewDelegate, UICollection
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        print("scrollViewDidScroll")
         let position = scrollView.contentOffset.y
         if position > (delegate.collectionView.contentSize.height - 100 - scrollView.frame.height) {
             downloadMoreCollection()

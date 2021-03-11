@@ -83,6 +83,7 @@ class StoredDatumRepository: NSObject, DataRepositoryProtocol {
     }
 
     func storeDatumDetailsFor(cell rowCell: UserOptionRowModel, datumID id: String) {
+        print("AJDB storeDatumDetailsFor \(rowCell) datumID \(id)")
         _mapper.storeDatumDetailsFor(cell: rowCell, datumID: id)
     }
 

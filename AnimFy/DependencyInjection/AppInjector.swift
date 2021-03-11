@@ -29,12 +29,7 @@ class AppInjector {
                 detailsViewModel = DetailsViewModel(datumID: datumID, dataRepository: mangaRepository)
             case .favorite,
                  .saveForLater:
-                if storedDataRepository == nil {
-                    storedDataRepository = StoredDatumRepository(repositoryType: type, mapper: DataRepositoryMapper(dataController: dataController, repositoryType: type))
-                    detailsViewModel = DetailsViewModel(datumID: datumID, dataRepository: storedDataRepository!)
-                } else {
-                    detailsViewModel = DetailsViewModel(datumID: datumID, dataRepository: storedDataRepository!)
-                }
+                detailsViewModel = DetailsViewModel(datumID: datumID, dataRepository: storedDataRepository!)
             }
 
             return detailsViewModel!
@@ -45,12 +40,17 @@ class AppInjector {
         detailsViewModel = nil
     }
 
-    func injectStoredDatumRepository(repositoryType type: DataRepositoryType) -> DataRepositoryProtocol {
+    func injectStoredDatumRepository(repositoryType type: DataRepositoryType, queryType: DataRepositoryType) -> DataRepositoryProtocol {
         if storedDataRepository == nil {
-            storedDataRepository = StoredDatumRepository(repositoryType: type, mapper: DataRepositoryMapper(dataController: dataController, repositoryType: type))
-        } else if storedDataRepository?.type != type {
-            storedDataRepository = StoredDatumRepository(repositoryType: type, mapper: DataRepositoryMapper(dataController: dataController, repositoryType: type))
+            storedDataRepository = StoredDatumRepository(repositoryType: type,
+                    mapper: DataRepositoryMapper(dataController: dataController, repositoryType: queryType))
 
+            storedDataRepository?.queryType = queryType
+
+        } else if storedDataRepository?.type != type {
+            storedDataRepository = StoredDatumRepository(repositoryType: type,
+                    mapper: DataRepositoryMapper(dataController: dataController, repositoryType: queryType))
+            storedDataRepository?.queryType = queryType
         }
 
         return storedDataRepository!

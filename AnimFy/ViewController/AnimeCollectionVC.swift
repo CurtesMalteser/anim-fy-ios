@@ -63,10 +63,10 @@ class AnimeCollectionVC: BaseCollectionVC, BaseCollectionDelegate {
     private func presentFavoriteLaterVC(repoType: DataRepositoryType) {
         self.presentViewControllerWithInject(storyboard: self.storyboard,
                 identifier: FavoritesLaterCollectionVC.identifier,
-                navigationController: self.navigationController) { (vc: FavoritesLaterCollectionVC) in
+                navigationController: navigationController) { (vc: FavoritesLaterCollectionVC) in
 
-            vc.dataRepository = (UIApplication.shared.delegate as! AppDelegate).injectStoredDatumRepository(repositoryType: repoType)
-            (vc.dataRepository as! StoredDatumRepository).queryType = dataRepository?.type
+            vc.dataRepository = (UIApplication.shared.delegate as! AppDelegate)
+                    .injectStoredDatumRepository(repositoryType: repoType, queryType: dataRepository!.type)
 
         }
     }
