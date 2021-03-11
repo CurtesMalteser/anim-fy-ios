@@ -33,6 +33,7 @@ class DataRepositoryMapper: NSObject {
                         print("result \(detail.favorite) title \(detail.title!)")
                     }
                     completion(result)
+
                 },
                 onError: { error in
                     errorHandler(error)

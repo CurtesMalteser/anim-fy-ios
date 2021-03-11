@@ -61,7 +61,7 @@ class AnimeCollectionVC: BaseCollectionVC, BaseCollectionDelegate {
     }
 
     private func presentFavoriteLaterVC(repoType: DataRepositoryType) {
-        self.presentViewControllerWithInject(storyboard: self.storyboard,
+        self.presentViewControllerWithInject(storyboard: storyboard,
                 identifier: FavoritesLaterCollectionVC.identifier,
                 navigationController: navigationController) { (vc: FavoritesLaterCollectionVC) in
 

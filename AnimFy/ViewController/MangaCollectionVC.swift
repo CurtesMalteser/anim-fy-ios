@@ -31,6 +31,8 @@ class MangaCollectionVC: BaseCollectionVC, BaseCollectionDelegate {
         }
     }
 
+    let settingsLauncher = SettingsLauncher()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -41,10 +43,36 @@ class MangaCollectionVC: BaseCollectionVC, BaseCollectionDelegate {
         mangaCollectionView.dataSource = self
         dataRepository = (UIApplication.shared.delegate as! AppDelegate).mangaRepository
         dataRepository?.statusDelegate = statusDelegate
+
+        settingsLauncher.viewModel = SettingsViewModel(rows: [
+
+            SettingsRow(label: "Favorites", icon: UIImage.imageUserCount()) {
+                self.presentFavoriteLaterVC(repoType: .favorite)
+            },
+
+            SettingsRow(label: "Read later", icon: UIImage.imagePlaceholder()) {
+                self.presentFavoriteLaterVC(repoType: .saveForLater)
+            },
+
+            SettingsRow(label: "Cancel", icon: UIImage(systemName: "xmark"), completion: nil)
+
+        ])
+
+    }
+
+    private func presentFavoriteLaterVC(repoType: DataRepositoryType) {
+        self.presentViewControllerWithInject(storyboard: storyboard,
+                identifier: FavoritesLaterCollectionVC.identifier,
+                navigationController: navigationController) { (vc: FavoritesLaterCollectionVC) in
+
+            vc.dataRepository = (UIApplication.shared.delegate as! AppDelegate)
+                    .injectStoredDatumRepository(repositoryType: repoType, queryType: dataRepository!.type)
+
+        }
     }
 
     @objc private func setupMangaMenu() {
-        print("more manga")
+        settingsLauncher.showSettings()
     }
 
     override func viewDidAppear(_ animated: Bool) {
