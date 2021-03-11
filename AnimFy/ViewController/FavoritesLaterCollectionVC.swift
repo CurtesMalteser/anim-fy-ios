@@ -17,6 +17,12 @@ class FavoritesLaterCollectionVC: BaseCollectionVC, BaseCollectionDelegate {
         }
     }
 
+    @IBOutlet weak var favoriteFlowLayout: UICollectionViewFlowLayout! {
+        didSet {
+            setCollectionViewCellDimensions(collectionView: favoriteCollectionView, flowLayout: favoriteFlowLayout)
+        }
+    }
+
     static let identifier: String = "FavoritesLaterCollectionVC"
 
     var dataRepository: DataRepositoryProtocol?
