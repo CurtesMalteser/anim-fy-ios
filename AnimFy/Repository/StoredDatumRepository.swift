@@ -38,6 +38,10 @@ class StoredDatumRepository: NSObject, DataRepositoryProtocol {
 
     func downloadCollection() {
 
+        if (isInProgress || !dataList.isEmpty) {
+            return
+        }
+
         setDownloadStarted()
 
         var subPredicates: Array<NSPredicate> = [
@@ -60,9 +64,13 @@ class StoredDatumRepository: NSObject, DataRepositoryProtocol {
                         composeAnimeDetailRows(datum: details)
                     }
 
-                    setCompletedStatus(.Success)
+                    DispatchQueue.main.async {
+                        self.setCompletedStatus(.Success)
+                    }
                 }, errorHandler: { error in
-            setCompletedStatus(.Error(error: error))
+            DispatchQueue.main.async {
+                self.setCompletedStatus(.Error(error: error))
+            }
         })
     }
 
@@ -87,7 +95,7 @@ class StoredDatumRepository: NSObject, DataRepositoryProtocol {
             PosterSection(
                     label: datum.title!,
                     rows: [dataCell,
-                           _mapper.initUserOptionRowModel(id: datum.datumID!)
+                           UserOptionRowModel(favorite: datum.favorite, forLater: datum.saveForLater)
                     ]),
         ]
     }

@@ -25,6 +25,12 @@ class MangaCollectionVC: BaseCollectionVC, BaseCollectionDelegate {
 
     var dataRepository: DataRepositoryProtocol?
 
+    var successHandler: (DataRepositoryProtocol) -> Void = { dataRepository in
+        if (dataRepository.dataList.count < 30) {
+            dataRepository.downloadMoreCollection()
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

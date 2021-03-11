@@ -27,6 +27,10 @@ class FavoritesLaterCollectionVC: BaseCollectionVC, BaseCollectionDelegate {
 
     var dataRepository: DataRepositoryProtocol?
 
+    var successHandler: (DataRepositoryProtocol) -> Void = { _ in
+        /* Intentionally left empty. */
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

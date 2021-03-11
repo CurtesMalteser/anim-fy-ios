@@ -25,11 +25,11 @@ class BaseCollectionVC: UIViewController, UICollectionViewDelegate, UICollection
         switch (status) {
         case .Success:
             delegate.collectionView.reloadData()
+
             networkActivityIndicator?.dismiss(animated: true) {
-                if(self.delegate.dataRepository!.dataList.count < 30) {
-                    self.downloadMoreCollection()
-                }
+                self.delegate.successHandler(self.delegate.dataRepository!)
             }
+
 
         case .Loading:
             networkActivityIndicator = showNetworkActivityAlert()
@@ -104,6 +104,7 @@ class BaseCollectionVC: UIViewController, UICollectionViewDelegate, UICollection
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        print("scrollViewDidScroll")
         let position = scrollView.contentOffset.y
         if position > (delegate.collectionView.contentSize.height - 100 - scrollView.frame.height) {
             downloadMoreCollection()
@@ -114,5 +115,6 @@ class BaseCollectionVC: UIViewController, UICollectionViewDelegate, UICollection
 protocol BaseCollectionDelegate {
     var dataRepository: DataRepositoryProtocol? { get }
     var collectionView: UICollectionView { get }
+    var successHandler: (_ dataRepository: DataRepositoryProtocol) -> Void { get }
 }
 

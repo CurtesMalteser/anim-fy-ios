@@ -10,7 +10,6 @@ import Alamofire
 
 class AnimeCollectionVC: BaseCollectionVC, BaseCollectionDelegate {
 
-
     @IBOutlet weak var animeCollectionView: UICollectionView!
 
     var collectionView: UICollectionView {
@@ -26,6 +25,12 @@ class AnimeCollectionVC: BaseCollectionVC, BaseCollectionDelegate {
     }
 
     var dataRepository: DataRepositoryProtocol?
+
+    var successHandler: (DataRepositoryProtocol) -> Void = { dataRepository in
+        if (dataRepository.dataList.count < 30) {
+            dataRepository.downloadMoreCollection()
+        }
+    }
 
     let settingsLauncher = SettingsLauncher()
 
@@ -61,7 +66,7 @@ class AnimeCollectionVC: BaseCollectionVC, BaseCollectionDelegate {
                 navigationController: self.navigationController) { (vc: FavoritesLaterCollectionVC) in
 
             vc.dataRepository = (UIApplication.shared.delegate as! AppDelegate).injectStoredDatumRepository(repositoryType: repoType)
-            (vc.dataRepository as! StoredDatumRepository).queryType = self.dataRepository?.type
+            (vc.dataRepository as! StoredDatumRepository).queryType = dataRepository?.type
 
         }
     }
