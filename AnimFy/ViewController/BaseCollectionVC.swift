@@ -25,7 +25,6 @@ class BaseCollectionVC: UIViewController, UICollectionViewDelegate, UICollection
         switch (status) {
         case .Success:
             delegate.collectionView.reloadData()
-
             networkActivityIndicator?.dismiss(animated: true) {
                 self.delegate.successHandler(self.delegate.dataRepository!)
             }

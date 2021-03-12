@@ -43,15 +43,13 @@ class FavoritesLaterCollectionVC: BaseCollectionVC, BaseCollectionDelegate {
 
     }
 
-    // todo -> implement new logic and dedicated repo
-    override func postStatus(_ status: Status) {
-        super.postStatus(status)
-
-    }
-
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        downloadCollection()
+        if (dataRepository!.dataList.count > 0) {
+            downloadMoreCollection()
+        } else {
+            downloadCollection()
+        }
     }
 
     override func dismissController() {

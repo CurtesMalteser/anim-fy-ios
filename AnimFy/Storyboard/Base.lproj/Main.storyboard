@@ -27,11 +27,11 @@
             </objects>
             <point key="canvasLocation" x="-300" y="-57"/>
         </scene>
-        <!--Item-->
+        <!--Manga-->
         <scene sceneID="NFz-Kh-7v4">
             <objects>
                 <navigationController id="5Y1-SN-pg7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="BJi-Fy-SGE" userLabel="Manga"/>
+                    <tabBarItem key="tabBarItem" title="Manga" image="BookClosed" id="BJi-Fy-SGE" userLabel="Manga"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="vWE-7T-yH8">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -158,11 +158,11 @@
             </objects>
             <point key="canvasLocation" x="3083" y="600"/>
         </scene>
-        <!--Item-->
+        <!--Anime-->
         <scene sceneID="Q94-tT-WgI">
             <objects>
                 <navigationController id="ZuM-iy-ZhE" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="yZE-ZQ-ZoV" userLabel="Anime"/>
+                    <tabBarItem key="tabBarItem" title="Anime" image="TicketIcon" id="yZE-ZQ-ZoV" userLabel="Anime"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Te6-Tv-2Rq">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -269,7 +269,9 @@
         <segue reference="gSv-wL-r8I"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="BookClosed" width="11" height="14"/>
         <image name="ImagePlaceholder" width="14" height="16"/>
+        <image name="TicketIcon" width="16" height="11"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

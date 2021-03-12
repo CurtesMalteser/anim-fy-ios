@@ -10,7 +10,6 @@
 		0CACBD3E26A0423DEBE55DBC /* Pods_AnimFy_AnimFyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 464FB72FD05A4F31CA6B9469 /* Pods_AnimFy_AnimFyUITests.framework */; };
 		23B5EE2236E88B3FE00DC45A /* Pods_AnimFyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DCAD49131EA63FDFDAC2581 /* Pods_AnimFyTests.framework */; };
 		71A921CA052F92FFEC838BD6 /* AttributesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A920F534F36A5BF6F5888D /* AttributesProtocol.swift */; };
-		71A9227F2D0A14F1F408609A /* Window+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A92C9FBC9E317B7F8E6E5C /* Window+Injection.swift */; };
 		71A92432BF6B60A39E89227E /* UICollectionView+EmptyMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A921137FA306E5203FE2DB /* UICollectionView+EmptyMessage.swift */; };
 		71A924DFE136C5CCE4F5687D /* DatumProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A92D9151397B901897A7F4 /* DatumProtocol.swift */; };
 		71A92AB8EA1E1F09193E4115 /* UIViewController+UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A92168C7E6EDA0126887B5 /* UIViewController+UIAlertController.swift */; };
@@ -100,7 +99,6 @@
 		71A92641D4F9559D4A0C873E /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		71A9286E2255DE5DC9DDD579 /* UIViewController+Navigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Navigation.swift"; sourceTree = "<group>"; };
 		71A92A6969DFB5CBDCA68346 /* AnimFy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AnimFy.xcdatamodel; sourceTree = "<group>"; };
-		71A92C9FBC9E317B7F8E6E5C /* Window+Injection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Window+Injection.swift"; sourceTree = "<group>"; };
 		71A92D9151397B901897A7F4 /* DatumProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatumProtocol.swift; sourceTree = "<group>"; };
 		71A92E347C9617AC2C11E8F7 /* UIImage+ImagePlaceHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+ImagePlaceHolder.swift"; sourceTree = "<group>"; };
 		7DCAD49131EA63FDFDAC2581 /* Pods_AnimFyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnimFyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -381,7 +379,6 @@
 		92D3FE9F25AB3252009B6981 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				71A92C9FBC9E317B7F8E6E5C /* Window+Injection.swift */,
 				71A92168C7E6EDA0126887B5 /* UIViewController+UIAlertController.swift */,
 				71A9286E2255DE5DC9DDD579 /* UIViewController+Navigation.swift */,
 				71A92E347C9617AC2C11E8F7 /* UIImage+ImagePlaceHolder.swift */,
@@ -718,7 +715,6 @@
 				92D3FE6C25AB1771009B6981 /* SceneDelegate.swift in Sources */,
 				92AF41CE25C6076C00CF5DDD /* DetailsDataModel.swift in Sources */,
 				92AF41C325C5F16000CF5DDD /* DetailsViewModel.swift in Sources */,
-				71A9227F2D0A14F1F408609A /* Window+Injection.swift in Sources */,
 				9292B73125EC386D00F29B90 /* UserOptionsViewCell.swift in Sources */,
 				924ACBF925BDBBC90039D1FD /* DetailsVC.swift in Sources */,
 				71A92AB8EA1E1F09193E4115 /* UIViewController+UIAlertController.swift in Sources */,

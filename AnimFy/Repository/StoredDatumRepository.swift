@@ -25,6 +25,8 @@ class StoredDatumRepository: NSObject, DataRepositoryProtocol {
         }
     }
 
+    private var _originalDatumArray: Array<DatumDetails> = []
+
     var statusDelegate: StatusDelegateProtocol!
 
     private var isInProgress = false
@@ -60,6 +62,9 @@ class StoredDatumRepository: NSObject, DataRepositoryProtocol {
 
         _mapper.fetchAllFor(predicate: predicate,
                 completion: { datumDetailsArray in
+
+                    _originalDatumArray = datumDetailsArray
+
                     datumDetailsArray.forEach { details in
                         composeAnimeDetailRows(datum: details)
                     }
@@ -75,7 +80,52 @@ class StoredDatumRepository: NSObject, DataRepositoryProtocol {
     }
 
     func downloadMoreCollection() {
-        // todo
+        if (isInProgress || dataList.isEmpty) {
+            return
+        }
+
+        setDownloadStarted()
+
+        var subPredicates: Array<NSPredicate> = [
+            NSPredicate(format: "datumType == \(queryType.rawValue)")
+        ]
+
+        if type == .favorite {
+            let query = NSPredicate(format: "favorite == \(true)")
+            subPredicates.append(query)
+        } else if type == .saveForLater {
+            let query = NSPredicate(format: "saveForLater == \(true)")
+            subPredicates.append(query)
+        }
+
+        let predicate: NSCompoundPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: subPredicates)
+
+        _mapper.fetchAllFor(predicate: predicate,
+                completion: { datumDetailsArray in
+
+                    performDetailRowsDiff(datumDetailsArray)
+
+                    DispatchQueue.main.async {
+                        self.setCompletedStatus(.Success)
+                    }
+                }, errorHandler: { error in
+            DispatchQueue.main.async {
+                self.setCompletedStatus(.Error(error: error))
+            }
+        })
+
+    }
+
+    private func performDetailRowsDiff(_ array: [DatumDetails]) {
+
+        dataList = []
+        detailsSectionDictionary = [:]
+
+        array.forEach { details in
+            composeAnimeDetailRows(datum: details)
+        }
+
+
     }
 
     func getDatumDetailsBy(id: String) -> Array<DetailsSectionProtocol>? {
@@ -83,7 +133,6 @@ class StoredDatumRepository: NSObject, DataRepositoryProtocol {
     }
 
     func storeDatumDetailsFor(cell rowCell: UserOptionRowModel, datumID id: String) {
-        print("AJDB storeDatumDetailsFor \(rowCell) datumID \(id)")
         _mapper.storeDatumDetailsFor(cell: rowCell, datumID: id)
     }
 
@@ -111,4 +160,12 @@ class StoredDatumRepository: NSObject, DataRepositoryProtocol {
         statusDelegate.postStatus(status)
     }
 
+}
+
+extension Array where Element: Hashable {
+    func difference(element other: [Element]) -> [Element] {
+        let thisSet = Set(self)
+        let otherSet = Set(other)
+        return Array(thisSet.symmetricDifference(otherSet))
+    }
 }

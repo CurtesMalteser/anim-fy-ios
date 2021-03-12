@@ -8,7 +8,7 @@
 import XCTest
 @testable import AnimFy
 
-class DetailsViewModelTest: XCTestCase {
+/*class DetailsViewModelTest: XCTestCase {
 
     var SUT : DetailsViewModel!
     var repoMock: DataRepositoryProtocol!
@@ -37,9 +37,9 @@ class DetailsViewModelTest: XCTestCase {
         assert (dataCell == nil)
     }
 
-}
+}*/
 
-class DateRepositoryMock: DataRepositoryProtocol {
+/*class DateRepositoryMock: DataRepositoryProtocol {
 
     var type: DataRepositoryType = .manga
 
@@ -65,4 +65,4 @@ class DateRepositoryMock: DataRepositoryProtocol {
     }
 
 
-}
+}*/
