@@ -23,8 +23,8 @@ extension UIViewController {
         navigationController?.present(navViewController, animated: true)
     }
 
-    func setUpCloseButton() {
-        navigationItem.setLeftBarButton(UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .plain, target: self, action: #selector(dismissController)), animated: true)
+    func setUpCloseButton(action: Selector = #selector(dismissController)) {
+        navigationItem.setLeftBarButton(UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .plain, target: self, action: action), animated: true)
     }
 
     @objc func dismissController() {

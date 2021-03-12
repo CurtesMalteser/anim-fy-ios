@@ -56,14 +56,18 @@ class DetailsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setUpCloseButton()
+        setUpCloseButton(action: #selector(dismissController))
 
         tableView.delegate = dataSource
         tableView.dataSource = dataSource
 
     }
 
-    deinit {
-        (UIApplication.shared.delegate as! AppDelegate).destroyDetailsViewModel()
+
+    override func dismissController() {
+        navigationController?.dismiss(animated: true) {
+            (UIApplication.shared.delegate as! AppDelegate).destroyDetailsViewModel()
+        }
     }
+
 }

@@ -34,7 +34,7 @@ class FavoritesLaterCollectionVC: BaseCollectionVC, BaseCollectionDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setUpCloseButton()
+        setUpCloseButton(action: #selector(dismissController))
 
         delegate = self
         favoriteCollectionView.delegate = self
@@ -54,8 +54,10 @@ class FavoritesLaterCollectionVC: BaseCollectionVC, BaseCollectionDelegate {
         downloadCollection()
     }
 
-    deinit {
-        (UIApplication.shared.delegate as! AppDelegate).destroyStoredDatumRepository()
+    override func dismissController() {
+        navigationController?.dismiss(animated: true) {
+            (UIApplication.shared.delegate as! AppDelegate).destroyStoredDatumRepository()
+        }
     }
 
 }
