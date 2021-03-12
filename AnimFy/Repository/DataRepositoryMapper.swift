@@ -124,6 +124,9 @@ class DataRepositoryMapper: NSObject {
 
     private func saveDatumDetailsFor(datumID id: String, rowCell: UserOptionRowModel) {
 
+        print("saveDatumDetailsFor DatumDetails \(rowCell)")
+
+
         updateRequestPredicate(id: id)
 
         _fetchedResultsController.managedObjectContext.doTry(onSuccess: { context in
@@ -176,17 +179,24 @@ class DataRepositoryMapper: NSObject {
 
             let result = try context.fetch(_fetchRequest)
 
+
             result.forEach { result in
-                print("deleteDatumDetails")
 
                 context.doTry(onSuccess: { context in
+
+                    result.favorite = false
+                    result.saveForLater = false
+                    try context.save()
+
                     context.delete(result)
+                    try context.save()
+
                 }, onError: { error in
                     print("Failed to delete DatumDetails \(error)")
                 })
             }
 
-            try context.save()
+
         }, onError: { error in
             print("Failed to fetch DatumDetails to delete \(error)")
         })
