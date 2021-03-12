@@ -50,7 +50,7 @@ class MangaCollectionVC: BaseCollectionVC, BaseCollectionDelegate {
                 self.presentFavoriteLaterVC(repoType: .favorite)
             },
 
-            SettingsRow(label: "Read later", icon: UIImage.imagePlaceholder()) {
+            SettingsRow(label: "Read later", icon: UIImage(systemName: "books.vertical")) {
                 self.presentFavoriteLaterVC(repoType: .saveForLater)
             },
 

@@ -14,6 +14,20 @@ class StoredDatumRepository: NSObject, DataRepositoryProtocol {
     var type: DataRepositoryType
     var queryType: DataRepositoryType!
 
+    var viewTitle: String {
+        get {
+            let queryTypeString = (queryType == DataRepositoryType.anime)
+                    ? "Anime"
+                    : "Manga"
+
+            let typeString = (type == DataRepositoryType.favorite)
+                    ? "favorites"
+                    : "for later"
+
+            return "\(queryTypeString) \(typeString)"
+        }
+    }
+
     var dataList: Array<DataCellModel> = []
 
     var detailsSectionDictionary: Dictionary<String, Array<DetailsSectionProtocol>> {

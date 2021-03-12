@@ -39,10 +39,12 @@ class FavoritesLaterCollectionVC: BaseCollectionVC, BaseCollectionDelegate {
             let message = (datumRepo.type == DataRepositoryType.favorite)
                     ? """
                       You don't have any items on your favorites list yet!
+
                       You can find them on your initial \(queryType) page.
                       """
                     : """
                       You didn't save any items for late yet!
+
                       You can find them on your \(queryType) page.
                       """
 
@@ -55,13 +57,26 @@ class FavoritesLaterCollectionVC: BaseCollectionVC, BaseCollectionDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setUpCloseButton(action: #selector(dismissController))
+        setupNavigationItem()
 
         delegate = self
         favoriteCollectionView.delegate = self
         favoriteCollectionView.dataSource = self
         dataRepository?.statusDelegate = statusDelegate
 
+    }
+
+    private func setupNavigationItem() {
+
+        setUpCloseButton(action: #selector(dismissController))
+
+        let appearance = UINavigationBarAppearance()
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.systemBlue]
+        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.systemBlue]
+
+        navigationItem.standardAppearance = appearance
+
+        navigationItem.title = (dataRepository as! StoredDatumRepository).viewTitle
     }
 
     override func viewDidAppear(_ animated: Bool) {

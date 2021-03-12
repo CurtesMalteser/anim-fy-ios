@@ -50,7 +50,7 @@ class AnimeCollectionVC: BaseCollectionVC, BaseCollectionDelegate {
                 self.presentFavoriteLaterVC(repoType: .favorite)
             },
 
-            SettingsRow(label: "Watch later", icon: UIImage.imagePlaceholder()) {
+            SettingsRow(label: "Watch later", icon: UIImage(systemName: "eyes")) {
                 self.presentFavoriteLaterVC(repoType: .saveForLater)
             },
 

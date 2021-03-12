@@ -18,13 +18,14 @@ class OptionsCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        label.font = UIFont(name: "AmericanTypewriter-Bold", size: 17)
     }
 
     override var isHighlighted: Bool {
         get {
             let highlighted = super.isHighlighted
             backgroundColor = highlighted ? .systemBlue : .white
-            label.textColor = highlighted ? .white : .black
+            label.textColor = highlighted ? .white : .systemBlue
             icon.tintColor = highlighted ? .white : .systemBlue
             return highlighted
         }
