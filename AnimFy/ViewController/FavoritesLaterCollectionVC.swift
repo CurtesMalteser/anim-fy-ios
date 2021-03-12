@@ -27,8 +27,29 @@ class FavoritesLaterCollectionVC: BaseCollectionVC, BaseCollectionDelegate {
 
     var dataRepository: DataRepositoryProtocol?
 
-    var successHandler: (DataRepositoryProtocol) -> Void = { _ in
-        /* Intentionally left empty. */
+    lazy var successHandler: (DataRepositoryProtocol) -> Void = { repository in
+
+        if (repository.dataList.isEmpty) {
+            let datumRepo = (repository as! StoredDatumRepository)
+
+            let queryType = (datumRepo.queryType == DataRepositoryType.anime)
+                    ? "Anime"
+                    : "Manga"
+
+            let message = (datumRepo.type == DataRepositoryType.favorite)
+                    ? """
+                      You don't have any items on your favorites list yet!
+                      You can find them on your initial \(queryType) page.
+                      """
+                    : """
+                      You didn't save any items for late yet!
+                      You can find them on your \(queryType) page.
+                      """
+
+
+            self.favoriteCollectionView.setEmptyMessage(message)
+        }
+
     }
 
     override func viewDidLoad() {

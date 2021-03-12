@@ -29,9 +29,7 @@ class DataRepositoryMapper: NSObject {
         _fetchedResultsController.managedObjectContext.doTry(
                 onSuccess: { context in
                     let result: [DatumDetails] = try context.fetch(_fetchRequest)
-                    result.forEach { detail in
-                        print("result \(detail.favorite) title \(detail.title!)")
-                    }
+
                     completion(result)
 
                 },
