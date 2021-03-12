@@ -31,9 +31,11 @@ class DetailsVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+        tableView.allowsSelection = false
+
         tableView.register(
                 UINib(nibName: PosterDetailsHeaderView.identifier, bundle: nil),
-               forHeaderFooterViewReuseIdentifier: PosterDetailsHeaderView.identifier)
+                forHeaderFooterViewReuseIdentifier: PosterDetailsHeaderView.identifier)
 
         tableView.register(
                 UINib(nibName: TitleSynopsisViewCell.identifier, bundle: nil),

@@ -124,9 +124,6 @@ class DataRepositoryMapper: NSObject {
 
     private func saveDatumDetailsFor(datumID id: String, rowCell: UserOptionRowModel) {
 
-        print("saveDatumDetailsFor DatumDetails \(rowCell)")
-
-
         updateRequestPredicate(id: id)
 
         _fetchedResultsController.managedObjectContext.doTry(onSuccess: { context in
