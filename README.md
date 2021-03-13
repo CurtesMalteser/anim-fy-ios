@@ -8,6 +8,9 @@ After clone the project to your MacOS machine open your Xcode IDE.
 
 Go file > open (or press CMD + O) and open the project.
 
+You might need to "Set the active shceme" to be "AnimFy".  
+In ca of doubts go Helpe menu and type "Switch schemes and destinations". Follow the instructions.
+
 I should build without problems and should be ready run on a simulator.
 
 ## How to use
