@@ -16,10 +16,25 @@ The app initial screen displays a tab bar controller that presents the top anime
 tab.  
 The app must be online to download this data.
 
-Click in one the collection items the app presents the details for the selected anime/manga.
+Click in one of the collection items to see the details about the selected anime/manga.
 
 On that section is possible to add the selected item to the favorites or watch/read later list.  
 This selection is preserved on local storage and is available even if the app is offline.
 
 To navigate to favorites or watch/read later section, press the menu button in the top right corner menu of the initial
-screen.
+screen.  
+Is possible to close this menu by tapping on close button or outside the selection buttons area.
+
+After make your selection the stored items will be display on a similar collection view and select one of these items  
+like previously explained.
+
+The displayed details are only the poster, synopsis and option to add/remove from favorites or watch/read later list.
+
+When the details view is dismissed the previous favorites or watch/read later list will be updated if there are any
+changes.
+
+If the favorites or watch/read later list is empty, an informative message is displayed to inform the user that there
+are  
+no items for that selection.
+
+Close the favorites or watch/read later list the app will display the initial screen.
