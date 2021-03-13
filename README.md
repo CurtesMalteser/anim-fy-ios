@@ -13,6 +13,15 @@ In case of doubts go to the Help menu and type "Switch schemes and destinations"
 
 I should build without problems and should be ready run on a simulator.
 
+The project uses CocoaPods so it might be needed to run pod install to get all the dependencies in place as described on  
+the official page found here https://cocoapods.org/.
+
+
+# Requirements
+
+Xcode 12  
+Swift 5
+
 ## How to use
 
 The app initial screen displays a tab bar controller that presents the top anime or top manga depending on the selected
